@@ -1,0 +1,83 @@
+\documentclass{Ilaris}
+\input{extras}
+\begin{document}
+\anfang
+\titelseite{%
+    \titelbild{bilder/template}
+    \platz
+    \titel{Noch ein Ilaris}
+    \titel{Latex Template}
+    %\authorin{Von Irgendwem}
+    \platz
+    \platz
+    \fanprodukt
+}
+\inhaltsverzeichnis
+\credits{
+    Titelbild von Ivana Cajina\\
+    \url{https://unsplash.com/photos/Hi0bdO0vEfo}
+}
+\hauptteil
+\kapitel{Kapitel 1}
+\spaltenanfang
+\abschnitt{Der Abschnitt}
+\geschichte{Ich bin eine Geschichte oder ein Auszug aus einer Schrift, wie sie in der Spielwelt existieren könnte. Auch Zitate, Informationen aus Büchern oder Liedtexte könnten so aussehen.}{Author}
+
+Ich bin ein ganz normaler standard Text, so wie man ihn herunterschreibt. Man kann mich durch Überschriften in Abschnitte unterteilen und diese weiterhin in Absätze unterteilen.
+
+\absatz{Der Absatz}
+Beschriftete Absätze stehen nicht mehr im Inhaltsverzeichnis, heben sich aber noch deutlich ab. Wenn nur der Textfluss abgesetzt werden soll,
+
+geht das natürlich auch. Der nächste Absatz ist auf bosparano und nur für Magier interessant.
+
+\absatz{Lorem Ipsum}
+\lipsum[1-4]
+
+\skapitel{Rechteckig}
+Kapitel fangen automatisch auf neuen Seiten an.\\
+Ein paar auf die schnelle hingetüdelte Beispiele um Kästen und andere Umgebungen umzusetzen. Für einige dieser Kästen, hab ich das tcolorbox Paket ins Spiel gebracht, das nimmt einem etwas Arbeit ab, wenn man noch weitere oder kompliziertere Kästen erstellen will. Oder soetwas wie Seitenumbrüche oder transparente Hintergründe einstellen will (Kreaturenkasten). Für die Transparenz im Teil des Kastens wird allerdings eine relativ aktuelle Version des Pakets benötigt, falls die Installation zu Umständlich ist, kann man natürlich auch einfach ein untransparentes passendes Rosa nehmen.
+
+\abschnitt{Zum Beispiel Tabellen}
+Da muss man zur Zeit noch echten Latexcode schreiben, weil mir auf die schnelle kein Praktischer Kurzbefehl eingefallen ist. Aber da kann man sich sicher noch etwas überlegen, um das deutlich zu verinefachen. Eigentlich steht der Text hier auch nur um die Tabelle im Abschnitt nicht so alleine zu lassen.\\
+
+\begin{tabularx}{\linewidth}{X X X}
+    ich      & bin      & eine     \\
+    einfache & latex    & tabelle  \\
+    in       & tabularx & umgebung \\
+\end{tabularx}
+
+
+
+\abschnitt{Oder Pergament}
+
+Ein Pergamentkasten eignet sich wunderbar um einzelne Informationen deutlich hervorzuheben. Die können zum Beispiel Erzähltexte oder Informationen für gelungene Talentproben sein. Pergamente sind auch Rechteckig, auch wenn das folgende am Rand schon etwas ausgefranzt ist.
+
+\kasten{
+    Dies ist der Standardkasten. Da noch Bilder für schmale, breite und größere vorliegen, könnte man dazu auch noch etwas speziellere Kästen erstellen.\\
+    Für kleine Absätze im Zweispaltenlayout sollte es aber erstmal reichen.
+}
+
+Nach dem Kasten steht auch ein Satz, damit man mal sieht wie doll sich das Pergament vom Text drumherum abhebt.
+\spaltenumbruch
+
+\abschnitt{Kreaturenkasten?}
+Den Kreaturenkasten habe ich absichtlich erstmal nach einer allgemeinen Kreatur benannt und nicht einfach Gegner. Dafür gibt es zwei Gründe. Zum einen, kann es ja auch freundlich gesinnte Wesen geben und der selbe Kasten soll auch diese darstellen können, Kampfwerte oder freier Text für kommentare sollten dabei frei kombinierbar und optional bleiben. Zum anderen, kann (sofern erlaubt), der Befehl für Gegnerkästen noch ergänzt werden um mit existierenden Ausgaben von Konvertierungstools etc, kompatibel zu bleiben.
+
+\kreatur{Name}{Beschreibung}{layout/grafik/würfel20}{
+    \kreaturinfo{Info}{Text}\\
+    \kreaturinfo{Kampfvorteile}{Standfest, Sturmangriff}\\
+    \kreaturinfo{Fertigkeiten}{Eins zwei drei und noch mehr text damit man die}
+    \hr
+    \kreaturinfo{Fertigkeiten}{Eins zwei drei und noch mehr\\ text damit man die}
+}
+
+\kreatur{Mensch}{Humanoid, Unfreundlich}{dummy}{
+    \kreaturinfo{Vorteil}{Er muss sich nicht ständig unterhalten, weil ihn eh keiner mag}
+    \hr
+    \kreaturinfo{Nachteil}{Ihm ist oft langweilig, weil sich niemand mit ihm unterhalten möchte}
+}
+
+Ich finde die Eigenschaften Blockweise einzuschieben wesentlich einfacher, als einen festen Befehl zu benutzen, der an jeder Stelle ein Default einsetzen muss wenn sie Leer bleibt. Ausserdem können die Kreaturen so auch um beliebige weitere Felder ergänzt werden ohne den Befehl bearbeiten zu müssen. Zum Beispiel um eigene Loottabellen einzusetzen.\\
+\spaltenende
+%\schluss
+\end{document}
