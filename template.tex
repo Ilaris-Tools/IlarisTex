@@ -1,5 +1,8 @@
 \documentclass{Ilaris}
 \input{extras}
+
+\usepackage{glossary-mcols}
+%\makeglossaries
 \begin{document}
 \anfang
 \titelseite{%
@@ -13,11 +16,16 @@
     \fanprodukt
 }
 \inhaltsverzeichnis
-\credits{
-    Titelbild von Ivana Cajina\\
-    \url{https://unsplash.com/photos/Hi0bdO0vEfo}
-}
+\newpage
 \hauptteil
+\kapitel{Credits}
+\platz
+\credit{Author}{Lukas Ruhe}
+\credit{Illustrationen}{Bernhard Eisner}
+\credit{Titelbild}{\href{https://unsplash.com/photos/Hi0bdO0vEfo}{Ivana Cajina}}
+\credit{Glossar}{\href{https://github.com/XaverStiensmeier/IlarisGlossaryEntries}{Xaver Stiensmeier}}
+\credit{Inspiriert durch}{\href{https://github.com/Ilaris-dev/Ilaris-LaTeX}{Ilaris-Latex}\\von Jan Battenfeld}
+\lizenz
 \kapitel{Kapitel 1}
 \spaltenanfang
 \abschnitt{Der Abschnitt}
@@ -77,7 +85,33 @@ Den Kreaturenkasten habe ich absichtlich erstmal nach einer allgemeinen Kreatur 
     \kreaturinfo{Nachteil}{Ihm ist oft langweilig, weil sich niemand mit ihm unterhalten möchte}
 }
 
-Ich finde die Eigenschaften Blockweise einzuschieben wesentlich einfacher, als einen festen Befehl zu benutzen, der an jeder Stelle ein Default einsetzen muss wenn sie Leer bleibt. Ausserdem können die Kreaturen so auch um beliebige weitere Felder ergänzt werden ohne den Befehl bearbeiten zu müssen. Zum Beispiel um eigene Loottabellen einzusetzen.\\
+Ich finde die Eigenschaften blockweise einzuschieben wesentlich einfacher, als einen festen Befehl zu benutzen, der an jeder Stelle ein Default einsetzen muss wenn sie Leer bleibt. Ausserdem können die Kreaturen so auch um beliebige weitere Felder ergänzt werden ohne den Befehl bearbeiten zu müssen. Zum Beispiel um eigene Loottabellen einzusetzen.\\
+
+\abschnitt{Glossar}
+Die IlarisGlossaryEntries sind mit eingebunden und können direkt benutzt werden. Zum Beispiel der Vorteil \gls{angepasstI_Vorteil}. Natürlich können auch eigene
+\newglossaryentry{glossareinträge}{name={Glossareinträge}, description={Wörter, die am Ende des Dokuments erklärt werden. Zum Beispiel Zauber oder Regeln.}}
+\gls{glossareinträge} eingetragen werden.
+%\skapitel{Glossar}
+% {\renewcommand{\subsection}{}
+%     \setglossarysection{subsection}
+% }
+% \glstocfalse
 \spaltenende
+% option eins mit paket:
+%\renewcommand*{\glsmcols}{3} % fuer mehr spalten
+%\setglossarystyle{mcolindex}
+% option 2 ohne mcolindex:
+
+\renewcommand*{\glossarysection}[2][]{%
+    \twocolumn[{\chapter*{#2}}]%
+    \setlength\glsdescwidth{0.6\linewidth}%
+    \glsglossarymark{\glossarytoctitle}%
+}
+\renewcommand*{\glossarypostamble}{\onecolumn}
+
+
+
+
+\glossar
 %\schluss
 \end{document}

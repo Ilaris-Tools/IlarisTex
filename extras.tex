@@ -22,18 +22,27 @@
 \newcommand{\fanprodukt}{\begin{center}\includegraphics[width=5cm]{layout/dsa_logo_fanprodukt}\end{center}}
 \newcommand{\titelbild}[1]{
     \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{#1}};}
+\newcommand{\tfarbe}{orange!15}
+\newcommand{\tsfarbe}{black}
+\newcommand{\titelfarbe}[1]{
+    \renewcommand{\tfarbe}{#1}
+}
+\newcommand{\titelschattenfarbe}[1]{
+    \renewcommand{\tsfarbe}{#1}
+}
 \newcommand{\titel}[1]{
     \title{#1}
     \begin{centering}
         % 26.12.2020 \\
-        \color{orange!15}
+        % \color{orange!15}
+        \color{\tfarbe}
         %\vspace{0.55\textheight}
         \Huge
         %\fontfamily{\aniron}
         \fontsize{42}{42}
         \selectfont
         \aniron
-        \shadowcolor{black}
+        \shadowcolor{\tsfarbe}
         \shadowtext{#1} \\
     \end{centering}
 }
@@ -62,11 +71,42 @@
 }
 
 \newcommand{\credits}[1]{%
-    \vfill
     \begin{center}
         #1
-        % DAS SCHWARZE AUGE, AVENTURIEN und DERE sind eingetragene Marken... TODO: Copyright angabe?
+        \vfill
+        DAS SCHWARZE AUGE, AVENTURIEN, DERE, MYRANOR, THARUN, UTHURIA, RIESLAND und
+        THE DARK EYE sind eingetragene Marken der Ulisses Spiele GmbH, Waldems. Die Verwendung der
+        Grafiken erfolgt unter den von Ulisses Spiele erlaubten Richtlinien. Eine Verwendung über diese
+        Richtlinien hinaus darf nur nach vorheriger schriftlicher Genehmigung der Ulisses Medien und Spiel
+        Distribution GmbH erfolgen.
+
     \end{center}
 }
 \newcommand{\absatz}[1]{\subsection*{#1}}
 \newcommand{\spaltenumbruch}{\columnbreak}
+\newcommand{\credit}[2]{%
+    \begin{center}
+        {\aniron\fontsize{18}{18}\color{dunkelrot}#1}\\
+        #2
+    \end{center}
+}
+
+\newcommand{\lizenz}{
+    \vfill
+    \begin{center}
+        DAS SCHWARZE AUGE, AVENTURIEN, DERE, MYRANOR, THARUN, UTHURIA, RIESLAND und
+        THE DARK EYE sind eingetragene Marken der Ulisses Spiele GmbH, Waldems. Die Verwendung der
+        Grafiken erfolgt unter den von Ulisses Spiele erlaubten Richtlinien. Eine Verwendung über diese
+        Richtlinien hinaus darf nur nach vorheriger schriftlicher Genehmigung der Ulisses Medien und Spiel
+        Distribution GmbH erfolgen.
+    \end{center}
+}
+\newcommand{\creditlayout}{
+    \credit{Layoutvorlage}{\href{https://github.com/Ilaris-dev/IlarisTex}{IlarisTex}}}
+\newcommand{\glossar}{
+    \printglossaries
+}
+\newcommand{\komplettesglossar}{
+    \glsaddall
+    \printglossaries
+}

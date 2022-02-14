@@ -1,40 +1,36 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{Ilaris}[TeX Vorlage für Ilaris]
 
-% inkompatibel zu Ilaris-Latex:
-% ziel: eher einfach halten und nicht latex erklären extras klasse abstrahiert. latex pros koennen das weglassen/bearbeiten
-% \geschichte{...} statt \begin{geschichte}...\end{geschichte}
-% oder \begin{story}...\end{story}
-%
-% anders als ilaris original:
-% seitenzahlen fangen nach inhaltsverzeichnis an
 
 % use scrbook as baseclass and pass additional options
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrbook}}
 \ProcessOptions\relax
 \LoadClass{scrbook}
 
-\RequirePackage[table]{xcolor}
 % load and configure packages
-\RequirePackage{
-	% ocg-p,      % Druckebenen
-	% nicefrac,   % Brüche mit schrägem Strich
-	scrlayer-scrpage,
-    polyglossia,
-	enumitem,
-	multicol,
-	booktabs,
-	tabularx,
-    shadowtext,
-	tikz,
-    todonotes,
-    fontspec,
-    lipsum,
-	% microtype   % Typografische Feinjustierung
-}
+% ocg-p         % Druckebenen
+% microtype     % Typografische Feinjustierung
+% nicefrac      % Brüche mit schrägem Strich
+\RequirePackage[table,dvipsnames]{xcolor}
+\RequirePackage[bookmarks,pdfusetitle,colorlinks,linkcolor=black,citecolor=black,urlcolor=Sepia,breaklinks]{hyperref}
+\RequirePackage{scrlayer-scrpage}
+\RequirePackage{polyglossia}
+\RequirePackage{enumitem}
+\RequirePackage{multicol}
+\RequirePackage{booktabs}
+\RequirePackage{tabularx}
+\RequirePackage{shadowtext}
+\RequirePackage{tikz}
+\RequirePackage{todonotes}
+\RequirePackage{fontspec}
+\RequirePackage{lipsum}
+%\RequirePackage{glossary-mcols}
+\RequirePackage[automake]{glossaries}
 \RequirePackage[breakable,skins,xparse]{tcolorbox}
-\RequirePackage[bookmarks,pdfusetitle,colorlinks,linkcolor=black,citecolor=black,urlcolor=brown,breaklinks]{hyperref}
 \RequirePackage[top=20mm, bottom=15mm, outer=15mm, inner=15mm, marginparsep=10mm, marginparwidth=20mm, head=12.5mm, foot=8mm]{geometry}
+
+
+% basic config for packages
 \setmainlanguage{german}
 \setdefaultlanguage{german}
 \tcbuselibrary{skins}
@@ -151,3 +147,20 @@
       \par\nobreak
       \par
 }
+
+% glossar laden
+\makeglossaries
+\loadglsentries{glossar/glossary}
+
+% Don't typeset a glossary heading automatically
+% \makeatletter
+% \renewcommand*{\@glossarysection}[2]{%
+% \ifx\@@glossarysecstar\@empty
+% %  \csname\@@glossarysec\endcsname{#2}% DELETED
+% \else
+% %  \csname\@@glossarysec\endcsname*{#2}% DELETED
+%   \@gls@toc{#1}{\@@glossarysec}%
+% \fi
+% \@@glossaryseclabel}
+% \makeatother
+
