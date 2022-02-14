@@ -1,0 +1,72 @@
+% befehle
+\newcommand{\trennlinie}{\hr}
+\newcommand{\anfang}{\raggedcolumns\frontmatter}
+\newcommand{\hauptteil}{\mainmatter}
+\newcommand{\schluss}{\backmatter}
+\newcommand{\spaltenanfang}{\begin{multicols}{2}}
+        \newcommand{\spaltenende}{\end{multicols}}
+\newcommand{\skapitel}[1]{\end{multicols}\kapitel{#1}\begin{multicols}{2}}
+\newcommand{\kapitel}[1]{{\let\cleardoublepage\clearpage\chapter*{#1}}\addcontentsline{toc}{chapter}{#1}}
+\newcommand{\abschnitt}[1]{\section{#1}}
+\newcommand{\leereseite}{\newpage\makebox{}\clearpage}
+\newcommand{\platz}{\vfill}
+\newcommand{\begriff}[1]{\textbf{#1}}
+\newcommand{\geschichte}[2]{%
+    \begin{center}
+        \begin{minipage}[b]{0.9\linewidth}{\em #1}
+            \begin{flushright}--- #2 \end{flushright}
+        \end{minipage}
+    \end{center}}
+\newcommand{\kasten}[1]{\begin{pergamentbox}#1\end{pergamentbox}}
+\newcommand{\inhaltsverzeichnis}{{\let\cleardoublepage\clearpage\tableofcontents}}
+\newcommand{\fanprodukt}{\begin{center}\includegraphics[width=5cm]{layout/dsa_logo_fanprodukt}\end{center}}
+\newcommand{\titelbild}[1]{
+    \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{#1}};}
+\newcommand{\titel}[1]{
+    \title{#1}
+    \begin{centering}
+        % 26.12.2020 \\
+        \color{orange!15}
+        %\vspace{0.55\textheight}
+        \Huge
+        %\fontfamily{\aniron}
+        \fontsize{42}{42}
+        \selectfont
+        \aniron
+        \shadowcolor{black}
+        \shadowtext{#1} \\
+    \end{centering}
+}
+\newcommand{\authorin}[1]{\begin{centering}\author{#1}\Large #1\\\end{centering}}
+\newcommand{\titelseite}[1]{\thispagestyle{empty}#1}
+%\newcommand{\kreatur}[1]{\begin{creature}#1\end{creature}}
+
+
+\newcommand{\kreaturinfo}[2]{
+    \footnotesize\textbf{#1: } #2}
+
+\newcommand{\kreatur}[4]{%
+    \begin{creaturebox}
+        \begin{minipage}[b]{0.86\linewidth}
+            {\color{dunkelrot}\Large\textbf{#1}}\\[1mm]
+            \footnotesize \emph{#2}
+        \end{minipage}
+        \hfill\includegraphics[width=0.1\linewidth]{#3}
+        \hr[0.8pt]
+        \tcblower
+        \vspace{2mm}
+        %\tcbline
+        #4
+        \hr
+    \end{creaturebox}
+}
+
+\newcommand{\credits}[1]{%
+    \vfill
+    \begin{center}
+        #1
+        % DAS SCHWARZE AUGE, AVENTURIEN und DERE sind eingetragene Marken... TODO: Copyright angabe?
+    \end{center}
+}
+\newcommand{\absatz}[1]{\subsection*{#1}}
+\newcommand{\spaltenumbruch}{\columnbreak}
