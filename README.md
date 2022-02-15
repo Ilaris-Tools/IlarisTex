@@ -1,5 +1,5 @@
 ## Benutzen
-Es muss eine aktuelle TexLive version installiert sein, oder das paket tcolorbox manuell aktualisert werden, damti teilweise transparente Hintergründe funktionieren.
+Es muss eine aktuelle TexLive version installiert sein, oder das paket tcolorbox manuell aktualisert werden, damti teilweise transparente Hintergründe funktionieren. [Infos zum updaten](https://tex.stackexchange.com/questions/55437/how-do-i-update-my-tex-distribution).
 
 Falls ein Glossar gebaut werden soll (template ggf. durch entsprechenden Dateinamen ersetzen):
 ```
