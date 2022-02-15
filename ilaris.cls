@@ -54,24 +54,18 @@
 	\AfterStartingTOC[toc]{\end{multicols}}%
 }
 \makeatother
-% environments
-% \newenvironment{story}% name
-%     {\medskip\begingroup\begin{minipage}{\textwidth}\em}% begin
-%     {\end{minipage}\endgroup\aftergroup\smallskip}% end
 
 
 \graphicspath{{layout/grafik/}{bilder}}
 \newcommand{\hr}[1][0.4pt]{\par\vskip 0.4ex \hrule height #1 \par\vskip 1ex}
 \newcommand{\TOCnum}{1} 
 
-\newenvironment{creature}%as in ilaris-latex
-    {\begingroup\bigskip\begin{minipage}{0.95\linewidth}}
-    {\hr[0.8pt]\end{minipage}\endgroup\aftergroup\bigskip}
 
 \newtcolorbox{creaturebox}[1][]{
     bicolor,
     boxsep=0pt,
     nobeforeafter,
+    top=4mm,
     arc=0mm,left=2mm,
     right=2mm,bottom=0mm,
     frame hidden,
@@ -112,6 +106,10 @@
 	}
 \ofoot*{\qquad\textbf{\normalfont\LARGE\thepage}\qquad}
 
+\RedeclareSectionCommand[beforeskip=1em,afterskip=1.5em]{chapter}
+\RedeclareSectionCommand[beforeskip=1.5em,afterskip=0.5em]{section}
+\RedeclareSectionCommand[beforeskip=1em,afterskip=0.1em]{subsection}
+\RedeclareSectionCommand[beforeskip=0em,afterskip=0.1em]{subsubsection}
 
 
 % fonts
@@ -125,10 +123,10 @@
 \setkomafont{chapterentry}{\LARGE \scshape \textbf}
 \setkomafont{chapterentrypagenumber}{\normalfont\normalsize}
 \newfontfamily{\aniron}{Aniron}
-\addtokomafont{chapter}{\color{dunkelrot}\fontsize{30}{36}\aniron}
+\addtokomafont{chapter}{\color{dunkelrot}\fontsize{26}{26}\aniron}
 \addtokomafont{section}{\color{dunkelrot}\Large\aniron} 
-\addtokomafont{subsection}{\fontsize{15}{16}\scshape} 
-\addtokomafont{subsubsection}{\fontsize{12}{12}\scshape} 
+\addtokomafont{subsection}{\fontsize{15}{16}\color{dunkelrot}\scshape} 
+%\addtokomafont{subsubsection}{\fontsize{12}{12}} 
 \addtokomafont{minisec}{\normalfont\bfseries}
 
 
