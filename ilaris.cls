@@ -63,6 +63,7 @@
 
 \newtcolorbox{creaturebox}[1][]{
     bicolor,
+    % show bounding box,
     boxsep=0pt,
     nobeforeafter,
     top=4mm,
@@ -70,6 +71,7 @@
     right=2mm,bottom=0mm,
     frame hidden,
     unbreakable,
+    valign upper=bottom,
     boxrule=0pt,
     colbacklower=red!15!white,opacityback=0,
     opacitybacklower=0.5,

@@ -1,5 +1,6 @@
 \documentclass{Ilaris}
 \input{extras}
+\input{daten/kreaturen.tex}
 
 \usepackage{glossary-mcols}
 %\makeglossaries
@@ -86,20 +87,26 @@ Den Kreaturenkasten habe ich absichtlich erstmal nach einer allgemeinen Kreatur 
 
 Ich finde die Eigenschaften blockweise einzuschieben wesentlich einfacher, als einen festen Befehl zu benutzen, der an jeder Stelle ein Default einsetzen muss wenn sie Leer bleibt. Ausserdem können die Kreaturen so auch um beliebige weitere Felder ergänzt werden ohne den Befehl bearbeiten zu müssen. Zum Beispiel um eigene Loottabellen einzusetzen.
 
+\skapitel{Addons}
+
 \abschnitt{Glossar}
 Die IlarisGlossaryEntries sind mit eingebunden und können direkt benutzt werden. Zum Beispiel der Vorteil \gls{angepasstI_Vorteil}. Natürlich können auch eigene
 \newglossaryentry{glossareinträge}{name={Glossareinträge}, description={Wörter, die am Ende des Dokuments erklärt werden. Zum Beispiel Zauber oder Regeln.}}
 \gls{glossareinträge} eingetragen werden.
-%\skapitel{Glossar}
-% {\renewcommand{\subsection}{}
-%     \setglossarysection{subsection}
-% }
-% \glstocfalse
+
+
+
+\spaltenumbruch
+
+\abschnitt{Kreaturendatenbank}
+Testweise habe ich mal eine Datenbank für Kreaturen als yaml-Datei angelegt, die automatisch in eine tex-Datei exportiert werden kann. Das Ziel ist, diese DB gemeinsam zu erweitern und in Latex können die Blöcke für jede Kreatur in der Sammlung automatisch erzeugt werden. Die Autovervollständigung, kann so beim Schreiben sogar noch als Inspiration für spontane Gegner dienen. So ergbit der Befehl \textbackslash kreaturelefant zum Beispiel folgenden Kasten, ohne das irgendwelche Werte angegeben werden müssen:
+
+\kreaturelefant
+
+\kreaturbaumdrache
+
 \spaltenende
-% option eins mit paket:
-%\renewcommand*{\glsmcols}{3} % fuer mehr spalten
-%\setglossarystyle{mcolindex}
-% option 2 ohne mcolindex:
+
 
 \renewcommand*{\glossarysection}[2][]{%
     \twocolumn[{\chapter*{#2}}]%
@@ -108,9 +115,15 @@ Die IlarisGlossaryEntries sind mit eingebunden und können direkt benutzt werden
 }
 \renewcommand*{\glossarypostamble}{\onecolumn}
 
-
-
-
+%\skapitel{Glossar}
+% {\renewcommand{\subsection}{}
+%     \setglossarysection{subsection}
+% }
+% \glstocfalse
+% option eins mit paket:
+%\renewcommand*{\glsmcols}{3} % fuer mehr spalten
+%\setglossarystyle{mcolindex}
+% option 2 ohne mcolindex:
 \glossar
 %\schluss
 \end{document}

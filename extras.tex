@@ -1,5 +1,6 @@
 % befehle
 \newcommand{\trennlinie}{\hr}
+\newcommand{\linie}{\hr}
 \newcommand{\anfang}{\raggedcolumns\frontmatter}
 \newcommand{\hauptteil}{\mainmatter}
 \newcommand{\schluss}{\backmatter}
@@ -58,10 +59,12 @@
 \newcommand{\kreatur}[4]{%
     \begin{creaturebox}
         \begin{minipage}[b]{0.86\linewidth}
-            {\color{dunkelrot}\Large\textbf{#1}}\\[1mm]
+            {\color{dunkelrot}\Large\textbf{#1}}\\[0mm]
             \footnotesize \emph{#2}
+            \vspace{1mm}
         \end{minipage}
-        \hfill\includegraphics[width=0.1\linewidth]{#3}
+        \hfill\includegraphics[height=1cm]{#3}%
+        \vspace{-1mm}
         \hr[0.8pt]
         \tcblower
         \vspace{2mm}
@@ -112,3 +115,22 @@
     \glsaddall
     \printglossaries
 }
+
+\newcommand{\kreaturkampfwerte}[4]{
+    \kreaturkampfwert{Wundschwelle}{#1}
+    \kreaturkampfwert{Magieresistenz}{#2}
+    \kreaturkampfwert{Geschwindigkeit}{#3}
+    \kreaturkampfwert{Initiative}{#4}
+}
+
+\newcommand{\kreaturwaffe}[6]{
+    \textbf{#1} \hfill RW: #2 \hfill VT: #3 \hfill AT: #4 \hfill TP: #5 \par \hspace{4mm} \textit{#6}\par
+}
+
+\newcommand{\kreaturkampfwert}[2]{\kreaturinfo{#1}{#2}\par}
+\newcommand{\WsMrGsIni}[4]{\kreaturkampfwerte{#1}{#2}{#3}{#4}}
+\newcommand{\kreaturvorteile}[1]{#1}
+\newcommand{\kreaturkampfvorteile}[1]{\kreaturinfo{Kampfvorteile}{#1}}
+\newcommand{\kreaturfertigkeiten}[1]{\kreaturinfo{Fertigkeiten}{#1}}
+\newcommand{\kreaturattribute}[1]{\kreaturinfo{Attribute}{#1}}
+\newcommand{\kreaturvarianten}[1]{\kreaturinfo{Varianten}{#1}}
