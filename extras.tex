@@ -74,6 +74,13 @@
     \end{creaturebox}
 }
 
+
+\newcommand{\probe}[3]{%
+    \begin{probenbox}[watermark graphics=layout/grafik/proben/#1, watermark stretch=1]
+        \hspace{6mm}{\color{dunkelrot}\large\textbf{#2}}\\[0.5mm]
+        \footnotesize #3
+    \end{probenbox}}
+
 \newcommand{\credits}[1]{%
     \begin{center}
         #1
@@ -115,6 +122,7 @@
     \glsaddall
     \printglossaries
 }
+
 
 \newcommand{\kreaturkampfwerte}[4]{
     \kreaturkampfwert{Wundschwelle}{#1}

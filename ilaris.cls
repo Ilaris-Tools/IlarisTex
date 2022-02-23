@@ -82,15 +82,28 @@
 \newtcolorbox{pergamentbox}[1][]{
     unbreakable,
     blankest,
-    top=5mm,
-    left=5mm,
-    right=5mm,
-    bottom=5mm,
+    top=0.05\linewidth,
+    left=0.05\linewidth,
+    right=0.05\linewidth,
+    bottom=0.05\linewidth,
     watermark graphics=layout/grafik/kasten.png, 
     watermark stretch=1,
-    width=\linewidth ,
+    width=\linewidth,
     #1	
 }
+
+\newtcolorbox{probenbox}[1][]{
+  unbreakable,
+  blankest,
+  top=0.08\linewidth,
+  left=0.08\linewidth,
+  right=0.31\linewidth,
+  bottom=0.08\linewidth,
+  width=\linewidth,
+  height=0.44211\linewidth,
+  #1
+}
+
 
 % layout
 \setlength\parindent{0pt}% noindent anywhere
