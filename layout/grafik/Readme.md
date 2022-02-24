@@ -1,1 +1,0 @@
-Die meisten Grafiken und Illustrationen in diesem Ordner wurden von Bernhard Eisner erstellt und mit [freundlicher Genehmigung vom Author](https://dsaforum.de/viewtopic.php?f=180&t=55048&start=30) teilweise angepasst um den Anforderungen des Latex Layouts gerecht zu werden.

@@ -24,8 +24,6 @@
 \RequirePackage{todonotes}
 \RequirePackage{fontspec}
 \RequirePackage{lipsum}
-%\RequirePackage{glossary-mcols}
-\RequirePackage[automake]{glossaries}
 \RequirePackage[breakable,skins,xparse]{tcolorbox}
 \RequirePackage[top=20mm, bottom=15mm, outer=15mm, inner=15mm, marginparsep=10mm, marginparwidth=20mm, head=12.5mm, foot=8mm]{geometry}
 
@@ -56,7 +54,7 @@
 \makeatother
 
 
-\graphicspath{{layout/grafik/}{bilder}}
+\graphicspath{{gfx}{bilder}}
 \newcommand{\hr}[1][0.4pt]{\par\vskip 0.4ex \hrule height #1 \par\vskip 1ex}
 \newcommand{\TOCnum}{1} 
 
@@ -86,7 +84,7 @@
     left=0.05\linewidth,
     right=0.05\linewidth,
     bottom=0.05\linewidth,
-    watermark graphics=layout/grafik/kasten.png, 
+    watermark graphics=gfx/kasten/kasten.png, 
     watermark stretch=1,
     width=\linewidth,
     #1	
@@ -111,12 +109,12 @@
 \renewcaptionname{german}{\contentsname}{Inhalt}
 \cehead*{% even pages (copy from rpg-latex)
 	%\begin{ocg}{Hintergrund}{1}{1}
-	\tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\scalebox{-1}[1]{\includegraphics[width=\paperwidth,height=\paperheight]{layout/grafik/hintergrund.jpg}}};
+	\tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\scalebox{-1}[1]{\includegraphics[width=\paperwidth,height=\paperheight]{gfx/layout/hintergrund.jpg}}};
 	%\end{ocg}
 	}
 \cohead*{% odd pages
 	%\begin{ocg}{Hintergrund}{1}{1}
-	\tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{layout/grafik/hintergrund.jpg}}; 
+	\tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{gfx/layout/hintergrund.jpg}}; 
 	%\end{ocg}
 	}
 \ofoot*{\qquad\textbf{\normalfont\LARGE\thepage}\qquad}
@@ -128,42 +126,35 @@
 
 
 % fonts
-% \defaultfontfeatures{Ligatures=TeX}
-\setmainfont[
-			% ItalicFont=* Italic,
-			% BoldItalicFont=* Bold Italic,
-			% Ligatures=TeX
-			]{Minion Pro}
-\setsansfont{Minion Pro}
+\newfontfamily{\aniron}{Aniron}
+\newfontfamily{\cinzel}{Cinzel}
+\setmainfont{Crimson Pro}
+\setsansfont{Crimson Pro}
 \setkomafont{chapterentry}{\LARGE \scshape \textbf}
 \setkomafont{chapterentrypagenumber}{\normalfont\normalsize}
-\newfontfamily{\aniron}{Aniron}
 \addtokomafont{chapter}{\color{dunkelrot}\fontsize{26}{26}\aniron}
 \addtokomafont{section}{\color{dunkelrot}\Large\aniron} 
-\addtokomafont{subsection}{\fontsize{15}{16}\color{dunkelrot}\scshape} 
+\addtokomafont{subsection}{\fontsize{15}{16}\color{dunkelrot}\scshape\cinzel} 
 %\addtokomafont{subsubsection}{\fontsize{12}{12}} 
 \addtokomafont{minisec}{\normalfont\bfseries}
-
+\linespread{0.8}
 
 % chapter style
 \RequirePackage{varwidth} %Breite anpassen für überlange Zeilen 
 \renewcommand*{\raggedchapter}{\centering}
 \renewcommand\chapterlinesformat[3]{%
-      \scalebox{-1}[1]{\raisebox{-0.3\height}{\includegraphics[height=1.4cm]{layout/grafik/kapitel}}}%
+      \scalebox{-1}[1]{\raisebox{-0.3\height}{\includegraphics[height=1.4cm]{gfx/layout/kapitel}}}%
 	  \hspace{0.2em}%
       \begin{varwidth}{\dimexpr\textwidth-5em\relax}%
       %\begin{varwidth}{0.5\textwidth}%
         \raggedchapter#2#3%
       \end{varwidth}%
 	  \hspace{0.2em}%
-	  \raisebox{-0.3\height}{\includegraphics[height=1.4cm]{layout/grafik/kapitel}}%
+	  \raisebox{-0.3\height}{\includegraphics[height=1.4cm]{gfx/layout/kapitel}}%
       \par\nobreak
       \par
 }
 
-% glossar laden
-\makeglossaries
-\loadglsentries{glossar/glossary}
 
 % Don't typeset a glossary heading automatically
 % \makeatletter

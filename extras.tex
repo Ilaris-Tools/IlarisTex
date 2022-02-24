@@ -21,7 +21,7 @@
     \end{center}}
 \newcommand{\kasten}[1]{\begin{pergamentbox}#1\end{pergamentbox}}
 \newcommand{\inhaltsverzeichnis}{{\let\cleardoublepage\clearpage\tableofcontents}}
-\newcommand{\fanprodukt}{\begin{center}\includegraphics[width=5cm]{layout/dsa_logo_fanprodukt}\end{center}}
+\newcommand{\fanprodukt}{\begin{center}\includegraphics[width=5cm]{gfx/dsa_logo_fanprodukt}\end{center}}
 \newcommand{\titelbild}[1]{
     \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{#1}};}
 \newcommand{\tfarbe}{orange!15}
@@ -63,7 +63,7 @@
             \footnotesize \emph{#2}
             \vspace{1mm}
         \end{minipage}
-        \hfill\includegraphics[height=1cm]{#3}%
+        \hfill\includegraphics[height=1cm]{gfx/#3}%
         \vspace{-1mm}
         \hr[0.8pt]
         \tcblower
@@ -76,7 +76,7 @@
 
 
 \newcommand{\probe}[3]{%
-    \begin{probenbox}[watermark graphics=layout/grafik/proben/#1, watermark stretch=1]
+    \begin{probenbox}[watermark graphics=gfx/proben/#1, watermark stretch=1]
         \hspace{6mm}{\color{dunkelrot}\large\textbf{#2}}\\[0.5mm]
         \footnotesize #3
     \end{probenbox}}
@@ -114,14 +114,9 @@
     \end{center}
 }
 \newcommand{\creditlayout}{
-    \credit{Layoutvorlage}{\href{https://github.com/Ilaris-dev/IlarisTex}{IlarisTex}}}
-\newcommand{\glossar}{
-    \printglossaries
+    \credit{Layoutvorlage}{\href{https://github.com/Ilaris-dev/IlarisTex}{IlarisTex}}
 }
-\newcommand{\komplettesglossar}{
-    \glsaddall
-    \printglossaries
-}
+
 
 
 \newcommand{\kreaturkampfwerte}[4]{

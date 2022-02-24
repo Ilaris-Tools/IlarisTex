@@ -1,9 +1,8 @@
 \documentclass{Ilaris}
-\input{extras}
-\input{daten/kreaturen.tex}
+\input{extras-glossar.tex}
+\input{extras.tex}
+\input{kreaturen.tex}
 
-\usepackage{glossary-mcols}
-%\makeglossaries
 \begin{document}
 \anfang
 \titelseite{%
@@ -71,7 +70,7 @@ Nach dem Kasten steht auch ein Satz, damit man mal sieht wie doll sich das Perga
 \abschnitt{Kreaturenkasten?}
 Den Kreaturenkasten habe ich absichtlich erstmal nach einer allgemeinen Kreatur benannt und nicht einfach Gegner. Dafür gibt es zwei Gründe. Zum einen, kann es ja auch freundlich gesinnte Wesen geben und der selbe Kasten soll auch diese darstellen können, Kampfwerte oder freier Text für kommentare sollten dabei frei kombinierbar und optional bleiben. Zum anderen, kann (sofern erlaubt), der Befehl für Gegnerkästen noch ergänzt werden um mit existierenden Ausgaben von Konvertierungstools etc, kompatibel zu bleiben.
 
-\kreatur{Name}{Beschreibung}{layout/grafik/würfel20}{
+\kreatur{Name}{Beschreibung}{kreaturen/tier}{
     \kreaturinfo{Info}{Text}\\
     \kreaturinfo{Kampfvorteile}{Standfest, Sturmangriff}\\
     \kreaturinfo{Fertigkeiten}{Eins zwei drei und noch mehr text damit man die}
@@ -79,7 +78,7 @@ Den Kreaturenkasten habe ich absichtlich erstmal nach einer allgemeinen Kreatur 
     \kreaturinfo{Fertigkeiten}{Eins zwei drei und noch mehr\\ text damit man die}
 }
 
-\kreatur{Mensch}{Humanoid, Unfreundlich}{dummy}{
+\kreatur{Mensch}{Humanoid, Unfreundlich}{kreaturen/tier}{
     \kreaturinfo{Vorteil}{Er muss sich nicht ständig unterhalten, weil ihn eh keiner mag}
     \hr
     \kreaturinfo{Nachteil}{Ihm ist oft langweilig, weil sich niemand mit ihm unterhalten möchte}

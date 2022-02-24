@@ -1,0 +1,14 @@
+%\usepackage{glossary-mcols}
+\usepackage{glossaries}
+
+% glossar laden
+\makeglossaries
+\loadglsentries{glossar}
+
+\newcommand{\glossar}{
+    \printglossaries
+}
+\newcommand{\komplettesglossar}{
+    \glsaddall
+    \printglossaries
+}
