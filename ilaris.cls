@@ -33,7 +33,7 @@
 \setdefaultlanguage{german}
 \tcbuselibrary{skins}
 \linespread{0.9}
-\rowcolors{2}{brown!55}{}
+\rowcolors{2}{}{brown!55}
 
 % colors
 \definecolor{dunkelrot}{HTML}{450c15}
@@ -170,7 +170,7 @@
 % \makeatother
 
 % befehle
-\newcommand{\hr}[1][0.4pt]{\par\vskip 0.4ex \hrule height #1 \par\vskip 1ex}
+\newcommand{\hr}[1][0.4pt]{\par\vskip 0.4ex {\color{dunkelrot}\hrule height #1 }\par\vskip 1ex}
 \newcommand{\trennlinie}{\hr}
 \newcommand{\linie}{\hr}
 \newcommand{\anfang}{\raggedcolumns\frontmatter}
@@ -306,30 +306,18 @@
 \newcommand{\kreaturfertigkeiten}[1]{\kreaturinfo{Fertigkeiten}{#1}}
 \newcommand{\kreaturattribute}[1]{\kreaturinfo{Attribute}{#1}}
 \newcommand{\kreaturvarianten}[1]{\kreaturinfo{Varianten}{#1}}
-\newcommand{\tabelle}[2]{\begin{tabularx}{\linewidth}{#1}#2\end{tabularx}}
-\newcommand{\maybe}[2]{
-    \ifx&#1&
-        Argument 1 was blank!
-    \else
-        Argument 1 was not blank.
-    \fi
-    Argument 2 was #2.
-}
-\newcommand{\tkopf}[1]{\aniron #1 }
+\newcommand{\tabelle}[2]{\begin{tabularx}{\linewidth}{#1}
+  \arrayrulecolor{dunkelrot}#2\end{tabularx}}
+
+\newcommand{\tkopf}[1]{\color{dunkelrot}\cinzel\footnotesize\textbf{#1} }
 \newcommand{\tzeile}[1]{#1 \\}
-% \newcommand{\tzeile1}[1]{#1 \\}
-% \newcommand{\tzeile2}[2]{#1 & #2 \\}
-% \newcommand{\tzeile3}[3]{#1 & #2 & #3 \\}
-% \newcommand{\tzeile4}[4]{#1 & #2 & #3 & #4 \\}
-% \newcommand{\tzeile5}[5]{#1 & #2 & #3 & #4 & #5 \\}
-% \newcommand{\tzeile6}[6]{#1 & #2 & #3 & #4 & #5 & #6 \\}
-% \newcommand{\tzeile7}[7]{#1 & #2 & #3 & #4 & #5 & #6 & #7 \\}
-% \newcommand{\tzeile8}[8]{#1 & #2 & #3 & #4 & #5 & #6 & #7 & #8 \\}
 
 
-\newcommand{\zeichnung}[1][width=\linewidth]{\begin{tikzpicture}%
+\newcommand{\zeichnung}[1]{\begin{tikzpicture}%
 	\node [blend mode=multiply] at (0,0) {\includegraphics[width=\linewidth]{#1}};%
 \end{tikzpicture}}
+\newcommand{\bild}[1]{\includegraphics[width=\linewidth]{#1}}
+\newcommand{}
 
 
 % extras
