@@ -37,6 +37,8 @@
 
 % colors
 \definecolor{dunkelrot}{HTML}{450c15}
+%\definecolor{dunkelbraun}{HTML}{39220d}
+\definecolor{dunkelbraun}{HTML}{6f5843}
 \definecolor{hellrot}{HTML}{450c15}
 \definecolor{kampf}{HTML}{c86400}
 \definecolor{profan}{HTML}{655743}
@@ -89,7 +91,7 @@
     watermark graphics=gfx/kasten/kasten.png, 
     watermark stretch=1,
     width=\linewidth,
-    #1	
+    #1
 }
 
 \newtcolorbox{probenbox}[1][]{
@@ -102,6 +104,26 @@
   width=\linewidth,
   height=0.44211\linewidth,
   #1
+}
+
+\newtcolorbox{bildbox}[1][]{
+	width=\linewidth, arc=0mm, unbreakable,
+	top=0mm, left=0mm, right=0mm, bottom=0mm,
+	colback=dunkelbraun, colframe=dunkelbraun, 
+	enhanced,
+	#1
+}
+\providecommand{\rahmen}[1]{
+	\vspace{5mm}
+	\begin{bildbox}[overlay={%
+			\node[anchor=center, inner sep=0] at (frame.center) {\includegraphics[width=0.98\linewidth, keepaspectratio]{#1}};
+			\node[anchor=north east] at ([xshift=1.5mm, yshift=5.6mm]frame.north east) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/eckeor.png}};
+			\node[anchor=south west] at ([xshift=-4.8mm, yshift=-5.6mm]frame.south west) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/eckeul.png}};
+		}]
+	\noindent\phantom{\includegraphics[width=\linewidth, keepaspectratio]{#1}}
+	\end{bildbox}
+	\vspace{5mm}
+	\leavevmode
 }
 
 
@@ -317,7 +339,7 @@
 	\node [blend mode=multiply] at (0,0) {\includegraphics[width=\linewidth]{#1}};%
 \end{tikzpicture}}
 \newcommand{\bild}[1]{\includegraphics[width=\linewidth]{#1}}
-\newcommand{}
+%\newcommand{}
 
 
 % extras
