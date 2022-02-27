@@ -1,11 +1,11 @@
 
 \newglossaryentry{geschichte}
 {
-    name={\textbackslash geschichte\{Der Text...\}\{Die Autorin},
+    name={\textbackslash geschichte},
     description={
             Fluff, Liedtexte, Zitate und vieles mehr können in dem kursiven, eingerückten Geschichtsblock stehen.\newline
-            \textbf{Beispiel: }\textbackslash geschichte\{Der Text...\}\{Die Autorin}
-}
+            \textbf{Beispiel: }\textbackslash geschichte\{Der Text...\}\{Die Autorin\}
+        }
 }
 \newglossaryentry{anf}
 {
@@ -19,17 +19,10 @@
 {
     name={\textbackslash kapitel},
     description={
-            Leitet Kapitel mit der angegeben Überschrift ein und registriert sie automatisch im Inhaltsverzeichnis. Innerhalb eines Zweispaltenlayouts am besten \gls{skapitel} verwenden.
+            Leitet Kapitel mit der angegeben Überschrift ein und registriert sie automatisch im Inhaltsverzeichnis. Innerhalb eines Zweispaltenlayouts am besten \textbackslash skapitel verwenden.
             \textbf{Beispiel}: \textbackslash kapitel\{Anhang\}}
 }
-\newglossaryentry{skapitel}
-{
-    name={\textbackslash kapitel},
-    description={
-            Kurzform für spaltenübergreifende Kapitel. Nachdem das Spaltenlayout mit \gls{spaltenanfang} begonnen wurde, sollte dieser Befehl verwendet werden, der automatisch dafür sorgt, das die Kapitelüberschrift über beide Spalten geht und der folgende Text wieder im Spaltenlayout steht.\\
-            \textbf{Beispiel}: \textbackslash skapitel\{Einleitung\}
-        }
-}
+
 \newglossaryentry{spaltenanfang}
 {
     name={\textbackslash spaltenanfang},
@@ -37,17 +30,25 @@
             Beginnt das zweispaltige Layout bis es mit \textbackslash spaltenende abgeschlossen wird. Die Befehle müssen paarweise auftreten, sonst kommt Latex durcheinander.\\
             \textbf{Beispiel}: \textbackslash spaltenanfang}
 }
+\newglossaryentry{skapitel}
+{
+    name={\textbackslash kapitel},
+    description={
+            Kurzform für spaltenübergreifende Kapitel. Nachdem das Spaltenlayout mit \textbackslash spaltenanfang begonnen wurde, sollte dieser Befehl verwendet werden, der automatisch dafür sorgt, dass die Kapitelüberschrift über beide Spalten geht und der folgende Text wieder im Spaltenlayout steht.\\
+            \textbf{Beispiel}: \textbackslash skapitel\{Einleitung\}
+        }
+}
 \newglossaryentry{abschnitt}
 {
     name={\textbackslash abschnitt},
     description={
-            Abschnitte (Unterkapitel) können ein Kapitel unterteilen und stehen ebenfalls im Inhaltsverzeichnis. Die Abschnittsüberschriften sollen das Spaltenlayout (falls verwendet) nicht unterbrechen.\\
+            Abschnitte (Unterkapitel) können ein Kapitel unterteilen und stehen ebenfalls im Inhaltsverzeichnis. Die Abschnittsüberschriften sollen das Spaltenlayout (falls verwendet) nicht unterbrechen.\newline
             \textbf{Beispiel}: \textbackslash abschnitt\{Die Ankunft\}
         }
 }
 \newglossaryentry{absatz}
 {
-    name={\textbackslash abschnitt},
+    name={\textbackslash absatz},
     description={
             Die dritte Stufe der Inhaltlichen Strukturierung. Absätze können mit diesem Befehl noch eine kleine Überschrift bekommen, die allerdings nichtmehr im Inhaltsverzeichnis auftaucht. Sie hebt sich visuell aber noch deutlich ab um so Absätze im Text auf den ersten Blick zu finden. In Abenteuern eigenen sie sich zum Beispiel um auf Beschreibungen bestimmter Orte, Scenen oder Personen hinzuweisen.
             \newline
@@ -63,17 +64,42 @@
             \textbf{Beispiel}: \textbackslash neuezeile
         }
 }
+\newglossaryentry{neuespalte}
+{
+    name={\textbackslash neuespalte},
+    description={
+            Manueller Spaltenumbruch. Er ist nützlich wenn Kästen doof dargestellt werden oder Absätze in einer neuen Spalte beginnen sollensollen. Leitet direkt auf \textbackslash columnbreak weiter. \newline
+            \textbf{Beispiel}: \textbackslash neuespalte
+        }
+}
+\newglossaryentry{neueseite}
+{
+    name={\textbackslash neueseite},
+    description={
+            Manueller Seitenumbruch. Ist nützlich um, naja, den Beginn einer neuen Seite zu erzwingen..? Leitet direkt auf \textbackslash pagebreak weiter. \newline
+            \textbf{Beispiel}: \textbackslash neueseite
+        }
+}
+
 \newglossaryentry{tabelle}
 {
-name={\textbackslash tabelle},
-description={\textbf{Beispiel}: \textbackslash tabelle{X X X}{ eins & zwei & drei \textbackslash \textbackslash \}\{\}\newline
-            }
-    }
+    name={\textbackslash tabelle},
+    description={\textbf{Beispiel}: \textbackslash tabelle\{X X X\}\{ eins \& zwei \& drei \textbackslash \textbackslash \}\{\}\newline
+        }
+}
+\newglossaryentry{tkopf}
+{
+    name={\textbackslash tkopf},
+    description={
+            Setzt Schriftart und Farbe für einzelne Zellen in der ersten Reihe einer Tabelle. Muss auf jeden Eintrag (zwischen den \& einzeln angewendet werden)\newline
+            \textbf{Beispiel}: siehe Tabelle im template.
+        }
+}
 \newglossaryentry{kasten}
 {
     name={\textbackslash kasten},
     description={
-            \newline
+            Ein Pergamentkasten. In die Klammern können auch weitere Befehle eingesetzt werden, komplexe Umgebungen wie Tabellen könnten allerdings Probleme machen. Einfach Testen und Probleme berichten.\newline
             \textbf{Beispiel}: \textbackslash kasten\{Kastentext\}
         }
 }

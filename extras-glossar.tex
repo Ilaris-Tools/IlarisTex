@@ -15,3 +15,11 @@
 
 
 \newcommand{\glossareintrag}[2]{\newglossaryentry{#1}{#2}}
+
+% zweispaltig
+\renewcommand*{\glossarysection}[2][]{%
+    \twocolumn[{\chapter*{#2}}]%
+    \setlength\glsdescwidth{0.6\linewidth}%
+    \glsglossarymark{\glossarytoctitle}%
+}
+\renewcommand*{\glossarypostamble}{\onecolumn}

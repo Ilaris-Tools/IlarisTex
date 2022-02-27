@@ -27,8 +27,10 @@
 \credit{Glossar}{\href{https://github.com/XaverStiensmeier/IlarisGlossaryEntries}{Xaver Stiensmeier}}
 \credit{Inspiriert durch}{\href{https://github.com/Ilaris-dev/Ilaris-LaTeX}{Ilaris-Latex}\\von Jan Battenfeld}
 \lizenz
+
 \kapitel{Text}
-Ein neues Kapitel wird mit dem Befehl \gls{kapitel} eingeleitet. Es wird automatisch formatiert und im Inhaltsverzeichnis registriert. Lange Kapitelnamen werden zwar automatisch umgebrochen, aber es sieht trotzdem besser aus die Überschriften kurz zu halten. Ein Großteil, des Dokuments wird warscheinlich im Zweispaltenlayout geschrieben. Dieses wird mit \gls{spaltenanfang} begonnen und muss unbedingt mit \textbackslash spaltenende beendet werden. Da die Kapitelüberschriften beide Spalten überspannen sollen, kann im Zweispaltenlayout \gls{skapitel} benutzt werden, um nicht jedesmal das Spaltenlayout wechseln zu müssen.
+Ein neues Kapitel wird mit dem Befehl \gls{kapitel} eingeleitet. Es wird automatisch formatiert und im Inhaltsverzeichnis registriert. Lange Kapitelnamen werden zwar automatisch umgebrochen, aber es sieht trotzdem besser aus die Überschriften kurz zu halten. Überschriften beginnen automatisch eine neue Seite, sollte ansonsten manuelle Seiten oder Zeilenumbrüche gebraucht werden, gibt es \gls{neuespalte} und \gls{neueseite}
+. Ein Großteil, des Dokuments wird warscheinlich im Zweispaltenlayout geschrieben. Dieses wird mit \gls{spaltenanfang} begonnen und muss unbedingt mit \textbackslash spaltenende beendet werden. Da die Kapitelüberschriften beide Spalten überspannen sollen, kann im Zweispaltenlayout \gls{skapitel} benutzt werden, um nicht jedesmal das Spaltenlayout wechseln zu müssen.
 
 \spaltenanfang
 \abschnitt{Abschnitt}
@@ -48,18 +50,17 @@ Kapitel fangen automatisch auf neuen Seiten an.
 Ein paar auf die schnelle hingetüdelte Beispiele um Kästen und andere Umgebungen umzusetzen. Für einige dieser Kästen, hab ich das tcolorbox Paket ins Spiel gebracht, das nimmt einem etwas Arbeit ab, wenn man noch weitere oder kompliziertere Kästen erstellen will. Oder soetwas wie Seitenumbrüche oder transparente Hintergründe einstellen will (Kreaturenkasten). Für die Transparenz im Teil des Kastens wird allerdings eine relativ aktuelle Version des Pakets benötigt, falls die Installation zu Umständlich ist, kann man natürlich auch einfach ein untransparente passende Farbe nehmen.
 
 \abschnitt{Tabellen}
-Tabellen können leider noch nicht vollständig durch Kurzbefehle ersetzt werden, dafür stehen zu viele Variablen im Raum. Die Anzahl, Ausrichtung und Größe von Spalten und Zeilen sollen variabel bleiben, eine Kopfzeile optional. Das Streifenlayout wird allerdings automatisch angewendet wenn eine \gls{tabelle} begonnen wird. Der erste Eintrag enthält dabei das Spaltenlayout, das in \ref{latextipstabellen} genauer erklärt wird.
+Tabellen können leider noch nicht vollständig durch Kurzbefehle ersetzt werden, dafür stehen zu viele Variablen im Raum. Die Anzahl, Ausrichtung und Größe von Spalten und Zeilen sollen variabel bleiben, eine Kopfzeile optional. Das Streifenlayout wird allerdings automatisch angewendet wenn eine \gls{tabelle} begonnen wird. Der erste Eintrag enthält dabei das Spaltenlayout, das im Kapitel Latex Tips auf Seite \pageref{latextipstabellen}
+genauer erklärt wird. Eine ganze Zeile zu formatieren, ist etwas komplizierter, daher als übergangslösung erstmal die Möglichkeit jede Zelle der Kopfzeile mit \gls{tkopf} zu formatieren.
 
 Das zweite Argument gibt den Inhalt der Tabelle direkt an Latex weiter.Da muss man zur Zeit noch echten Latexcode schreiben, weil mir auf die schnelle kein Praktischer Kurzbefehl eingefallen ist. Aber da kann man sich sicher noch etwas überlegen, um das deutlich zu verinefachen. Eigentlich steht der Text hier auch nur um die Tabelle im Abschnitt nicht so alleine zu lassen.
 
 \tabelle{X X X}{
     \tkopf{eins} & \tkopf{Zwei} & \tkopf{Drei} \\\hline%
-    \tzeile{eins & zwei & drei}
     ich      & bin      & eine     \\
     einfache & latex    & tabelle  \\
     in       & tabularx & umgebung \\
 }
-
 
 \abschnitt{Pergamente}
 Ein Pergamentkasten eignet sich wunderbar um einzelne Informationen deutlich hervorzuheben. Einen farbigen Kasten erstellt man mit \gls{kasten} und \gls{kastengrau} erstellt einen ähnlichen aber etwas graueren Kasten. Die können zum Beispiel Erzähltexte oder Informationen für gelungene Talentproben sein. Pergamente sind auch Rechteckig, auch wenn das folgende am Rand schon etwas ausgefranzt ist.
@@ -69,7 +70,11 @@ Ein Pergamentkasten eignet sich wunderbar um einzelne Informationen deutlich her
     Für kleine Absätze im Zweispaltenlayout sollte es aber erstmal reichen.
 }
 
-Nach dem Kasten steht auch ein Satz, damit man mal sieht wie doll sich das Pergament vom Text drumherum abhebt.
+Nach dem Kasten steht auch ein Satz, damit man mal sieht wie doll sich das Pergament vom Text drumherum abhebt. Kästen über die volle Breite können einfach außerhalb des Spaltenlayouts erstellt werden. Im Kapitel Handouts gibt es auch DinA4 Kästen an. Es können auch grauere Kästen verwendet werden, die zwar mehr aus einem \anf{Fehler} entstanden sind, aber vielleicht sind sie ja mal von Nutzen.
+
+\kastengrau{
+    Hintergrund dieses Kastens ist das Originalbild, das nicht mit dem beigen Hintergrund der Seite multipliziert wurde. Der Unterschied wird im Abschnitt Illustrationen veranschaulicht.
+}
 \spaltenumbruch
 
 \abschnitt{Kreaturen}
@@ -100,6 +105,7 @@ Ich finde die Eigenschaften blockweise einzuschieben wesentlich einfacher und fl
 
 \probe{derekunde}{Derekunde (18)}{Ich bin eine Probe auf Derekunde mit diesem Ergebnis. Die Box ist leider nicht skalierbar, daher müssen die Erzähltexte kompakt oder stichpunktartig sein, oder ein anderer Kasten gewählt werden.}
 
+\neueseite
 \abschnitt{Illustrationen}
 
 
@@ -115,6 +121,12 @@ Um Bilder oder Zeichnungen über die volle breite darzustellen, kann das Spalten
 \spaltenende
 \zeichnung{bilder/einleitung.jpg}
 \spaltenanfang
+
+
+\skapitel{Handouts}
+Handouts sind für viele Spielhilfen und Abenteuer keine Seltenheit und niemand hat Lust irgendwelche ausgeschnittenen oder halb abgedeckten Seiten des ausgedruckten Dokuments auf den Spieltisch zu legen. Deshalb gehören Handouts in den Anhang. Um möglichst keine unnötige Informationen mit auf den ausgedruckten anhängen zu haben, wurde ein extra Seitenlayout erstellt, mit anderen Seitenbegrenzungen, ohne Hintergrundbild Seitenzahlen etc. Die zwei arten von Handouts die mir am häufigsten untergekommen sind, sind wohl Text (Notizen, Briefe, Buchseiten etc..) und Karten. Für letzteres (und ersteres mit besonderen Designwünschen) bietet sich ein Bild für die ganze Seite an. Für ersteres eventuell die schon verwendeten Kästen in der richtigen Größe.
+
+TODO: Handoutstyle
 
 \skapitel{Extras}
 Dieses Kapitel beinhaltet Funktionen, die nicht zur Kernklasse gehören, aber durch \textbackslash include{extras} und ggf. weiterer \anf{Plugins} aktiviert werden können. Die Idee dieser optionalen Module ist, sie so einfach wie möglich nutzbar zu machen, ohne dass sie dabei die eigentliche Klasse mit ggf. unnötigen Paketen und Einstellungen verkomplizieren. Auch soll es so für andere Entwickler möglich sein, die Klasse einfach erweitern zu können. Aktuell gibt es zB die Möglichkeit auf eine Sammlung von Kreaturen und von Glossareinträgen zurück zu greifen.
@@ -139,7 +151,6 @@ Testweise habe ich mal eine Datenbank für Kreaturen als yaml-Datei angelegt, di
 \kreaturbaumdrache
 
 
-
 \skapitel{Latex Tips}
 
 \abschnitt{Tabellen}
@@ -147,23 +158,6 @@ Testweise habe ich mal eine Datenbank für Kreaturen als yaml-Datei angelegt, di
 TODO: Spaltenlayout Tabellen
 \spaltenende
 
-
-\renewcommand*{\glossarysection}[2][]{%
-    \twocolumn[{\chapter*{#2}}]%
-    \setlength\glsdescwidth{0.6\linewidth}%
-    \glsglossarymark{\glossarytoctitle}%
-}
-\renewcommand*{\glossarypostamble}{\onecolumn}
-
-%\skapitel{Glossar}
-% {\renewcommand{\subsection}{}
-%     \setglossarysection{subsection}
-% }
-% \glstocfalse
-% option eins mit paket:
-%\renewcommand*{\glsmcols}{3} % fuer mehr spalten
-%\setglossarystyle{mcolindex}
-% option 2 ohne mcolindex:
 \glossar
 %\schluss
 \end{document}

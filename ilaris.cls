@@ -93,6 +93,18 @@
     left=0.05\linewidth,
     right=0.05\linewidth,
     bottom=0.05\linewidth,
+    watermark graphics=gfx/kasten/kasten_farbe.png, 
+    watermark stretch=1,
+    width=\linewidth,
+    #1
+}
+\newtcolorbox{pergamentboxgrau}[1][]{
+    unbreakable,
+    blankest,
+    top=0.05\linewidth,
+    left=0.05\linewidth,
+    right=0.05\linewidth,
+    bottom=0.05\linewidth,
     watermark graphics=gfx/kasten/kasten.png, 
     watermark stretch=1,
     width=\linewidth,
@@ -220,6 +232,7 @@
         \end{minipage}
     \end{center}}
 \newcommand{\kasten}[1]{\begin{pergamentbox}#1\end{pergamentbox}}
+\newcommand{\kastengrau}[1]{\begin{pergamentboxgrau}#1\end{pergamentboxgrau}}
 \newcommand{\inhaltsverzeichnis}{{\let\cleardoublepage\clearpage\tableofcontents}}
 \newcommand{\fanprodukt}{\begin{center}\includegraphics[width=5cm]{gfx/dsa_logo_fanprodukt}\end{center}}
 \newcommand{\titelbild}[1]{
