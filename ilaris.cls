@@ -258,7 +258,7 @@
             \footnotesize \emph{#2}
             \vspace{1mm}
         \end{minipage}
-        \hfill\includegraphics[height=1cm]{gfx/#3}%
+        \hfill\includegraphics[height=1cm, width=1cm]{#3}%
         \vspace{-1mm}
         \hr[0.8pt]
         \tcblower
@@ -342,5 +342,3 @@
 %\newcommand{}
 
 
-% extras
-\newcommand{\glossareintrag}[2]{\newglossaryentry{#1}{#2}}
