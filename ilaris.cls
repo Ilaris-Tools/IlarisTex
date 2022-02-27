@@ -20,7 +20,8 @@
 \RequirePackage{booktabs}
 \RequirePackage{tabularx}
 \RequirePackage{shadowtext}
-\RequirePackage{tikz}
+\RequirePackage{tikz} 
+\RequirePackage{csquotes}
 \RequirePackage{todonotes}
 \RequirePackage{fontspec}
 \RequirePackage{lipsum}
@@ -339,6 +340,6 @@
 	\node [blend mode=multiply] at (0,0) {\includegraphics[width=\linewidth]{#1}};%
 \end{tikzpicture}}
 \newcommand{\bild}[1]{\includegraphics[width=\linewidth]{#1}}
+\newcommand{\anfuehrungszeichen}[1]{\enquote{#1}}
+\newcommand{\anf}[1]{\anfuehrungszeichen{#1}}
 %\newcommand{}
-
-
