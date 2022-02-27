@@ -1,5 +1,6 @@
 \documentclass{Ilaris}
 \input{extras-glossar.tex}
+\input{glossar-latex.tex}
 %\input{extras.tex}
 \input{kreaturen.tex}
 
@@ -20,34 +21,36 @@
 \hauptteil
 \kapitel{Credits}
 \platz
-\credit{Author}{Lukas Ruhe}
+\credit{Autor}{Lukas Ruhe}
 \credit{Illustrationen}{Bernhard Eisner}
 \credit{Titelbild}{\href{https://unsplash.com/photos/Hi0bdO0vEfo}{Ivana Cajina}}
 \credit{Glossar}{\href{https://github.com/XaverStiensmeier/IlarisGlossaryEntries}{Xaver Stiensmeier}}
 \credit{Inspiriert durch}{\href{https://github.com/Ilaris-dev/Ilaris-LaTeX}{Ilaris-Latex}\\von Jan Battenfeld}
 \lizenz
 \kapitel{Text}
+Ein neues Kapitel wird mit dem Befehl \gls{kapitel} eingeleitet. Es wird automatisch formatiert und im Inhaltsverzeichnis registriert. Lange Kapitelnamen werden zwar automatisch umgebrochen, aber es sieht trotzdem besser aus die Überschriften kurz zu halten. Ein Großteil, des Dokuments wird warscheinlich im Zweispaltenlayout geschrieben. Dieses wird mit \gls{spaltenanfang} begonnen und muss unbedingt mit \textbackslash spaltenende beendet werden. Da die Kapitelüberschriften beide Spalten überspannen sollen, kann im Zweispaltenlayout \gls{skapitel} benutzt werden, um nicht jedesmal das Spaltenlayout wechseln zu müssen.
+
 \spaltenanfang
 \abschnitt{Abschnitt}
+Jedes Kapitel kann in einzelne Abschnitte (Unterkapitel) gegliedert werden, die mit \gls{abschnitt} eingeleitet werden und ebenfalls im Inhaltsverzeichnis auftauchen. Die Abschnittsüberschriften sollen das Spaltenlayout (falls verwendet) nicht unterbrechen.
+\geschichte{Ich bin eine Geschichte oder ein Auszug aus einer Schrift, wie sie in der Spielwelt existieren könnte. Auch Zitate, Informationen aus Büchern oder Liedtexte könnten so aussehen.}{Autorin}
 
-\geschichte{Ich bin eine Geschichte oder ein Auszug aus einer Schrift, wie sie in der Spielwelt existieren könnte. Auch Zitate, Informationen aus Büchern oder Liedtexte könnten so aussehen.}{Author}
-
-Ich bin ein ganz normaler standard Text, so wie man ihn herunterschreibt. Man kann mich durch Überschriften in Abschnitte unterteilen und diese weiterhin in Absätze unterteilen.
+Diese kursiven Textblöcke, können mit dem Befehl \gls{geschichte} erstellt werden. Kurze Zitate oder einzelne \anf{Wörter} können mit dem Kurzbefehl \gls{anf} auch in Anführungszeichen gesetzt werden. Dieser Text hier ist ein ganz normaler standard Text, so wie man ihn herunterschreibt ohne irgendwelche Layoutbefehle zu verwenden. Man kann ihn durch Überschriften in Abschnitte unterteilen und diese wiederumtel in Absätze unterteilen.
 
 \absatz{Der Absatz}
-Beschriftete Absätze stehen nicht mehr im Inhaltsverzeichnis, heben sich aber noch deutlich ab. Wenn nur der Textfluss abgesetzt werden soll,
-
-geht das natürlich auch. Der nächste Absatz ist auf bosparano und nur für Magier interessant.
+Beschriftete Absätze sind Unterunterüberschriften und stehen nicht mehr im Inhaltsverzeichnis, heben sich aber noch deutlich ab. Sie werden mit \gls{absatz} erstellt. Wenn nur der Textfluss abgesetzt werden soll, ohne irgendwelche überschriften, geht das durch eine einfache Leerzeile im Text. Einfache Zeilenumbrüche werden von Latex ignoriert, können aber mit \gls{neuezeile} erzwungen werden. Der nächste Absatz ist auf bosparano und nur für Magier interessant.
 
 \absatz{Lorem Ipsum}
 \lipsum[1-4]
 
 \skapitel{Kästen}
 Kapitel fangen automatisch auf neuen Seiten an.
-Ein paar auf die schnelle hingetüdelte Beispiele um Kästen und andere Umgebungen umzusetzen. Für einige dieser Kästen, hab ich das tcolorbox Paket ins Spiel gebracht, das nimmt einem etwas Arbeit ab, wenn man noch weitere oder kompliziertere Kästen erstellen will. Oder soetwas wie Seitenumbrüche oder transparente Hintergründe einstellen will (Kreaturenkasten). Für die Transparenz im Teil des Kastens wird allerdings eine relativ aktuelle Version des Pakets benötigt, falls die Installation zu Umständlich ist, kann man natürlich auch einfach ein untransparentes passendes Rosa nehmen.
+Ein paar auf die schnelle hingetüdelte Beispiele um Kästen und andere Umgebungen umzusetzen. Für einige dieser Kästen, hab ich das tcolorbox Paket ins Spiel gebracht, das nimmt einem etwas Arbeit ab, wenn man noch weitere oder kompliziertere Kästen erstellen will. Oder soetwas wie Seitenumbrüche oder transparente Hintergründe einstellen will (Kreaturenkasten). Für die Transparenz im Teil des Kastens wird allerdings eine relativ aktuelle Version des Pakets benötigt, falls die Installation zu Umständlich ist, kann man natürlich auch einfach ein untransparente passende Farbe nehmen.
 
 \abschnitt{Tabellen}
-Da muss man zur Zeit noch echten Latexcode schreiben, weil mir auf die schnelle kein Praktischer Kurzbefehl eingefallen ist. Aber da kann man sich sicher noch etwas überlegen, um das deutlich zu verinefachen. Eigentlich steht der Text hier auch nur um die Tabelle im Abschnitt nicht so alleine zu lassen.
+Tabellen können leider noch nicht vollständig durch Kurzbefehle ersetzt werden, dafür stehen zu viele Variablen im Raum. Die Anzahl, Ausrichtung und Größe von Spalten und Zeilen sollen variabel bleiben, eine Kopfzeile optional. Das Streifenlayout wird allerdings automatisch angewendet wenn eine \gls{tabelle} begonnen wird. Der erste Eintrag enthält dabei das Spaltenlayout, das in \ref{latextipstabellen} genauer erklärt wird.
+
+Das zweite Argument gibt den Inhalt der Tabelle direkt an Latex weiter.Da muss man zur Zeit noch echten Latexcode schreiben, weil mir auf die schnelle kein Praktischer Kurzbefehl eingefallen ist. Aber da kann man sich sicher noch etwas überlegen, um das deutlich zu verinefachen. Eigentlich steht der Text hier auch nur um die Tabelle im Abschnitt nicht so alleine zu lassen.
 
 \tabelle{X X X}{
     \tkopf{eins} & \tkopf{Zwei} & \tkopf{Drei} \\\hline%
@@ -59,7 +62,7 @@ Da muss man zur Zeit noch echten Latexcode schreiben, weil mir auf die schnelle 
 
 
 \abschnitt{Pergamente}
-Ein Pergamentkasten eignet sich wunderbar um einzelne Informationen deutlich hervorzuheben. Die können zum Beispiel Erzähltexte oder Informationen für gelungene Talentproben sein. Pergamente sind auch Rechteckig, auch wenn das folgende am Rand schon etwas ausgefranzt ist.
+Ein Pergamentkasten eignet sich wunderbar um einzelne Informationen deutlich hervorzuheben. Einen farbigen Kasten erstellt man mit \gls{kasten} und \gls{kastengrau} erstellt einen ähnlichen aber etwas graueren Kasten. Die können zum Beispiel Erzähltexte oder Informationen für gelungene Talentproben sein. Pergamente sind auch Rechteckig, auch wenn das folgende am Rand schon etwas ausgefranzt ist.
 
 \kasten{
     Dies ist der Standardkasten. Da noch Bilder für schmale, breite und größere vorliegen, könnte man dazu auch noch etwas speziellere Kästen erstellen.\\
@@ -112,12 +115,17 @@ Um Bilder oder Zeichnungen über die volle breite darzustellen, kann das Spalten
 \spaltenende
 \zeichnung{bilder/einleitung.jpg}
 \spaltenanfang
+
 \skapitel{Extras}
+Dieses Kapitel beinhaltet Funktionen, die nicht zur Kernklasse gehören, aber durch \textbackslash include{extras} und ggf. weiterer \anf{Plugins} aktiviert werden können. Die Idee dieser optionalen Module ist, sie so einfach wie möglich nutzbar zu machen, ohne dass sie dabei die eigentliche Klasse mit ggf. unnötigen Paketen und Einstellungen verkomplizieren. Auch soll es so für andere Entwickler möglich sein, die Klasse einfach erweitern zu können. Aktuell gibt es zB die Möglichkeit auf eine Sammlung von Kreaturen und von Glossareinträgen zurück zu greifen.
 
 \abschnitt{Glossar}
-Die IlarisGlossaryEntries sind mit eingebunden und können direkt benutzt werden. Zum Beispiel der Vorteil \gls{angepasstI_Vorteil}. Natürlich können auch eigene
-\glossareintrag{glossareinträge}{name={Glossareinträge}, description={Wörter, die am Ende des Dokuments erklärt werden. Zum Beispiel Zauber oder Regeln.}}
+Die IlarisGlossaryEntries sind mit eingebunden und können direkt benutzt werden. Damit können Erklärungen zu Regeln, Zaubern, Manövern und vieles mehr automatisch im Anhang generiert und für die schnelle Nutzung am PC an entsprechenden Stellen verlinkt werden. Die voreingetragenen Texte werden über die Zeit erweitert. Ein Beispiel wäre der Vorteil:
+\gls{angepasstI_Vorteil}.
+Natürlich können auch eigene Glossareinträge für das jeweilige Dokument erstellt werden:
+\glossareintrag{glossareinträge}{name={Glossar}, description={Das Glossar ist eine Liste von Begriffen, die am Ende des Dokuments erklärt werden. Der entsprechende Begriffe kann im Dokument angeklickt werden um direkt zu dieser Erklärung zu springen. Die Zahlen hinter der Erklärung geben an wo (Seitenzahl) die Begriffe vorkommen und können ebenfalls angeklickt werden um zurück zu springen.}}
 \gls{glossareinträge} eingetragen werden.
+Für dieses Template wird das Glossar vorallem dazu verwendet die Latex-Befehle zu erklären.
 
 
 
@@ -130,6 +138,13 @@ Testweise habe ich mal eine Datenbank für Kreaturen als yaml-Datei angelegt, di
 
 \kreaturbaumdrache
 
+
+
+\skapitel{Latex Tips}
+
+\abschnitt{Tabellen}
+\label{latextipstabellen}
+TODO: Spaltenlayout Tabellen
 \spaltenende
 
 

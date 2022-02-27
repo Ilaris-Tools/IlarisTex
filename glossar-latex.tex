@@ -1,0 +1,97 @@
+
+\newglossaryentry{geschichte}
+{
+    name={\textbackslash geschichte\{Der Text...\}\{Die Autorin},
+    description={
+            Fluff, Liedtexte, Zitate und vieles mehr können in dem kursiven, eingerückten Geschichtsblock stehen.\newline
+            \textbf{Beispiel: }\textbackslash geschichte\{Der Text...\}\{Die Autorin}
+}
+}
+\newglossaryentry{anf}
+{
+    name={\textbackslash anf},
+    description={
+            Setzt einen Text in Wörtlicherede. Verwendet deutsche Anführungszeichen unten und oben.
+            \textbf{Beispiel: }\textbackslash anf\{Hey! Ich rede mit Euch.\}
+        }
+}
+\newglossaryentry{kapitel}
+{
+    name={\textbackslash kapitel},
+    description={
+            Leitet Kapitel mit der angegeben Überschrift ein und registriert sie automatisch im Inhaltsverzeichnis. Innerhalb eines Zweispaltenlayouts am besten \gls{skapitel} verwenden.
+            \textbf{Beispiel}: \textbackslash kapitel\{Anhang\}}
+}
+\newglossaryentry{skapitel}
+{
+    name={\textbackslash kapitel},
+    description={
+            Kurzform für spaltenübergreifende Kapitel. Nachdem das Spaltenlayout mit \gls{spaltenanfang} begonnen wurde, sollte dieser Befehl verwendet werden, der automatisch dafür sorgt, das die Kapitelüberschrift über beide Spalten geht und der folgende Text wieder im Spaltenlayout steht.\\
+            \textbf{Beispiel}: \textbackslash skapitel\{Einleitung\}
+        }
+}
+\newglossaryentry{spaltenanfang}
+{
+    name={\textbackslash spaltenanfang},
+    description={
+            Beginnt das zweispaltige Layout bis es mit \textbackslash spaltenende abgeschlossen wird. Die Befehle müssen paarweise auftreten, sonst kommt Latex durcheinander.\\
+            \textbf{Beispiel}: \textbackslash spaltenanfang}
+}
+\newglossaryentry{abschnitt}
+{
+    name={\textbackslash abschnitt},
+    description={
+            Abschnitte (Unterkapitel) können ein Kapitel unterteilen und stehen ebenfalls im Inhaltsverzeichnis. Die Abschnittsüberschriften sollen das Spaltenlayout (falls verwendet) nicht unterbrechen.\\
+            \textbf{Beispiel}: \textbackslash abschnitt\{Die Ankunft\}
+        }
+}
+\newglossaryentry{absatz}
+{
+    name={\textbackslash abschnitt},
+    description={
+            Die dritte Stufe der Inhaltlichen Strukturierung. Absätze können mit diesem Befehl noch eine kleine Überschrift bekommen, die allerdings nichtmehr im Inhaltsverzeichnis auftaucht. Sie hebt sich visuell aber noch deutlich ab um so Absätze im Text auf den ersten Blick zu finden. In Abenteuern eigenen sie sich zum Beispiel um auf Beschreibungen bestimmter Orte, Scenen oder Personen hinzuweisen.
+            \newline
+            \textbf{Beispiel}: \textbackslash absatz\{Der Geheimgang\}
+        }
+}
+
+\newglossaryentry{neuezeile}
+{
+    name={\textbackslash neuezeile},
+    description={
+            Dies ist nichts weiter als ein Zeilenumbruch, der nur der vollständigkeit halber einen eigenen Befehl bekommen hat. Er leitet direkt auf \textbackslash newline weiter. \newline
+            \textbf{Beispiel}: \textbackslash neuezeile
+        }
+}
+\newglossaryentry{tabelle}
+{
+name={\textbackslash tabelle},
+description={\textbf{Beispiel}: \textbackslash tabelle{X X X}{ eins & zwei & drei \textbackslash \textbackslash \}\{\}\newline
+            }
+    }
+\newglossaryentry{kasten}
+{
+    name={\textbackslash kasten},
+    description={
+            \newline
+            \textbf{Beispiel}: \textbackslash kasten\{Kastentext\}
+        }
+}
+\newglossaryentry{kastengrau}
+{
+    name={\textbackslash kastengrau},
+    description={
+            Das selbe wie \textbackslash kasten nur mit blasserem Hintergrund.
+            \newline
+            \textbf{Beispiel}: \textbackslash kasten\{Kastentext\}
+        }
+}
+\newglossaryentry{}
+{
+    name={\textbackslash },
+    description={\textbf{Beispiel}: \textbackslash \{\}\newline
+        }
+}
+
+
+

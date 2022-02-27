@@ -12,7 +12,20 @@
 % microtype     % Typografische Feinjustierung
 % nicefrac      % Brüche mit schrägem Strich
 \RequirePackage[table,dvipsnames]{xcolor}
-\RequirePackage[bookmarks,pdfusetitle,colorlinks,linkcolor=black,citecolor=black,urlcolor=Sepia,breaklinks]{hyperref}
+
+
+% colors
+\definecolor{dunkelrot}{HTML}{450c15}
+\definecolor{dunkelbraun}{HTML}{39220d}
+\definecolor{braun}{HTML}{6f5843}
+\definecolor{hellrot}{HTML}{450c15}
+\definecolor{kampf}{HTML}{c86400}
+\definecolor{profan}{HTML}{655743}
+\definecolor{magie}{HTML}{425a66}
+\definecolor{karma}{HTML}{8e5d6f}
+
+
+\RequirePackage[bookmarks,pdfusetitle,colorlinks,linkcolor=dunkelbraun,citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 \RequirePackage{scrlayer-scrpage}
 \RequirePackage{polyglossia}
 \RequirePackage{enumitem}
@@ -36,15 +49,6 @@
 \linespread{0.9}
 \rowcolors{2}{}{brown!55}
 
-% colors
-\definecolor{dunkelrot}{HTML}{450c15}
-%\definecolor{dunkelbraun}{HTML}{39220d}
-\definecolor{dunkelbraun}{HTML}{6f5843}
-\definecolor{hellrot}{HTML}{450c15}
-\definecolor{kampf}{HTML}{c86400}
-\definecolor{profan}{HTML}{655743}
-\definecolor{magie}{HTML}{425a66}
-\definecolor{karma}{HTML}{8e5d6f}
 
 
 
@@ -110,7 +114,7 @@
 \newtcolorbox{bildbox}[1][]{
 	width=\linewidth, arc=0mm, unbreakable,
 	top=0mm, left=0mm, right=0mm, bottom=0mm,
-	colback=dunkelbraun, colframe=dunkelbraun, 
+	colback=braun, colframe=braun, 
 	enhanced,
 	#1
 }
@@ -118,8 +122,9 @@
 	\vspace{5mm}
 	\begin{bildbox}[overlay={%
 			\node[anchor=center, inner sep=0] at (frame.center) {\includegraphics[width=0.98\linewidth, keepaspectratio]{#1}};
-			\node[anchor=north east] at ([xshift=1.5mm, yshift=5.6mm]frame.north east) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/eckeor.png}};
-			\node[anchor=south west] at ([xshift=-4.8mm, yshift=-5.6mm]frame.south west) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/eckeul.png}};
+			%\node[anchor=north east] at ([xshift=1.5mm, yshift=5.6mm]frame.north east) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/eckeor.png}};
+			\node[anchor=north east] at ([xshift=4.8mm, yshift=5.6mm]frame.north east) {\includegraphics[angle=180,origin=c,width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
+			\node[anchor=south west] at ([xshift=-4.8mm, yshift=-5.6mm]frame.south west) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
 		}]
 	\noindent\phantom{\includegraphics[width=\linewidth, keepaspectratio]{#1}}
 	\end{bildbox}
@@ -275,18 +280,7 @@
         \footnotesize #3
     \end{probenbox}}
 
-\newcommand{\credits}[1]{%
-    \begin{center}
-        #1
-        \vfill
-        DAS SCHWARZE AUGE, AVENTURIEN, DERE, MYRANOR, THARUN, UTHURIA, RIESLAND und
-        THE DARK EYE sind eingetragene Marken der Ulisses Spiele GmbH, Waldems. Die Verwendung der
-        Grafiken erfolgt unter den von Ulisses Spiele erlaubten Richtlinien. Eine Verwendung über diese
-        Richtlinien hinaus darf nur nach vorheriger schriftlicher Genehmigung der Ulisses Medien und Spiel
-        Distribution GmbH erfolgen.
 
-    \end{center}
-}
 \newcommand{\absatz}[1]{\subsection*{#1}}
 \newcommand{\block}[1]{\subsubsection*{#1}}
 \newcommand{\spaltenumbruch}{\columnbreak}
