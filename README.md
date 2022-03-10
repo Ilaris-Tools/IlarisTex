@@ -1,11 +1,51 @@
+## IlarisTex
+Eine Latexklasse zum erstellen von Spielhilfen und Abenteuern für das alternative Ilaris Regelwerk.Dies Projekt ist als Alternative zu Ilaris-Latex entstanden, das zur Zeit nicht weiterentwickelt wird. Es ist noch unvollständig, aber bereits benutzbar. Mithilfe erwünscht.
+
+
+### Vorschau
+
+![preview.png](preview.png)
+
+Ein richtiges Beispiel: [template.pdf](template.pdf) 
+
+
+### Features
+* Pergament-, Proben-, Bild- und Kreaturenkästen
+* Seitenlayout, Spalten und Hintergrund
+* Schriftarten, Überschriften, Tabellen, Farben
+* Einfache Einbindung von Bildern
+* Optionale Plugins für Glossar und Datenbanken
+
+
+### Geplant
+* Tintensparende Druckversion
+* Verbesserte Vorlagen für Handouts
+* Mehr Kästen und Layoutoptionen
+* Kleinere Dateigrößen der Bilder
+* Layout der Inhaltsverzeichnisse
+* Anleitung und mehr Beispiele
+* viele weitere Kleinigkeiten
+
+
+
 ## Installation
 
-### Latex Paket
-
-### Entwicklungs-Modus
-
-## Benutzen
 Es muss eine aktuelle TexLive version installiert sein, oder das paket tcolorbox manuell aktualisert werden, damti teilweise transparente Hintergründe funktionieren. [Infos zum updaten](https://tex.stackexchange.com/questions/55437/how-do-i-update-my-tex-distribution).
+
+### Latex-Paket für Nutzer
+
+Für die neuste Version der Ilaris Latexklasse kann [hier](https://github.com/Ilaris-dev/IlarisTex/releases/tag/v0.0.2) die `texmf.tds.zip` heruntergeladen werden. Ihr inhalt wird in den Benutzerordner der Latex installation (`~/texmf/` unter Linux) entpackt. Falls der Ordner nicht existiert, kann er einfach erstellt werden. In diesem Ordner sollten sich nun mindestens die Unterordner `tex` und `fonts` befinden. Ab jetzt kann überall die Klasse von überall via `\documentclass{Ilaris}` verwendet werden. Siehe `template.tex` als Beispiel.
+
+
+### Repository für Entwickler
+
+Wer vor hat an dem Projekt mit zu arbeiten, oder mehrere verschiedene Versionen der Klasse verwenden will, kann sie auch in einem lokalen Ordner verwenden. Dazu diese Repository klonen (oder herunterladen und entpacken). 
+
+```
+git clone git@github.com:Ilaris-dev/IlarisTex.git
+```
+
+Die Klasse kann in .tex Dateien innerhalb dieses Ordner verwendet werden.
 
 
 ## Plugins
@@ -24,19 +64,11 @@ xelatex template.tex
 ```
 
 ## Unterschiede zu Ilaris-Latex
-*  Ziel: Einfache selbsterklärende, deutsche Befehle (`extras.tex`) statt Latex Tutorial
-* Wer Latex kann oder lernen möchte, kann direkt die Klasse verwenden, die weitestgehend Ilaris-Latex entspricht
+* Ziel: Einfache selbsterklärende, deutsche Befehle statt Latex Tutorial
+* Modularer Kreaturenkasten (mehrere einzelne statt einem komplizierten Befehl)
+* Direkte Einbindung der IlarisDB (im Aufbau) und des IlarisGlossars
+* (Noch) keine coole Druckversion
 
 ## Abweichungen zum Ilaris Layout
 * Seitenzahlen fangen nach inhaltsverzeichnis an
-
-## extras.tex Beispiele
-```
-\kasten{
-    Dieser Text steht im Kasten
-}
-
-\geschichte{
-    Dieser Text steht eingerückt und kursiv als IT-Text mit Angabe einer Autorin.
-}{Alrike von Beispielstein}
-```
+* Teilweise alternative Schriftarten mit passenderen Lizenzen
