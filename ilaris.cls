@@ -149,15 +149,11 @@
 \setlength\parindent{0pt}% noindent anywhere
 \setcounter{secnumdepth}{0}% no section numbers
 \renewcaptionname{german}{\contentsname}{Inhalt}
-\cehead*{% even pages (copy from rpg-latex)
-	%\begin{ocg}{Hintergrund}{1}{1}
+\cehead*{
 	\tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\scalebox{-1}[1]{\includegraphics[width=\paperwidth,height=\paperheight]{gfx/layout/hintergrund.jpg}}};
-	%\end{ocg}
 	}
 \cohead*{% odd pages
-	%\begin{ocg}{Hintergrund}{1}{1}
 	\tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{gfx/layout/hintergrund.jpg}}; 
-	%\end{ocg}
 	}
 \ofoot*{\qquad\textbf{\normalfont\LARGE\thepage}\qquad}
 
@@ -211,10 +207,10 @@
 
 % befehle
 \newcommand{\hr}[1][0.4pt]{\par\vskip 0.4ex {\color{dunkelrot}\hrule height #1 }\par\vskip 1ex}
-\newcommand{\trennlinie}{\hr}
+\newcommand{\trennlinie}{\vspace{2mm}\hr\vspace{2mm}}
 \newcommand{\linie}{\hr}
 \newcommand{\anfang}{\raggedcolumns\frontmatter}
-\newcommand{\hauptteil}{\mainmatter}
+\newcommand{\hauptteil}{\mainmatter\pagestyle{plain}}
 \newcommand{\schluss}{\backmatter}
 \newcommand{\spaltenanfang}{\begin{multicols}{2}}
         \newcommand{\spaltenende}{\end{multicols}}
@@ -281,10 +277,15 @@
         \vspace{-1mm}
         \hr[0.8pt]
         \tcblower
+        \setlength{\leftskip}{2mm}
+        \setlength{\rightskip}{2mm}
         \vspace{2mm}
         %\tcbline
         #4
+        \vspace{2mm}
         \hr
+        \setlength{\leftskip}{0mm}
+        \setlength{\rightskip}{0mm}
     \end{creaturebox}
 }
 \newcommand{\probe}[3]{%
@@ -350,3 +351,23 @@
 \newcommand{\anfuehrungszeichen}[1]{\enquote{#1}}
 \newcommand{\anf}[1]{\anfuehrungszeichen{#1}}
 %\newcommand{}
+\newcommand{\kastenkopf}[1]{\raggedright{\hspace{5mm}\color{dunkelrot}\Large #1}}
+\newcommand{\kreaturkampfw}[4]{\kraturkampfwerte{#1}{#2}{#3}{#4}}
+
+\newcommand{\handoutkasten}[2]{%
+\neueseite
+\pagestyle{empty}%
+\label{#1}%
+\kastengrau{
+    %\kastenkopf{Kastenüberschrift}\\
+    % skipleft und vspaces koennten durch einen extra handoutkasten mit mehr spacing und groessere Schrift gespart werden. Erstmal nur als Beispiel:
+    \vspace{1cm}
+    \setlength\leftskip{2cm}
+    \setlength\rightskip{2cm}
+    \huge
+    #2
+    \vspace{1cm}
+    \setlength\leftskip{0cm}
+    \setlength\rightskip{0cm}
+}
+}

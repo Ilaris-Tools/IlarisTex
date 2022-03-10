@@ -112,12 +112,88 @@
             \textbf{Beispiel}: \textbackslash kasten\{Kastentext\}
         }
 }
-\newglossaryentry{}
+\newglossaryentry{anfang}
 {
-    name={\textbackslash },
-    description={\textbf{Beispiel}: \textbackslash \{\}\newline
+    name={\textbackslash anfang},
+    description={
+            Setzt ein paar Grundeinstellungen direkt zum Beginn des Dokuments. Sollte direkt hinter \textbackslash begin\{document\} stehen. Darauf folgen Titelseite und ggf. weitere Seiten die nicht in Inhaltsverzeichnis und die Nummerierung aufgenommen werden sollen.
+            \textbf{Beispiel}: \textbackslash anfang
+        }
+}
+
+\newglossaryentry{hauptteil}
+{
+    name={\textbackslash hauptteil},
+    description={
+            Mit dem Hauptteil beginnt die Seitennummerierung und die Auflistung der Kapitel im Inhaltsverzeichnis. Da sich hinter diesem Befehl automatische Einstellungen verstecken, sollte er auch benutzt werden, wenn garkein \textbackslash anfang oder \textbackslash schluss des Dokuments gesetzt wird.\\
+            \textbf{Beispiel}: \textbackslash hauptteil
         }
 }
 
 
 
+\newglossaryentry{schluss}
+{
+    name={\textbackslash schluss},
+    description={
+            Optionaler Befehl um den Hauptteil zu beenden und den Anhang zu beginnen. Dies kann praktisch sein, wenn im Anhang andere Seitennummerierungen oder Seitenlayouts benutzt werden sollen.\\
+            \textbf{Beispiel}: \textbackslash schluss
+        }
+}
+\newglossaryentry{titelseite}
+{
+    name={\textbackslash titelseite},
+    description={
+            Erstellt eine Titelseite mit Bild über die ganze Seite.\newline
+            \textbf{Beispiel}: \textbackslash titelseite\{ ... alles auf der titelseite ...\}
+        }
+}
+
+
+\newglossaryentry{titel}
+{
+    name={\textbackslash titel},
+    description={
+            Der Titel des Dokuemnts. Er wird automatisch mit einem Schatten versehen, um sich vom Hintergrund besser abzuheben. Schrift und Schattenfarbe können eingestellt werden. Mehrzeilige Titel müssen manuell durch mehrfaches Aufrufen des Befehls erstellt werden.
+            \textbf{Beispiel}: \textbackslash \{\}\newline
+        }
+}
+
+\newglossaryentry{linie}
+{
+    name={\textbackslash linie},
+    description={Erzeugt eine horizontale dunkelrote Linie über die Breite der Textzeile. Diese Linie fügt keinen Abstand nach oben oder unten ein. Für Linien mit 2mm Abstand verwende \textbackslash trennlinie.\\
+            \textbf{Beispiel}: \textbackslash linie
+        }
+}
+\newglossaryentry{trennlinie}
+{
+    name={\textbackslash trennlinie},
+    description={Erzeugt eine horizontale dunkelrote Linie über die Breite der Textzeile. Diese Linie hält 2mm Abstand nach oben und unten. Ohne Abstand wäre \textbackslash linie.\\
+            \textbf{Beispiel}: \textbackslash trennlinie
+        }
+}
+\newglossaryentry{handout}
+{
+    name={\textbackslash handout},
+    description={}
+}
+
+\newglossaryentry{handoutbild}
+{
+    name={\textbackslash handoutbild},
+    description={}
+}
+
+\newglossaryentry{handoutpdf}
+{
+    name={\textbackslash handoutpdf},
+    description={}
+}
+
+
+\newglossaryentry{handoutkasten}
+{
+    name={\textbackslash handoutkasten},
+    description={}
+}

@@ -4,6 +4,16 @@
 %\input{extras.tex}
 \input{kreaturen.tex}
 
+\usepackage{listings}
+\lstset
+{
+    language=[LaTeX]TeX,
+    breaklines=true,
+    basicstyle=\texttt\scriptsize,
+    keywordstyle=\color{dunkelrot},
+    identifierstyle=\color{braun},
+}
+
 \begin{document}
 \anfang
 \titelseite{%
@@ -27,12 +37,36 @@
 \credit{Glossar}{\href{https://github.com/XaverStiensmeier/IlarisGlossaryEntries}{Xaver Stiensmeier}}
 \credit{Inspiriert durch}{\href{https://github.com/Ilaris-dev/Ilaris-LaTeX}{Ilaris-Latex}\\von Jan Battenfeld}
 \lizenz
+\kapitel{Vorwort}
+\spaltenanfang
 
-\kapitel{Text}
-Ein neues Kapitel wird mit dem Befehl \gls{kapitel} eingeleitet. Es wird automatisch formatiert und im Inhaltsverzeichnis registriert. Lange Kapitelnamen werden zwar automatisch umgebrochen, aber es sieht trotzdem besser aus die Überschriften kurz zu halten. Überschriften beginnen automatisch eine neue Seite, sollte ansonsten manuelle Seiten oder Zeilenumbrüche gebraucht werden, gibt es \gls{neuespalte} und \gls{neueseite}
-. Ein Großteil, des Dokuments wird warscheinlich im Zweispaltenlayout geschrieben. Dieses wird mit \gls{spaltenanfang} begonnen und muss unbedingt mit \textbackslash spaltenende beendet werden. Da die Kapitelüberschriften beide Spalten überspannen sollen, kann im Zweispaltenlayout \gls{skapitel} benutzt werden, um nicht jedesmal das Spaltenlayout wechseln zu müssen.
+\abschnitt{Latex Dokument}
+Es gibt eine Grundstruktur, die jedes Dokument, das auf diesem Template aufbaut, befolgen sollte.
+\begin{lstlisting}
+    \documentclass{Ilaris}
+    \begin{document}
+    \anfang
+    ...
+    \hauptteil
+    ...
+    \end{document}
+\end{lstlisting}
+
+Zwischen den Befehlen \gls{anfang} und \verb!\hauptteil! steht alles, was vor dem Inhaltsverzeichnis kommt und noch keine richtigen Seitenzahlen hat. Zum Beispiel Titelseiten, Impressum oder ein Vorwort. Optional kann nach dem Hauptteil noch ein \verb!\schluss! eingeleitet werden, in dem zum Beispiel Anhänge oder das Glossar untergebracht werden können. Für kurze schlichte Dokumente ist das jedoch oft nicht nötig.
+
+\abschnitt{Digital vs Druck}
+Aktuell ist das Template auf ein digitales Dokument ausgelegt. Das heisst es wurden weder leere Seiten für Rückseiten eingefügt, noch Druckränder oder tintensparende Hintergründe verwendet. Stattdessen, wurde wert darauf gelegt, verschiedene Stellen (Inhalt, Glossar, Anhang, Handouts...) mit einander zu verlinken, sodass beim lesen des Dokuments schnell an die richtigen Stellen gesprungen werden kann. Es kann natürlich ohne Weieres ausgedruckt werden, wie es ist. In zukunftigen Versionen soll es aber noch eine Option für eine Druckversion geben, die etwas mehr Rücksicht auf Tinteneffizienz nimmt. Keine Angst, dies wird durch einen Befehl möglich sein, ohne ein neues Dokument erzeugen zu müssen.
+
+\spaltenende
+\kapitel{Layout}
+Ein neues Kapitel wird mit dem Befehl \gls{kapitel} eingeleitet. Es wird automatisch formatiert und im Inhaltsverzeichnis registriert. Lange Kapitelnamen werden zwar automatisch umgebrochen, aber es sieht trotzdem besser aus die Überschriften kurz zu halten. Überschriften beginnen automatisch eine neue Seite, sollte ansonsten manuelle Seiten oder Zeilenumbrüche gebraucht werden, gibt es \gls{neuespalte} und \gls{neueseite}.
+Ein Großteil, des Dokuments wird warscheinlich im Zweispaltenlayout geschrieben. Dieses wird mit \gls{spaltenanfang} begonnen und muss unbedingt mit \textbackslash spaltenende beendet werden. Da die Kapitelüberschriften beide Spalten überspannen sollen, kann im Zweispaltenlayout \gls{skapitel} benutzt werden, um nicht jedesmal das Spaltenlayout wechseln zu müssen.
 
 \spaltenanfang
+
+\abschnitt{Titelseite}
+Die Titelseite baut auf einem Bild auf, das idealerweise schon im DinA4-Format (portrait) vorliegt. Erstellt wird sie mit dem Befehl \gls{titelseite}, wobei alles was auf die Titelseite kommt mit in die Klammern gehört. Ein paar vordefinierte Befehle, die nützlich sein könnten um die Titelseite einfach zu gestalten: \gls{titel}
+
 \abschnitt{Abschnitt}
 Jedes Kapitel kann in einzelne Abschnitte (Unterkapitel) gegliedert werden, die mit \gls{abschnitt} eingeleitet werden und ebenfalls im Inhaltsverzeichnis auftauchen. Die Abschnittsüberschriften sollen das Spaltenlayout (falls verwendet) nicht unterbrechen.
 \geschichte{Ich bin eine Geschichte oder ein Auszug aus einer Schrift, wie sie in der Spielwelt existieren könnte. Auch Zitate, Informationen aus Büchern oder Liedtexte könnten so aussehen.}{Autorin}
@@ -66,11 +100,11 @@ Das zweite Argument gibt den Inhalt der Tabelle direkt an Latex weiter.Da muss m
 Ein Pergamentkasten eignet sich wunderbar um einzelne Informationen deutlich hervorzuheben. Einen farbigen Kasten erstellt man mit \gls{kasten} und \gls{kastengrau} erstellt einen ähnlichen aber etwas graueren Kasten. Die können zum Beispiel Erzähltexte oder Informationen für gelungene Talentproben sein. Pergamente sind auch Rechteckig, auch wenn das folgende am Rand schon etwas ausgefranzt ist.
 
 \kasten{
-    Dies ist der Standardkasten. Da noch Bilder für schmale, breite und größere vorliegen, könnte man dazu auch noch etwas speziellere Kästen erstellen.\\
+    Dies ist der Standardkasten. Da noch Bilder für Schmale, Breite und Größere vorliegen, mögen eventuell noch etwas speziellere Kästen folgen.\\
     Für kleine Absätze im Zweispaltenlayout sollte es aber erstmal reichen.
 }
 
-Nach dem Kasten steht auch ein Satz, damit man mal sieht wie doll sich das Pergament vom Text drumherum abhebt. Kästen über die volle Breite können einfach außerhalb des Spaltenlayouts erstellt werden. Im Kapitel Handouts gibt es auch DinA4 Kästen an. Es können auch grauere Kästen verwendet werden, die zwar mehr aus einem \anf{Fehler} entstanden sind, aber vielleicht sind sie ja mal von Nutzen.
+Kästen über die volle Breite können einfach außerhalb des Spaltenlayouts erstellt werden. Im Kapitel Handouts gibt es auch DinA4 Kästen an. Es können auch grauere Kästen verwendet werden, die zwar mehr aus einem \anf{Fehler} entstanden sind, aber vielleicht sind sie ja mal von Nutzen.
 
 \kastengrau{
     Hintergrund dieses Kastens ist das Originalbild, das nicht mit dem beigen Hintergrund der Seite multipliziert wurde. Der Unterschied wird im Abschnitt Illustrationen veranschaulicht.
@@ -84,13 +118,13 @@ Den Kreaturenkasten habe ich absichtlich erstmal nach einer allgemeinen Kreatur 
     \kreaturinfo{Info}{Text}\\
     \kreaturinfo{Kampfvorteile}{Standfest, Sturmangriff}\\
     \kreaturinfo{Fertigkeiten}{Eins zwei drei und noch mehr text damit man die}
-    \hr
+    \linie
     \kreaturinfo{Fertigkeiten}{Eins zwei drei und noch mehr\\ text damit man die}
 }
 
 \kreatur{Mensch}{Humanoid, Unfreundlich}{bilder/zwerg}{
     \kreaturinfo{Vorteil}{Er muss sich nicht ständig unterhalten, weil ihn eh keiner mag}
-    \linie
+    \trennlinie
     \kreaturinfo{Nachteil}{Ihm ist oft langweilig, weil sich niemand mit ihm unterhalten möchte}
 }
 
@@ -101,9 +135,31 @@ Ich finde die Eigenschaften blockweise einzuschieben wesentlich einfacher und fl
 \abschnitt{Proben}
 %\scalebox{-1}[1]{\includegraphics[width=\linewidth]{layout/grafik/proben/verschlagenheit}}
 %\includegraphics[width=\linewidth]{layout/grafik/proben/alchemie}
+Für Probenboxen kam mir die Idee, die die Fertigkeiten hübschen Fertigkeiten-Bildchen zu verwenden. Die aktuelle Umsetzung mit dem gebastelten Rahmen ist vielleicht etwas zu fancy und hat den Nachteil, dass ie nicht wirklich in der Höhe skalierbar ist ohne das Bild zu verzerren. Alternativ gibt es ja auch schon die Möglichkeit die Pergamentkästen für Proben zu verwenden.
 
+\probe{derekunde}{Geographie (I, 18)}{Ich bin eine Probe auf Derekunde mit diesem Ergebnis. Die Box ist leider nicht skalierbar, daher müssen die Erzähltexte kompakt oder stichpunktartig sein, oder ein anderer Kasten gewählt werden.}
 
-\probe{derekunde}{Derekunde (18)}{Ich bin eine Probe auf Derekunde mit diesem Ergebnis. Die Box ist leider nicht skalierbar, daher müssen die Erzähltexte kompakt oder stichpunktartig sein, oder ein anderer Kasten gewählt werden.}
+\probe{magiekunde}{Magietheorie (III, 21)}{%
+    \tabelle{rX}{
+        +8 & Doppelte Schwierigkeit \\
+        +4 & Schwieriger    \\
+        0 & Normal \\
+        -4 & Vereinfacht \\
+        -8 & Doppelte Vereinfachung \\
+    }
+
+}
+
+\kasten{
+    \kastenkopf{Magietheorie (III, 21)}
+    \tabelle{rX}{
+        +8 & Doppelte Schwierigkeit, dessen Ergebnistext etwas mehr als ein oder zwei Zeilen einnimmt \\
+        +4 & Schwieriger, hat auch informationen mit etwas mehr Text    \\
+        0 & Normal, nur kurz \\
+        -4 & Vereinfacht, wieder etwas mehr Text um zu sehen wie der Kasten sich strecken lässt \\
+        -8 & Doppelte Vereinfachung \\
+    }
+}
 
 \neueseite
 \abschnitt{Illustrationen}
@@ -125,8 +181,8 @@ Um Bilder oder Zeichnungen über die volle breite darzustellen, kann das Spalten
 
 \skapitel{Handouts}
 Handouts sind für viele Spielhilfen und Abenteuer keine Seltenheit und niemand hat Lust irgendwelche ausgeschnittenen oder halb abgedeckten Seiten des ausgedruckten Dokuments auf den Spieltisch zu legen. Deshalb gehören Handouts in den Anhang. Um möglichst keine unnötige Informationen mit auf den ausgedruckten anhängen zu haben, wurde ein extra Seitenlayout erstellt, mit anderen Seitenbegrenzungen, ohne Hintergrundbild Seitenzahlen etc. Die zwei arten von Handouts die mir am häufigsten untergekommen sind, sind wohl Text (Notizen, Briefe, Buchseiten etc..) und Karten. Für letzteres (und ersteres mit besonderen Designwünschen) bietet sich ein Bild für die ganze Seite an. Für ersteres eventuell die schon verwendeten Kästen in der richtigen Größe.
+Ein erster Ansatz für ein Handout kann schon auf Seite \pageref{beispielkasten} betrachtet werden. In der nächsten Version könnte aber noch einiges an Komfort und weitere Beispiele folgen.
 
-TODO: Handoutstyle
 
 \skapitel{Extras}
 Dieses Kapitel beinhaltet Funktionen, die nicht zur Kernklasse gehören, aber durch \textbackslash include{extras} und ggf. weiterer \anf{Plugins} aktiviert werden können. Die Idee dieser optionalen Module ist, sie so einfach wie möglich nutzbar zu machen, ohne dass sie dabei die eigentliche Klasse mit ggf. unnötigen Paketen und Einstellungen verkomplizieren. Auch soll es so für andere Entwickler möglich sein, die Klasse einfach erweitern zu können. Aktuell gibt es zB die Möglichkeit auf eine Sammlung von Kreaturen und von Glossareinträgen zurück zu greifen.
@@ -150,14 +206,20 @@ Testweise habe ich mal eine Datenbank für Kreaturen als yaml-Datei angelegt, di
 
 \kreaturbaumdrache
 
-
 \skapitel{Latex Tips}
 
 \abschnitt{Tabellen}
 \label{latextipstabellen}
-TODO: Spaltenlayout Tabellen
+TODO: Spaltenlayout bei Tabellen
 \spaltenende
 
 \glossar
 %\schluss
+\handoutkasten{beispielkasten}{
+    Das hier ist ein Pergamentkasten, der benutzt wird um direkt im Latex Dokument ein Handout zu erstellen.
+    Man könnte hier natürlich noch eine Schriftart wählen, die das ganze nach einer krakeligen Handschrift oder feinster Kaligraphie aussehen lässt, je nachdem, wofür das Handout benutzt werden soll.\\[1cm]
+    Der \gls{handout} Befehl beginnt eine neue weiße Seite, auf der sich ausgetobt werden kann. Alternativ gibt es diesen vorgefertigten Kasten (\gls{handoutkasten}) und Handouts für Bilder (\gls{handoutbild}) oder um direkt fertige PDFs einzubinden (\gls{handoutpdf}).
+}
+
+
 \end{document}
