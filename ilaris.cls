@@ -189,16 +189,19 @@
 
 
 % fonts
-\newfontfamily{\aniron}{Aniron}
-\newfontfamily{\cinzel}{Cinzel}
-\setmainfont{Crimson Pro}
-\setsansfont{Crimson Pro}
+\newfontfamily{\aniron}{Aniron-Bold.ttf}
+\newfontfamily{\cinzel}{Cinzel-Regular.ttf}
+\newfontfamily{\cinzelbold}{Cinzel-Bold.ttf}
+\newfontfamily{\crimsonblack}{CrimsonPro-Black.ttf}
+%\setmainfont[BoldFont={Crimson Pro, Bold}]{Crimson Pro}
+\setmainfont[BoldFont=CrimsonPro-Bold.ttf, ItalicFont=CrimsonPro-Italic.ttf, BoldItalicFont=CrimsonPro-BoldItalic.ttf]{CrimsonPro-Regular.ttf}
+\setsansfont{CrimsonPro-Regular.ttf}
 \setkomafont{chapterentry}{\LARGE \scshape \textbf}
 \setkomafont{chapterentrypagenumber}{\normalfont\normalsize}
 \addtokomafont{chapter}{\color{dunkelrot}\fontsize{26}{26}\aniron}
 \addtokomafont{section}{\color{dunkelrot}\Large\aniron} 
-\addtokomafont{subsection}{\fontsize{15}{16}\color{dunkelrot}\scshape\cinzel} 
-%\addtokomafont{subsubsection}{\fontsize{12}{12}} 
+\addtokomafont{subsection}{\fontsize{15}{16}\color{dunkelrot}\scshape\cinzelbold} 
+\addtokomafont{subsubsection}{\fontsize{11}{11}\color{dunkelrot}\scshape\cinzelbold} 
 \addtokomafont{minisec}{\normalfont\bfseries}
 
 % chapter style
@@ -366,7 +369,7 @@
 \newcommand{\tabelle}[2]{\begin{tabularx}{\linewidth}{#1}
   \arrayrulecolor{dunkelrot}#2\end{tabularx}}
 
-\newcommand{\tkopf}[1]{\color{dunkelrot}\cinzel\footnotesize\textbf{#1} }
+\newcommand{\tkopf}[1]{\color{dunkelrot}\cinzelbold\footnotesize\textbf{#1} }
 \newcommand{\tzeile}[1]{#1 \\}
 
 
