@@ -10,7 +10,7 @@ Ein richtiges Beispiel: [template.pdf](template.pdf)
 
 
 ### Features
-* Pergament-, Proben-, Bild- und Kreaturenkästen
+* Pergament-, Inof-, Proben-, Bild- und Kreaturenkästen
 * Seitenlayout, Spalten und Hintergrund
 * Schriftarten, Überschriften, Tabellen, Farben
 * Einfache Einbindung von Bildern
@@ -30,7 +30,7 @@ Ein richtiges Beispiel: [template.pdf](template.pdf)
 
 ## Installation
 
-Es muss eine aktuelle TexLive version installiert sein, oder das paket tcolorbox manuell aktualisert werden, damti teilweise transparente Hintergründe funktionieren. [Infos zum updaten](https://tex.stackexchange.com/questions/55437/how-do-i-update-my-tex-distribution).
+Es muss eine aktuelle TexLive Version installiert sein, oder das paket tcolorbox manuell aktualisert werden, damti teilweise transparente Hintergründe funktionieren. [Infos zum updaten](https://tex.stackexchange.com/questions/55437/how-do-i-update-my-tex-distribution).
 
 ### Latex-Paket für Nutzer
 

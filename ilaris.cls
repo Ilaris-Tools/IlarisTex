@@ -17,8 +17,9 @@
 % colors
 \definecolor{dunkelrot}{HTML}{450c15}
 \definecolor{dunkelbraun}{HTML}{39220d}
-\definecolor{braun}{HTML}{6f5843}
+\definecolor{braun}{HTML}{6f5843} % linien?
 \definecolor{hellrot}{HTML}{450c15}
+\definecolor{beige}{HTML}{e7d1b3}  % kastenhintergrund
 \definecolor{kampf}{HTML}{c86400}
 \definecolor{profan}{HTML}{655743}
 \definecolor{magie}{HTML}{425a66}
@@ -114,6 +115,7 @@
 \newtcolorbox{probenbox}[1][]{
   unbreakable,
   blankest,
+  arc=0mm,
   top=0.08\linewidth,
   left=0.08\linewidth,
   right=0.31\linewidth,
@@ -121,6 +123,29 @@
   width=\linewidth,
   height=0.44211\linewidth,
   #1
+}
+
+\newtcolorbox{infobox}[1][]{
+    enhanced jigsaw,
+    unbreakable,
+    %blankest,
+    boxsep=0pt,
+    %nobeforeafter,
+    arc=0mm,
+    outer arc=0mm
+    boxrule=0mm,
+    leftrule=1mm,
+    rightrule=0mm,
+    bottomrule=0mm,
+    toprule=0mm,
+    top=2mm,
+    left=2mm,
+    right=2mm,
+    bottom=2mm,
+    colframe=dunkelrot,
+    width=\linewidth,
+    colback=beige,
+    #1
 }
 
 \newtcolorbox{bildbox}[1][]{
@@ -295,6 +320,7 @@
     \end{probenbox}}
 
 
+\newcommand{\info}[1]{\begin{infobox}#1\end{infobox}}
 \newcommand{\absatz}[1]{\subsection*{#1}}
 \newcommand{\block}[1]{\subsubsection*{#1}}
 \newcommand{\spaltenumbruch}{\columnbreak}
