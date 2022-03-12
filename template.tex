@@ -39,7 +39,6 @@
 \lizenz
 \kapitel{Vorwort}
 \spaltenanfang
-
 \abschnitt{Latex Dokument}
 Es gibt eine Grundstruktur, die jedes Dokument, das auf diesem Template aufbaut, befolgen sollte.
 \begin{lstlisting}
@@ -59,6 +58,7 @@ Aktuell ist das Template auf ein digitales Dokument ausgelegt. Das heisst es wur
 
 \spaltenende
 \kapitel{Layout}
+\abschnitt{Seiten und Spalten}
 Ein neues Kapitel wird mit dem Befehl \gls{kapitel} eingeleitet. Es wird automatisch formatiert und im Inhaltsverzeichnis registriert. Lange Kapitelnamen werden zwar automatisch umgebrochen, aber es sieht trotzdem besser aus die Überschriften kurz zu halten. Überschriften beginnen automatisch eine neue Seite, sollte ansonsten manuelle Seiten oder Zeilenumbrüche gebraucht werden, gibt es \gls{neuespalte} und \gls{neueseite}.
 Ein Großteil, des Dokuments wird warscheinlich im Zweispaltenlayout geschrieben. Dieses wird mit \gls{spaltenanfang} begonnen und muss unbedingt mit \textbackslash spaltenende beendet werden. Da die Kapitelüberschriften beide Spalten überspannen sollen, kann im Zweispaltenlayout \gls{skapitel} benutzt werden, um nicht jedesmal das Spaltenlayout wechseln zu müssen.
 
@@ -67,17 +67,17 @@ Ein Großteil, des Dokuments wird warscheinlich im Zweispaltenlayout geschrieben
 \abschnitt{Titelseite}
 Die Titelseite baut auf einem Bild auf, das idealerweise schon im DinA4-Format (portrait) vorliegt. Erstellt wird sie mit dem Befehl \gls{titelseite}, wobei alles was auf die Titelseite kommt mit in die Klammern gehört. Ein paar vordefinierte Befehle, die nützlich sein könnten um die Titelseite einfach zu gestalten: \gls{titel}
 
-\abschnitt{Abschnitt}
+\abschnitt{Überschriften}
 Jedes Kapitel kann in einzelne Abschnitte (Unterkapitel) gegliedert werden, die mit \gls{abschnitt} eingeleitet werden und ebenfalls im Inhaltsverzeichnis auftauchen. Die Abschnittsüberschriften sollen das Spaltenlayout (falls verwendet) nicht unterbrechen.
 \geschichte{Ich bin eine Geschichte oder ein Auszug aus einer Schrift, wie sie in der Spielwelt existieren könnte. Auch Zitate, Informationen aus Büchern oder Liedtexte könnten so aussehen.}{Autorin}
 
 Diese kursiven Textblöcke, können mit dem Befehl \gls{geschichte} erstellt werden. Kurze Zitate oder einzelne \anf{Wörter} können mit dem Kurzbefehl \gls{anf} auch in Anführungszeichen gesetzt werden. Dieser Text hier ist ein ganz normaler standard Text, so wie man ihn herunterschreibt ohne irgendwelche Layoutbefehle zu verwenden. Man kann ihn durch Überschriften in Abschnitte unterteilen und diese wiederumtel in Absätze unterteilen.
 
 \absatz{Der Absatz}
-Beschriftete Absätze sind Unterunterüberschriften und stehen nicht mehr im Inhaltsverzeichnis, heben sich aber noch deutlich ab. Sie werden mit \gls{absatz} erstellt. Wenn nur der Textfluss abgesetzt werden soll, ohne irgendwelche überschriften, geht das durch eine einfache Leerzeile im Text. Einfache Zeilenumbrüche werden von Latex ignoriert, können aber mit \gls{neuezeile} erzwungen werden. Der nächste Absatz ist auf bosparano und nur für Magier interessant.
+Beschriftete Absätze sind Unterunterüberschriften und stehen nicht mehr im Inhaltsverzeichnis, heben sich aber noch deutlich ab. Sie werden mit \gls{absatz} erstellt. Wenn nur der Textfluss abgesetzt werden soll, ohne irgendwelche überschriften, geht das durch eine einfache Leerzeile im Text. Einfache Zeilenumbrüche werden von Latex ignoriert, können aber mit \gls{neuezeile} erzwungen werden. Die letzte Ebene der Struktur bildet der \gls{unterabsatz}. Ein solcher folgt auf bosparano und ist nur für Magier interessant.
 
-\absatz{Lorem Ipsum}
-\lipsum[1-4]
+\unterabsatz{Lorem Ipsum}
+\lipsum[1-2]
 
 \skapitel{Kästen}
 Kapitel fangen automatisch auf neuen Seiten an.

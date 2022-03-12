@@ -26,7 +26,7 @@
 \definecolor{karma}{HTML}{8e5d6f}
 
 
-\RequirePackage[bookmarks,pdfusetitle,colorlinks,linkcolor=dunkelbraun,citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
+\RequirePackage[bookmarks,pdfusetitle,colorlinks,linkcolor=dunkelrot,citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 \RequirePackage{scrlayer-scrpage}
 \RequirePackage{polyglossia}
 \RequirePackage{enumitem}
@@ -183,7 +183,10 @@
 \ofoot*{\qquad\textbf{\normalfont\LARGE\thepage}\qquad}
 
 \RedeclareSectionCommand[beforeskip=1em,afterskip=1.5em]{chapter}
-\RedeclareSectionCommand[beforeskip=1.5em,afterskip=0.5em]{section}
+\RedeclareSectionCommand[beforeskip=1.5em,afterskip=0.5em,
+    tocentryformat=\color{dunkelrot}\cinzelsemi
+    %tocpagenumberformat=\usekomafont{disposition}
+  ]{section}
 \RedeclareSectionCommand[beforeskip=1em,afterskip=0.1em]{subsection}
 \RedeclareSectionCommand[beforeskip=0em,afterskip=0.1em]{subsubsection}
 
@@ -192,12 +195,14 @@
 \newfontfamily{\aniron}{Aniron-Bold.ttf}
 \newfontfamily{\cinzel}{Cinzel-Regular.ttf}
 \newfontfamily{\cinzelbold}{Cinzel-Bold.ttf}
+\newfontfamily{\cinzelsemi}{Cinzel-SemiBold.ttf}
 \newfontfamily{\crimsonblack}{CrimsonPro-Black.ttf}
 %\setmainfont[BoldFont={Crimson Pro, Bold}]{Crimson Pro}
 \setmainfont[BoldFont=CrimsonPro-Bold.ttf, ItalicFont=CrimsonPro-Italic.ttf, BoldItalicFont=CrimsonPro-BoldItalic.ttf]{CrimsonPro-Regular.ttf}
 \setsansfont{CrimsonPro-Regular.ttf}
-\setkomafont{chapterentry}{\LARGE \scshape \textbf}
-\setkomafont{chapterentrypagenumber}{\normalfont\normalsize}
+\setkomafont{chapterentry}{\LARGE \scshape \cinzelsemi \color{dunkelrot}}
+%\setkomafont{sectionentry}{\large \scshape \cinzelbold \color{dunkelrot}}
+\setkomafont{chapterentrypagenumber}{\normalsize}
 \addtokomafont{chapter}{\color{dunkelrot}\fontsize{26}{26}\aniron}
 \addtokomafont{section}{\color{dunkelrot}\Large\aniron} 
 \addtokomafont{subsection}{\fontsize{15}{16}\color{dunkelrot}\scshape\cinzelbold} 
@@ -257,7 +262,8 @@
     \end{center}}
 \newcommand{\kasten}[1]{\begin{pergamentbox}#1\end{pergamentbox}}
 \newcommand{\kastengrau}[1]{\begin{pergamentboxgrau}#1\end{pergamentboxgrau}}
-\newcommand{\inhaltsverzeichnis}{{\let\cleardoublepage\clearpage\tableofcontents}}
+\newcommand{\tiefesinhaltsverzeichnis}{{\let\cleardoublepage\clearpage\tableofcontents}}
+\newcommand{\inhaltsverzeichnis}{\setcounter{tocdepth}{1}\tiefesinhaltsverzeichnis}
 \newcommand{\fanprodukt}{\begin{center}\includegraphics[width=5cm]{gfx/dsa_logo_fanprodukt}\end{center}}
 \newcommand{\titelbild}[1]{
     \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{#1}};}
@@ -297,7 +303,7 @@
 \newcommand{\kreatur}[4]{%
     \begin{creaturebox}
         \begin{minipage}[b]{0.86\linewidth}
-            {\color{dunkelrot}\Large\textbf{#1}}\\[0mm]
+            {\color{dunkelrot}\Large\cinzelsemi #1}\\[0mm]
             \footnotesize \emph{#2}
             \vspace{1mm}
         \end{minipage}
@@ -324,7 +330,8 @@
 
 
 \newcommand{\info}[1]{\begin{infobox}#1\end{infobox}}
-\newcommand{\absatz}[1]{\subsection*{#1}}
+\newcommand{\absatz}[1]{\subsection{#1}}
+\newcommand{\unterabsatz}[1]{\subsubsection*{#1}}
 \newcommand{\block}[1]{\subsubsection*{#1}}
 \newcommand{\spaltenumbruch}{\columnbreak}
 \newcommand{\neuespalte}{\spaltenumbruch}
