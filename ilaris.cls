@@ -303,7 +303,7 @@
 \newcommand{\kreatur}[4]{%
     \begin{creaturebox}
         \begin{minipage}[b]{0.86\linewidth}
-            {\color{dunkelrot}\Large\cinzelsemi #1}\\[0mm]
+            {\color{dunkelrot}\large\cinzelsemi #1}\\[0mm]
             \footnotesize \emph{#2}
             \vspace{1mm}
         \end{minipage}
