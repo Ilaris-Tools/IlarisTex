@@ -17,14 +17,16 @@
 \begin{document}
 \anfang
 \titelseite{%
-    \titelbild{bilder/template}
-    \platz
-    \titel{Noch ein Ilaris}
-    \titel{Latex Template}
-    %\authorin{Von Irgendwem}
-    \platz
-    \platz
-    \fanprodukt
+    \begin{centering}
+        \titelbild{bilder/template}
+        \platz
+        \titel{Noch ein Ilaris}\\
+        \titel{Latex Template}
+
+        \platz
+        \platz
+        \fanprodukt
+    \end{centering}
 }
 \inhaltsverzeichnis
 \neueseite
@@ -115,8 +117,8 @@ Kästen über die volle Breite können einfach außerhalb des Spaltenlayouts ers
 Den Kreaturenkasten habe ich absichtlich erstmal nach einer allgemeinen Kreatur benannt und nicht einfach Gegner. Dafür gibt es zwei Gründe. Zum einen, kann es ja auch freundlich gesinnte Wesen geben und der selbe Kasten soll auch diese darstellen können, Kampfwerte oder freier Text für kommentare sollten dabei frei kombinierbar und optional bleiben. Zum anderen, kann (sofern erlaubt), der Befehl für Gegnerkästen noch ergänzt werden um mit existierenden Ausgaben von Konvertierungstools etc, kompatibel zu bleiben.
 
 \kreatur{Name}{Beschreibung}{gfx/kreaturen/tier}{
-    \kreaturinfo{Info}{Text}\\
-    \kreaturinfo{Kampfvorteile}{Standfest, Sturmangriff}\\
+    \kreaturinfo{Info}{Text}
+    \kreaturinfo{Kampfvorteile}{Standfest, Sturmangriff}
     \kreaturinfo{Fertigkeiten}{Eins zwei drei und noch mehr text damit man die}
     \linie
     \kreaturinfo{Fertigkeiten}{Eins zwei drei und noch mehr\\ text damit man die}
@@ -208,9 +210,7 @@ Für dieses Template wird das Glossar vorallem dazu verwendet die Latex-Befehle 
 Testweise habe ich mal eine Datenbank für Kreaturen als yaml-Datei angelegt, die automatisch in eine tex-Datei exportiert werden kann. Das Ziel ist, diese DB gemeinsam zu erweitern und in Latex können die Blöcke für jede Kreatur in der Sammlung automatisch erzeugt werden. Die Autovervollständigung, kann so beim Schreiben sogar noch als Inspiration für spontane Gegner dienen. So ergbit der Befehl \textbackslash kreaturelefant zum Beispiel folgenden Kasten, ohne das irgendwelche Werte angegeben werden müssen:
 
 \kreaturelefant
-
 \kreaturbaumdrache
-
 \skapitel{Latex Tips}
 
 \abschnitt{Tabellen}

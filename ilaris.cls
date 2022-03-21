@@ -61,7 +61,7 @@
 \makeatother
 
 
-\graphicspath{{gfx}{bilder}}
+\graphicspath{{gfx/}{bilder/}}
 \newcommand{\TOCnum}{1} 
 
 
@@ -276,30 +276,67 @@
     \renewcommand{\tsfarbe}{#1}
 }
 \newcommand{\titel}[1]{
-    \title{#1}
-    \begin{centering}
+    \title{#1}{%
+    %\begin{centering}
         % 26.12.2020 \\
         % \color{orange!15}
-        \color{\tfarbe}
+        %\center
+        \color{\tfarbe}%
         %\vspace{0.55\textheight}
-        \Huge
+        %\Huge
         %\fontfamily{\aniron}
-        \fontsize{42}{42}
-        \selectfont
-        \aniron
-        \shadowcolor{\tsfarbe}
-        \shadowtext{#1} \\
-    \end{centering}
+        \fontsize{42}{42}%
+        %\selectfont
+        \aniron%
+        \shadowcolor{\tsfarbe}%
+        \shadowtext{ #1}
+        }
+    %\end{centering}
 }
 
 \newcommand{\autorin}[1]{\begin{centering}\author{#1}\Large #1\\\end{centering}}
+\newcommand{\autor}[1]{\autorin{#1}}
 \newcommand{\titelseite}[1]{\thispagestyle{empty}#1}
 %\newcommand{\kreatur}[1]{\begin{creature}#1\end{creature}}
 
 
-\newcommand{\kreaturinfo}[2]{
-    \footnotesize\textbf{#1: } #2}
+\newcommand{\probe}[3]{%
+    \begin{probenbox}[watermark graphics=gfx/proben/#1, watermark stretch=1]
+        \hspace{6mm}{\color{dunkelrot}\large\textbf{#2}}\\[0.5mm]
+        \footnotesize #3
+    \end{probenbox}}
 
+
+\newcommand{\info}[1]{\begin{infobox}#1\end{infobox}}
+\newcommand{\absatz}[1]{\subsection{#1}}
+\newcommand{\unterabsatz}[1]{\subsubsection*{#1}}
+\newcommand{\block}[1]{\subsubsection*{#1}}
+\newcommand{\spaltenumbruch}{\columnbreak}
+\newcommand{\neuespalte}{\spaltenumbruch}
+\newcommand{\seitenumbruch}{\newpage}
+\newcommand{\neueseite}{\seitenumbruch}
+
+\newcommand{\credit}[2]{%
+    \begin{center}
+        {\aniron\fontsize{24}{24}\color{dunkelrot}#1}\\
+        #2
+    \end{center}
+}%
+\newcommand{\lizenz}{
+    \vfill
+    \begin{center}
+        DAS SCHWARZE AUGE, AVENTURIEN, DERE, MYRANOR, THARUN, UTHURIA, RIESLAND und
+        THE DARK EYE sind eingetragene Marken der Ulisses Spiele GmbH, Waldems. Die Verwendung der
+        Grafiken erfolgt unter den von Ulisses Spiele erlaubten Richtlinien. Eine Verwendung über diese
+        Richtlinien hinaus darf nur nach vorheriger schriftlicher Genehmigung der Ulisses Medien und Spiel
+        Distribution GmbH erfolgen.
+    \end{center}
+}
+\newcommand{\creditlayout}{
+    \credit{Layoutvorlage}{\href{https://github.com/Ilaris-dev/IlarisTex}{IlarisTex}}
+}
+
+% Kreaturen
 \newcommand{\kreatur}[4]{%
     \begin{creaturebox}
         \begin{minipage}[b]{0.86\linewidth}
@@ -322,49 +359,20 @@
         \setlength{\rightskip}{0mm}
     \end{creaturebox}
 }
-\newcommand{\probe}[3]{%
-    \begin{probenbox}[watermark graphics=gfx/proben/#1, watermark stretch=1]
-        \hspace{6mm}{\color{dunkelrot}\large\textbf{#2}}\\[0.5mm]
-        \footnotesize #3
-    \end{probenbox}}
+\newcommand{\kreaturinfo}[2]{
+    \footnotesize\textbf{#1: } #2\par}
 
-
-\newcommand{\info}[1]{\begin{infobox}#1\end{infobox}}
-\newcommand{\absatz}[1]{\subsection{#1}}
-\newcommand{\unterabsatz}[1]{\subsubsection*{#1}}
-\newcommand{\block}[1]{\subsubsection*{#1}}
-\newcommand{\spaltenumbruch}{\columnbreak}
-\newcommand{\neuespalte}{\spaltenumbruch}
-\newcommand{\seitenumbruch}{\newpage}
-\newcommand{\neueseite}{\seitenumbruch}
-
-\newcommand{\credit}[2]{%
-    \begin{center}
-        {\aniron\fontsize{18}{18}\color{dunkelrot}#1}\\
-        #2
-    \end{center}
-}%
-\newcommand{\lizenz}{
-    \vfill
-    \begin{center}
-        DAS SCHWARZE AUGE, AVENTURIEN, DERE, MYRANOR, THARUN, UTHURIA, RIESLAND und
-        THE DARK EYE sind eingetragene Marken der Ulisses Spiele GmbH, Waldems. Die Verwendung der
-        Grafiken erfolgt unter den von Ulisses Spiele erlaubten Richtlinien. Eine Verwendung über diese
-        Richtlinien hinaus darf nur nach vorheriger schriftlicher Genehmigung der Ulisses Medien und Spiel
-        Distribution GmbH erfolgen.
-    \end{center}
-}
-\newcommand{\creditlayout}{
-    \credit{Layoutvorlage}{\href{https://github.com/Ilaris-dev/IlarisTex}{IlarisTex}}
-}
 \newcommand{\kreaturkampfwerte}[4]{
     \kreaturkampfwert{Wundschwelle}{#1}
     \kreaturkampfwert{Magieresistenz}{#2}
     \kreaturkampfwert{Geschwindigkeit}{#3}
     \kreaturkampfwert{Initiative}{#4}
 }
+% \newcommand{\kreaturwaffe}[6]{
+%     \textbf{#1} \hfill RW #2 \hfill VT #3 \hfill AT #4 \hfill TP #5 \par \hspace{4mm} \textit{#6}\par
+% }
 \newcommand{\kreaturwaffe}[6]{
-    \textbf{#1} \hfill RW #2 \hfill VT #3 \hfill AT #4 \hfill TP #5 \par \hspace{4mm} \textit{#6}\par
+    \parbox{9Ex}{\textbf{#1}} \hfill RW #2 \hfill VT #3 \hfill AT #4 \hfill TP #5 \par \hspace{4mm} \textit{#6}\par
 }
 \newcommand{\kreaturkampfwert}[2]{\kreaturinfo{#1}{#2}\par}
 \newcommand{\WsMrGsIni}[4]{\kreaturkampfwerte{#1}{#2}{#3}{#4}}
