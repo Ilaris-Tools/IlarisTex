@@ -44,6 +44,8 @@
 \RequirePackage{verbatim}
 \RequirePackage{fourier}
 \RequirePackage[T1]{fontenc}
+\RequirePackage{background}
+\RequirePackage{ifthen}
 
 % basic config for packages and layout
 \setmainlanguage{german}
@@ -176,13 +178,28 @@
 \setlength\parindent{0pt}% noindent anywhere
 \setcounter{secnumdepth}{0}% no section numbers
 \renewcaptionname{german}{\contentsname}{Inhalt}
-\cehead*{
-	\tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\scalebox{-1}[1]{\includegraphics[width=\paperwidth,height=\paperheight]{gfx/layout/hintergrund.jpg}}};
-	}
-\cohead*{% odd pages
-	\tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{gfx/layout/hintergrund.jpg}}; 
-	}
+% \cehead*{
+% 	\tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\scalebox{-1}[1]{\includegraphics[width=\paperwidth,height=\paperheight]{gfx/layout/hintergrund.jpg}}};
+% 	}
+% \cohead*{% odd pages
+% 	\tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{gfx/layout/hintergrund.jpg}}; 
+% 	}
 \ofoot*{\qquad\textbf{\normalfont\LARGE\thepage}\qquad}
+
+%Hintergundbild
+\SetBgContents{}
+\SetBgOpacity{1}
+\makeatletter
+\AddEverypageHook{%
+\ifthenelse{\isodd{\thepage}}%
+{\SetBgAngle{0}%
+\SetBgScale{1}
+\SetBgContents{\includegraphics[width=\paperwidth,height=\paperheight]{gfx/layout/hintergrund}}}%
+{\SetBgAngle{0}%
+\SetBgScale{-1}
+\SetBgContents{\includegraphics[width=\paperwidth,height=\paperheight]{gfx/layout/hintergrund}}}%
+\bg@material}
+\makeatother
 
 \RedeclareSectionCommand[beforeskip=1em,afterskip=1.5em]{chapter}
 \RedeclareSectionCommand[beforeskip=1.5em,afterskip=0.5em,

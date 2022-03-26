@@ -21,7 +21,6 @@ Ein richtiges Beispiel: [template.pdf](template.pdf)
 * Tintensparende Druckversion
 * Verbesserte Vorlagen für Handouts
 * Mehr Kästen und Layoutoptionen
-* Kleinere Dateigrößen der Bilder
 * Layout der Inhaltsverzeichnisse
 * Anleitung und mehr Beispiele
 * viele weitere Kleinigkeiten
