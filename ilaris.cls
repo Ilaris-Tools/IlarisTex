@@ -25,8 +25,11 @@
 \definecolor{magie}{HTML}{425a66}
 \definecolor{karma}{HTML}{8e5d6f}
 
-
-\RequirePackage[bookmarks,pdfusetitle,colorlinks,linkcolor=dunkelrot,citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
+% NOTE: colorlinks+linkcolor macht links farbig statt der roten kaesten.. aber dafür kann das inhaltsverzeichnis (links) auch nicht mehr farbig unterschiedlich gestaltet werden, da link colors die tocstyles scheinbar überschreibt :(
+\RequirePackage[bookmarks,pdfusetitle,
+%colorlinks,
+%linkcolor=dunkelrot,
+citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 \RequirePackage{scrlayer-scrpage}
 \RequirePackage{polyglossia}
 \RequirePackage{enumitem}
@@ -66,7 +69,7 @@
 
 
 \graphicspath{{gfx/}{bilder/}}
-\newcommand{\TOCnum}{1} 
+%\newcommand{\TOCnum}{1} 
 
 
 % boxes
@@ -196,28 +199,18 @@
 \SetBgScale{1}
 \SetBgContents{\includegraphics[width=\paperwidth,height=\paperheight]{gfx/layout/hintergrund}}}%
 {\SetBgAngle{0}%
-\SetBgScale{-1}
-\SetBgContents{\includegraphics[width=\paperwidth,height=\paperheight]{gfx/layout/hintergrund}}}%
+\SetBgScale{1}
+\SetBgContents{\scalebox{-1}[1]{\includegraphics[width=\paperwidth,height=\paperheight]{gfx/layout/hintergrund}}}}%
 \bg@material}
 \makeatother
 
-\RedeclareSectionCommand[beforeskip=1em,afterskip=1.5em]{chapter}
-\RedeclareSectionCommand[beforeskip=1.5em,afterskip=0.5em,
-    tocentryformat=\color{dunkelrot}\cinzelsemi
-    %tocpagenumberformat=\usekomafont{disposition}
-  ]{section}
-\RedeclareSectionCommand[beforeskip=1em,afterskip=0.1em]{subsection}
-%\RedeclareSectionCommand[beforeskip=0em,afterskip=0.1em]{subsubsection}
-\RedeclareSectionCommand[beforeskip=1em,afterskip=0.1em]{subsubsection}
 
 % fonts
 \newfontfamily{\aniron}{Aniron-Bold.ttf}
 \addtokomafont{chapter}{\color{dunkelrot}\fontsize{26}{26}\aniron}
-
 \setkomafont{section}{\aniron\Large\color{dunkelrot}}
 \setkomafont{subsection}{\usefont{T1}{qpl}{b}{sc}\Large\color{dunkelrot}}
 \setkomafont{subsubsection}{\usefont{T1}{qpl}{b}{sc}\color{dunkelrot}}
-
 \newfontfamily{\cinzel}{Cinzel-Regular.ttf}
 \newfontfamily{\cinzelbold}{Cinzel-Bold.ttf}
 \newfontfamily{\cinzelsemi}{Cinzel-SemiBold.ttf}
@@ -236,6 +229,30 @@
 \setkomafont{subsection}{\usefont{T1}{qpl}{b}{sc}\Large\color{dunkelrot}}
 \setkomafont{subsubsection}{\usefont{T1}{qpl}{b}{sc}\color{dunkelrot}}
 \addtokomafont{minisec}{\normalfont\bfseries}
+
+\newcommand*\tocsubsection[1]{{\color{black}#1}}
+
+\RedeclareSectionCommand[beforeskip=1em,afterskip=1.5em,
+tocentryformat=\color{dunkelrot}\usefont{T1}{qpl}{b}{sc}\LARGE
+]{chapter}
+\RedeclareSectionCommand[beforeskip=1.5em,afterskip=0.5em,%
+tocentryformat=\color{dunkelrot}\usefont{T1}{qpl}{b}{sc}
+    %tocpagenumberformat=\usekomafont{disposition}
+]{section}
+\RedeclareSectionCommand[beforeskip=1em,afterskip=0.1em,%
+tocentryformat=\tocsubsection]{subsection}
+%\RedeclareSectionCommand[beforeskip=0em,afterskip=0.1em]{subsubsection}
+\RedeclareSectionCommand[beforeskip=1em,afterskip=0.1em]{subsubsection}
+
+
+% \newcommand*\tocentryformat[1]{{\ttfamily#1}}
+% \RedeclareSectionCommands
+%   [
+%     tocentryformat=\tocentryformat,
+%     tocpagenumberformat=\tocentryformat
+%   ]
+%   {section,subsection,subsubsection,paragraph,subparagraph}
+
 
 % chapter style
 \RequirePackage{varwidth} %Breite anpassen für überlange Zeilen 
@@ -290,8 +307,8 @@
     \end{center}}
 \newcommand{\kasten}[1]{\begin{pergamentbox}#1\end{pergamentbox}}
 \newcommand{\kastengrau}[1]{\begin{pergamentboxgrau}#1\end{pergamentboxgrau}}
-\newcommand{\tiefesinhaltsverzeichnis}{{\let\cleardoublepage\clearpage\tableofcontents}}
-\newcommand{\inhaltsverzeichnis}{\setcounter{tocdepth}{1}\tiefesinhaltsverzeichnis}
+\newcommand{\inhaltsverzeichnis}{{\let\cleardoublepage\clearpage\tableofcontents}}
+\newcommand{\grobesinhaltsverzeichnis}{\setcounter{tocdepth}{1}\grobesinhaltsverzeichnis}
 \newcommand{\fanprodukt}{\begin{center}\includegraphics[width=5cm]{gfx/dsa_logo_fanprodukt}\end{center}}
 \newcommand{\titelbild}[1]{
     \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{#1}};}

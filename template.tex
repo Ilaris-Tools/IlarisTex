@@ -1,4 +1,4 @@
-\documentclass{Ilaris}
+\documentclass[openright]{Ilaris}
 \input{extras-glossar.tex}
 \input{glossar-latex.tex}
 %\input{extras.tex}
@@ -55,18 +55,18 @@ Es gibt eine Grundstruktur, die jedes Dokument, das auf diesem Template aufbaut,
 Zwischen den Befehlen \gls{anfang} und \verb!\hauptteil! steht alles, was vor dem Inhaltsverzeichnis kommt und noch keine richtigen Seitenzahlen hat. Zum Beispiel Titelseiten, Impressum oder ein Vorwort. Optional kann nach dem Hauptteil noch ein \verb!\schluss! eingeleitet werden, in dem zum Beispiel Anhänge oder das Glossar untergebracht werden können. Für kurze schlichte Dokumente ist das jedoch oft nicht nötig.
 
 \abschnitt{Digital vs Druck}
-Aktuell ist das Template auf ein digitales Dokument ausgelegt. Das heisst es wurden weder leere Seiten für Rückseiten eingefügt, noch Druckränder oder tintensparende Hintergründe verwendet. Stattdessen, wurde wert darauf gelegt, verschiedene Stellen (Inhalt, Glossar, Anhang, Handouts...) mit einander zu verlinken, sodass beim lesen des Dokuments schnell an die richtigen Stellen gesprungen werden kann. Es kann natürlich ohne Weieres ausgedruckt werden, wie es ist. In zukunftigen Versionen soll es aber noch eine Option für eine Druckversion geben, die etwas mehr Rücksicht auf Tinteneffizienz nimmt. Keine Angst, dies wird durch einen Befehl möglich sein, ohne ein neues Dokument erzeugen zu müssen.
+Aktuell ist das Template auf ein digitales Dokument ausgelegt. Das heisst es wurden weder leere Seiten für Rückseiten eingefügt, noch Druckränder oder tintensparende Hintergründe verwendet. Stattdessen, wurde wert darauf gelegt, verschiedene Stellen (Inhalt, Glossar, Anhang, Handouts...) mit einander zu verlinken, sodass beim lesen des Dokuments schnell an die richtigen Stellen gesprungen werden kann. Es kann natürlich ohne Weiteres ausgedruckt werden, wie es ist. In zukünftigen Versionen soll es aber noch eine Option für eine Druckversion geben, die etwas mehr Rücksicht auf Tinteneffizienz nimmt. Keine Angst, dies wird durch einen Befehl möglich sein, ohne ein neues Dokument erzeugen zu müssen.
 
 \spaltenende
 \kapitel{Layout}
 \abschnitt{Seiten und Spalten}
 Ein neues Kapitel wird mit dem Befehl \gls{kapitel} eingeleitet. Es wird automatisch formatiert und im Inhaltsverzeichnis registriert. Lange Kapitelnamen werden zwar automatisch umgebrochen, aber es sieht trotzdem besser aus die Überschriften kurz zu halten. Überschriften beginnen automatisch eine neue Seite, sollte ansonsten manuelle Seiten oder Zeilenumbrüche gebraucht werden, gibt es \gls{neuespalte} und \gls{neueseite}.
-Ein Großteil, des Dokuments wird warscheinlich im Zweispaltenlayout geschrieben. Dieses wird mit \gls{spaltenanfang} begonnen und muss unbedingt mit \textbackslash spaltenende beendet werden. Da die Kapitelüberschriften beide Spalten überspannen sollen, kann im Zweispaltenlayout \gls{skapitel} benutzt werden, um nicht jedesmal das Spaltenlayout wechseln zu müssen.
+Ein Großteil, des Dokuments wird wahrscheinlich im Zweispaltenlayout geschrieben. Dieses wird mit \gls{spaltenanfang} begonnen und muss unbedingt mit \textbackslash Spaltenende beendet werden. Da die Kapitelüberschriften beide Spalten überspannen sollen, kann im Zweispaltenlayout \gls{skapitel} benutzt werden, um nicht jedes Mal das Spaltenlayout wechseln zu müssen.
 
 \spaltenanfang
 
 \abschnitt{Titelseite}
-Die Titelseite baut auf einem Bild auf, das idealerweise schon im DinA4-Format (portrait) vorliegt. Erstellt wird sie mit dem Befehl \gls{titelseite}, wobei alles was auf die Titelseite kommt mit in die Klammern gehört. Ein paar vordefinierte Befehle, die nützlich sein könnten um die Titelseite einfach zu gestalten: \gls{titel}
+Die Titelseite baut auf einem Bild auf, das idealerweise schon im DinA4-Format (Portrait) vorliegt. Erstellt wird sie mit dem Befehl \gls{titelseite}, wobei alles was auf die Titelseite kommt mit in die Klammern gehört. Ein paar vordefinierte Befehle, die nützlich sein könnten um die Titelseite einfach zu gestalten: \gls{titel}
 
 \abschnitt{Überschriften}
 Jedes Kapitel kann in einzelne Abschnitte (Unterkapitel) gegliedert werden, die mit \gls{abschnitt} eingeleitet werden und ebenfalls im Inhaltsverzeichnis auftauchen. Die Abschnittsüberschriften sollen das Spaltenlayout (falls verwendet) nicht unterbrechen.
@@ -75,29 +75,16 @@ Jedes Kapitel kann in einzelne Abschnitte (Unterkapitel) gegliedert werden, die 
 Diese kursiven Textblöcke, können mit dem Befehl \gls{geschichte} erstellt werden. Kurze Zitate oder einzelne \anf{Wörter} können mit dem Kurzbefehl \gls{anf} auch in Anführungszeichen gesetzt werden. Dieser Text hier ist ein ganz normaler standard Text, so wie man ihn herunterschreibt ohne irgendwelche Layoutbefehle zu verwenden. Man kann ihn durch Überschriften in Abschnitte unterteilen und diese wiederumtel in Absätze unterteilen.
 
 \absatz{Der Absatz}
-Beschriftete Absätze sind Unterunterüberschriften und stehen nicht mehr im Inhaltsverzeichnis, heben sich aber noch deutlich ab. Sie werden mit \gls{absatz} erstellt. Wenn nur der Textfluss abgesetzt werden soll, ohne irgendwelche überschriften, geht das durch eine einfache Leerzeile im Text. Einfache Zeilenumbrüche werden von Latex ignoriert, können aber mit \gls{neuezeile} erzwungen werden. Die letzte Ebene der Struktur bildet der \gls{unterabsatz}. Ein solcher folgt auf bosparano und ist nur für Magier interessant.
+Beschriftete Absätze sind Unterunterüberschriften und stehen nicht mehr im Inhaltsverzeichnis, heben sich aber noch deutlich ab. Sie werden mit \gls{absatz} erstellt. Wenn nur der Textfluss abgesetzt werden soll, ohne irgendwelche Überschriften, geht das durch eine einfache Leerzeile im Text. Einfache Zeilenumbrüche werden von Latex ignoriert, können aber mit \gls{neuezeile} erzwungen werden. Die letzte Ebene der Struktur bildet der \gls{unterabsatz}.
 
-\unterabsatz{Lorem Ipsum}
-\lipsum[1-2]
+\unterabsatz{Unterabsatz}
+Hier steht dann was zu einem ganz bestimmten Thema oder für einen ganz bestimmten Ort. Im Inhaltsverzeichnis taucht das aber nicht auf...
 
-\skapitel{Kästen}
+\abschnitt{Kästen}
 Kapitel fangen automatisch auf neuen Seiten an.
 Ein paar auf die schnelle hingetüdelte Beispiele um Kästen und andere Umgebungen umzusetzen. Für einige dieser Kästen, hab ich das tcolorbox Paket ins Spiel gebracht, das nimmt einem etwas Arbeit ab, wenn man noch weitere oder kompliziertere Kästen erstellen will. Oder soetwas wie Seitenumbrüche oder transparente Hintergründe einstellen will (Kreaturenkasten). Für die Transparenz im Teil des Kastens wird allerdings eine relativ aktuelle Version des Pakets benötigt, falls die Installation zu Umständlich ist, kann man natürlich auch einfach ein untransparente passende Farbe nehmen.
 
-\abschnitt{Tabellen}
-Tabellen können leider noch nicht vollständig durch Kurzbefehle ersetzt werden, dafür stehen zu viele Variablen im Raum. Die Anzahl, Ausrichtung und Größe von Spalten und Zeilen sollen variabel bleiben, eine Kopfzeile optional. Das Streifenlayout wird allerdings automatisch angewendet wenn eine \gls{tabelle} begonnen wird. Der erste Eintrag enthält dabei das Spaltenlayout, das im Kapitel Latex Tips auf Seite \pageref{latextipstabellen}
-genauer erklärt wird. Eine ganze Zeile zu formatieren, ist etwas komplizierter, daher als übergangslösung erstmal die Möglichkeit jede Zelle der Kopfzeile mit \gls{tkopf} zu formatieren.
-
-Das zweite Argument gibt den Inhalt der Tabelle direkt an Latex weiter.Da muss man zur Zeit noch echten Latexcode schreiben, weil mir auf die schnelle kein Praktischer Kurzbefehl eingefallen ist. Aber da kann man sich sicher noch etwas überlegen, um das deutlich zu verinefachen. Eigentlich steht der Text hier auch nur um die Tabelle im Abschnitt nicht so alleine zu lassen.
-
-\tabelle{X X X}{
-    \tkopf{eins} & \tkopf{Zwei} & \tkopf{Drei} \\\hline%
-    ich      & bin      & eine     \\
-    einfache & latex    & tabelle  \\
-    in       & tabularx & umgebung \\
-}
-
-\abschnitt{Pergamente}
+\absatz{Pergamente}
 Ein Pergamentkasten eignet sich wunderbar um einzelne Informationen deutlich hervorzuheben. Einen farbigen Kasten erstellt man mit \gls{kasten} und \gls{kastengrau} erstellt einen ähnlichen aber etwas graueren Kasten. Die können zum Beispiel Erzähltexte oder Informationen für gelungene Talentproben sein. Pergamente sind auch Rechteckig, auch wenn das folgende am Rand schon etwas ausgefranzt ist.
 
 \kasten{
@@ -112,7 +99,7 @@ Kästen über die volle Breite können einfach außerhalb des Spaltenlayouts ers
 }
 \spaltenumbruch
 
-\abschnitt{Kreaturen}
+\absatz{Kreaturen}
 Den Kreaturenkasten habe ich absichtlich erstmal nach einer allgemeinen Kreatur benannt und nicht einfach Gegner. Dafür gibt es zwei Gründe. Zum einen, kann es ja auch freundlich gesinnte Wesen geben und der selbe Kasten soll auch diese darstellen können, Kampfwerte oder freier Text für kommentare sollten dabei frei kombinierbar und optional bleiben. Zum anderen, kann (sofern erlaubt), der Befehl für Gegnerkästen noch ergänzt werden um mit existierenden Ausgaben von Konvertierungstools etc, kompatibel zu bleiben.
 
 \kreatur{Name}{Beschreibung}{gfx/kreaturen/tier}{
@@ -133,7 +120,7 @@ Ich finde die Eigenschaften blockweise einzuschieben wesentlich einfacher und fl
 
 
 
-\abschnitt{Proben}
+\absatz{Proben}
 %\scalebox{-1}[1]{\includegraphics[width=\linewidth]{layout/grafik/proben/verschlagenheit}}
 %\includegraphics[width=\linewidth]{layout/grafik/proben/alchemie}
 Für Probenboxen kam mir die Idee, die die Fertigkeiten hübschen Fertigkeiten-Bildchen zu verwenden. Die aktuelle Umsetzung mit dem gebastelten Rahmen ist vielleicht etwas zu fancy und hat den Nachteil, dass ie nicht wirklich in der Höhe skalierbar ist ohne das Bild zu verzerren. Alternativ gibt es ja auch schon die Möglichkeit die Pergamentkästen für Proben zu verwenden.
@@ -162,11 +149,28 @@ Für Probenboxen kam mir die Idee, die die Fertigkeiten hübschen Fertigkeiten-B
     }
 }
 
-\abschnitt{Info}
+\absatz{Info}
 Für kleine Anmerkungen oder als Alternative zu den Pergamentkästen gibt es noch kleine Infokästen.
 \info{
     Hier kann alles mögliche drinstehen, zum Beispiel Spoilerwarnungen, Verweise auf andere Abenteuer oder sinnloser Text wie dieser.
 }
+
+
+
+\abschnitt{Tabellen}
+Tabellen können leider noch nicht vollständig durch Kurzbefehle ersetzt werden, dafür stehen zu viele Variablen im Raum. Die Anzahl, Ausrichtung und Größe von Spalten und Zeilen sollen variabel bleiben, eine Kopfzeile optional. Das Streifenlayout wird allerdings automatisch angewendet wenn eine \gls{tabelle} begonnen wird. Der erste Eintrag enthält dabei das Spaltenlayout, das im Kapitel Latex Tips auf Seite \pageref{latextipstabellen}
+genauer erklärt wird. Eine ganze Zeile zu formatieren, ist etwas komplizierter, daher als übergangslösung erstmal die Möglichkeit jede Zelle der Kopfzeile mit \gls{tkopf} zu formatieren.
+
+Das zweite Argument gibt den Inhalt der Tabelle direkt an Latex weiter.Da muss man zur Zeit noch echten Latexcode schreiben, weil mir auf die schnelle kein Praktischer Kurzbefehl eingefallen ist. Aber da kann man sich sicher noch etwas überlegen, um das deutlich zu verinefachen. Eigentlich steht der Text hier auch nur um die Tabelle im Abschnitt nicht so alleine zu lassen.
+
+\tabelle{X X X}{
+    \tkopf{eins} & \tkopf{Zwei} & \tkopf{Drei} \\\hline%
+    ich      & bin      & eine     \\
+    einfache & latex    & tabelle  \\
+    in       & tabularx & umgebung \\
+}
+
+
 \neueseite
 \abschnitt{Illustrationen}
 
