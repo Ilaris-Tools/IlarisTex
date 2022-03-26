@@ -41,7 +41,9 @@
 \RequirePackage{lipsum}
 \RequirePackage[breakable,skins,xparse]{tcolorbox}
 \RequirePackage[top=20mm, bottom=15mm, outer=15mm, inner=15mm, marginparsep=10mm, marginparwidth=20mm, head=12.5mm, foot=8mm]{geometry}
-
+\RequirePackage{verbatim}
+\RequirePackage{fourier}
+\RequirePackage[T1]{fontenc}
 
 % basic config for packages and layout
 \setmainlanguage{german}
@@ -51,7 +53,7 @@
 \rowcolors{2}{}{brown!55}
 
 
-
+%\renewcommand{\cleardoublepage}{\clearpage}
 
 \makeatletter
 \g@addto@macro\document{% Mehrspaltiges TOC
@@ -188,11 +190,17 @@
     %tocpagenumberformat=\usekomafont{disposition}
   ]{section}
 \RedeclareSectionCommand[beforeskip=1em,afterskip=0.1em]{subsection}
-\RedeclareSectionCommand[beforeskip=0em,afterskip=0.1em]{subsubsection}
-
+%\RedeclareSectionCommand[beforeskip=0em,afterskip=0.1em]{subsubsection}
+\RedeclareSectionCommand[beforeskip=1em,afterskip=0.1em]{subsubsection}
 
 % fonts
 \newfontfamily{\aniron}{Aniron-Bold.ttf}
+\addtokomafont{chapter}{\color{dunkelrot}\fontsize{26}{26}\aniron}
+
+\setkomafont{section}{\aniron\Large\color{dunkelrot}}
+\setkomafont{subsection}{\usefont{T1}{qpl}{b}{sc}\Large\color{dunkelrot}}
+\setkomafont{subsubsection}{\usefont{T1}{qpl}{b}{sc}\color{dunkelrot}}
+
 \newfontfamily{\cinzel}{Cinzel-Regular.ttf}
 \newfontfamily{\cinzelbold}{Cinzel-Bold.ttf}
 \newfontfamily{\cinzelsemi}{Cinzel-SemiBold.ttf}
@@ -204,9 +212,12 @@
 %\setkomafont{sectionentry}{\large \scshape \cinzelbold \color{dunkelrot}}
 \setkomafont{chapterentrypagenumber}{\normalsize}
 \addtokomafont{chapter}{\color{dunkelrot}\fontsize{26}{26}\aniron}
-\addtokomafont{section}{\color{dunkelrot}\Large\aniron} 
-\addtokomafont{subsection}{\fontsize{15}{16}\color{dunkelrot}\scshape\cinzelbold} 
-\addtokomafont{subsubsection}{\fontsize{11}{11}\color{dunkelrot}\scshape\cinzelbold} 
+% \addtokomafont{section}{\color{dunkelrot}\Large\aniron} 
+% \addtokomafont{subsection}{\fontsize{15}{16}\color{dunkelrot}\scshape\cinzelbold} 
+% \addtokomafont{subsubsection}{\fontsize{11}{11}\color{dunkelrot}\scshape\cinzelbold} 
+\setkomafont{section}{\aniron\Large\color{dunkelrot}}
+\setkomafont{subsection}{\usefont{T1}{qpl}{b}{sc}\Large\color{dunkelrot}}
+\setkomafont{subsubsection}{\usefont{T1}{qpl}{b}{sc}\color{dunkelrot}}
 \addtokomafont{minisec}{\normalfont\bfseries}
 
 % chapter style
