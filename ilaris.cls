@@ -26,9 +26,14 @@
 \definecolor{karma}{HTML}{8e5d6f}
 
 % NOTE: colorlinks+linkcolor macht links farbig statt der roten kaesten.. aber dafür kann das inhaltsverzeichnis (links) auch nicht mehr farbig unterschiedlich gestaltet werden, da link colors die tocstyles scheinbar überschreibt :(
+% https://tex.stackexchange.com/questions/50747/options-for-appearance-of-links-in-hyperref
+%https://ctan.mc1.root.project-creative.net/macros/latex/contrib/hyperref/doc/hyperref-doc.pdf
+% hidelinks und ggf. manuell faerben mit eigenem command ist das beste bzw. einzige um volle kontrolle zu haben
 \RequirePackage[bookmarks,pdfusetitle,
-%colorlinks,
-%linkcolor=dunkelrot,
+% colorlinks,
+% linkcolor=dunkelrot,
+% linktoc=none,
+hidelinks,
 citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 \RequirePackage{scrlayer-scrpage}
 \RequirePackage{polyglossia}
