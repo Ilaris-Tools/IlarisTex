@@ -176,16 +176,22 @@ Das zweite Argument gibt den Inhalt der Tabelle direkt an Latex weiter.Da muss m
 
 
 Illustrationen auf weißem Hintergrund, die sich dem Seitenhingergrund anpassen sollen, können (multiplikativ) über die Seite blenden. Dabei entsteht der Effeckt, als würde direkt auf das pergament gezeichnet/gedruckt worden sein. Abbildungen dieser Art werden hier Zeichnungen genannt.
-\zeichnung{bilder/einleitung.jpg}
+\zeichnung{bilder/einleitung}
 Sollen die Illustrationen in ihren echten Farben dargestellt werden, nennen wir es Bild und es würde so aussehen
 \bild{bilder/einleitung.jpg}
+
+Um Bilder nicht in voller Größe anzuzeigen, kann als optionales Argument die gewünschte Breite in mm oder cm angegeben werden (Danke Heiner):
+
+\zeichnung[3cm]{bilder/einleitung}
+\bild[3cm]{bilder/einleitung}
+
 Um echte Farben zu erhalten aber trotzdem keinen weißen Rand zu haben, kann man natürlich auch Bilder mit transparentem Hintergrund (.png) verwenden.
-Ich bastel zusätzlich noch an einer Möglichkeit für einen Zierrahmen. Das hier ist eine kleine Vorschau.
-\rahmen{bilder/einleitung.jpg}
+Bilder können auch in einen Zierrahmen eingefasst werden. Das sieht zum Beispiel so aus:
+\rahmen{bilder/einleitung}
 
 Um Bilder oder Zeichnungen über die volle breite darzustellen, kann das Spaltenlayout einfach kurz unterbrochen werden (spaltenende, spaltenanfang).
 \spaltenende
-\zeichnung{bilder/einleitung.jpg}
+\zeichnung{bilder/einleitung}
 \spaltenanfang
 
 

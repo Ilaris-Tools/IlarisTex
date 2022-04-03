@@ -54,6 +54,7 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{background}
 \RequirePackage{ifthen}
+\RequirePackage{xparse}
 
 % basic config for packages and layout
 \setmainlanguage{german}
@@ -180,7 +181,19 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 	\vspace{5mm}
 	\leavevmode
 }
-
+\newtcolorbox{kartenbox}[1][]{
+    unbreakable,
+    blankest,
+    top=0.05\linewidth,
+    left=0.05\linewidth,
+    right=0.05\linewidth,
+    bottom=0.05\linewidth,
+    watermark graphics=gfx/kasten/karte.png, 
+    watermark stretch=1,
+    width=\linewidth,
+    #1
+}
+\newcommand{\karte}[1]{\begin{kartenbox}#1\end{kartenbox}}
 
 % layout
 \setlength\parindent{0pt}% noindent anywhere
@@ -412,12 +425,13 @@ tocentryformat=\tocsubsection]{subsection}
 \newcommand{\kreaturinfo}[2]{
     \footnotesize\textbf{#1: } #2\par}
 
-\newcommand{\kreaturkampfwerte}[4]{
+\newcommand{\kreaturWsMrGsIni}[4]{
     \kreaturkampfwert{Wundschwelle}{#1}
     \kreaturkampfwert{Magieresistenz}{#2}
     \kreaturkampfwert{Geschwindigkeit}{#3}
     \kreaturkampfwert{Initiative}{#4}
 }
+\newcommand{\kreaturkampfwerte}[4]{\kreaturWsMrGsIni{#1}{#2}{#3}{#4}}
 % \newcommand{\kreaturwaffe}[6]{
 %     \textbf{#1} \hfill RW #2 \hfill VT #3 \hfill AT #4 \hfill TP #5 \par \hspace{4mm} \textit{#6}\par
 % }
@@ -441,7 +455,18 @@ tocentryformat=\tocsubsection]{subsection}
 \newcommand{\zeichnung}[1]{\begin{tikzpicture}%
 	\node [blend mode=multiply] at (0,0) {\includegraphics[width=\linewidth]{#1}};%
 \end{tikzpicture}}
-\newcommand{\bild}[1]{\includegraphics[width=\linewidth]{#1}}
+
+
+\DeclareDocumentCommand\zeichnung{ O{\linewidth} m }{%
+    \begin{tikzpicture}%
+        \node [blend mode=multiply] at (0,0) {\includegraphics[width=#1]{#2}};%
+    \end{tikzpicture}%
+}
+
+% \newcommand{\bild}[1]{\includegraphics[width=\linewidth]{#1}}
+\DeclareDocumentCommand\bild{ O{\linewidth} m }{%
+    \includegraphics[width=#1]{#2}
+}%
 \newcommand{\anfuehrungszeichen}[1]{\enquote{#1}}
 \newcommand{\anf}[1]{\anfuehrungszeichen{#1}}
 %\newcommand{}
@@ -465,3 +490,5 @@ tocentryformat=\tocsubsection]{subsection}
     \setlength\rightskip{0cm}
 }
 }
+
+
