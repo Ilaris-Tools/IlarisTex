@@ -1,4 +1,4 @@
-\documentclass[openright]{Ilaris}
+\documentclass{Ilaris}
 \input{extras-glossar.tex}
 \input{glossar-latex.tex}
 %\input{extras.tex}
@@ -30,7 +30,7 @@
 }
 \kapitel{Credits}
 \platz
-\credit{Autor}{Lukas Ruhe}
+\credit{Autor}{\href{https://github.com/Ilaris-Tools/IlarisTex}{Lukas Ruhe}}
 \credit{Illustrationen}{Bernhard Eisner}
 \credit{Titelbild}{\href{https://unsplash.com/photos/Hi0bdO0vEfo}{Ivana Cajina}}
 \credit{Glossar}{\href{https://github.com/XaverStiensmeier/IlarisGlossaryEntries}{Xaver Stiensmeier}}
@@ -155,6 +155,10 @@ Für kleine Anmerkungen oder als Alternative zu den Pergamentkästen gibt es noc
     Hier kann alles mögliche drinstehen, zum Beispiel Spoilerwarnungen, Verweise auf andere Abenteuer oder sinnloser Text wie dieser.
 }
 
+\absatz{Karten}
+Wer es mag sich kleine Karten für Manöver, Zauber, Regeln oder NSCs auszudrucken kann diese Kästen benutzen. Sie sind haben die Maße von üblichen Spiel- und Sammelkarten (63mm x 88mm, zB Magic). Und sollten damit in handelsübliche Sleeves und Sammelmappen passen. Dabei muss natürlich beachtet werden, dass die Karten ggf. minimal Kleiner werden, wenn die Seite beim Drucken herunterskaliert wird.
+
+\karte{test}
 
 
 \abschnitt{Tabellen}
@@ -235,5 +239,14 @@ TODO: Spaltenlayout bei Tabellen
     Der \gls{handout} Befehl beginnt eine neue weiße Seite, auf der sich ausgetobt werden kann. Alternativ gibt es diesen vorgefertigten Kasten (\gls{handoutkasten}) und Handouts für Bilder (\gls{handoutbild}) oder um direkt fertige PDFs einzubinden (\gls{handoutpdf}).
 }
 
-
+\newpage%
+\SetBgOpacity{0}%
+%\begin{multicols}{3}
+\karte{\glsdesc{transversalisTeleport_Talent}}%
+\karte{Zweite Karte}%
+\karte{Karte Drei}\\%
+\karte{Vierte Karte}%
+\newpage
+\karte{test}
+%\end{multicols}
 \end{document}

@@ -184,13 +184,16 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 \newtcolorbox{kartenbox}[1][]{
     unbreakable,
     blankest,
-    top=0.05\linewidth,
-    left=0.05\linewidth,
-    right=0.05\linewidth,
-    bottom=0.05\linewidth,
-    watermark graphics=gfx/kasten/karte.png, 
+    halign=left,
+    nobeforeafter,
+    top=5mm,
+    left=5mm,
+    right=5mm,
+    bottom=5mm,
+    watermark graphics=gfx/kasten/karte.jpg, 
     watermark stretch=1,
-    width=\linewidth,
+    width=63mm,
+    height=88mm,
     #1
 }
 \newcommand{\karte}[1]{\begin{kartenbox}#1\end{kartenbox}}
@@ -206,6 +209,8 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 % 	\tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{gfx/layout/hintergrund.jpg}}; 
 % 	}
 \ofoot*{\qquad\textbf{\normalfont\LARGE\thepage}\qquad}
+
+\newcommand{\bgscale}{1} % quickfix to disable bg
 
 %Hintergundbild
 \SetBgContents{}
@@ -224,6 +229,7 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 
 
 % fonts
+%\newfontfamily{\kartentext}[SizeFeatures={Size=8}]{qpl}%{b}{sc}
 \newfontfamily{\aniron}{Aniron-Bold.ttf}
 \addtokomafont{chapter}{\color{dunkelrot}\fontsize{26}{26}\aniron}
 \setkomafont{section}{\aniron\Large\color{dunkelrot}}
@@ -305,7 +311,7 @@ tocentryformat=\tocsubsection]{subsection}
 \newcommand{\hr}[1][0.4pt]{\par\vskip 0.4ex {\color{dunkelrot}\hrule height #1 }\par\vskip 1ex}
 \newcommand{\trennlinie}{\vspace{2mm}\hr\vspace{2mm}}
 \newcommand{\linie}{\hr}
-\newcommand{\anfang}{\raggedcolumns\frontmatter}
+\newcommand{\anfang}{\raggedcolumns\frontmatter\raggedright}
 \newcommand{\hauptteil}{\mainmatter\pagestyle{plain}}
 \newcommand{\schluss}{\backmatter}
 \newcommand{\spaltenanfang}{\begin{multicols}{2}}
