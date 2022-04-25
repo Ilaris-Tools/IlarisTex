@@ -229,8 +229,19 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 
 
 % fonts
+%%% FONTSPEC %%%
+\defaultfontfeatures[DancingScript]{
+    Extension={.ttf},
+    UprightFont={*-Regular},
+    BoldFont={*-Bold},
+    ItalicFont={*-Italic},
+    BoldItalicFont={*-BoldItalic},
+}
+
 %\newfontfamily{\kartentext}[SizeFeatures={Size=8}]{qpl}%{b}{sc}
 \newfontfamily{\aniron}{Aniron-Bold.ttf}
+\newfontfamily{\handschrift}{DancingScript-Regular.ttf}
+\newfontfamily{\krakelschrift}{MsMadi-Regular.ttf}
 \addtokomafont{chapter}{\color{dunkelrot}\fontsize{26}{26}\aniron}
 \setkomafont{section}{\aniron\Large\color{dunkelrot}}
 \setkomafont{subsection}{\usefont{T1}{qpl}{b}{sc}\Large\color{dunkelrot}}
@@ -384,7 +395,8 @@ tocentryformat=\tocsubsection]{subsection}
 \newcommand{\neuespalte}{\spaltenumbruch}
 \newcommand{\seitenumbruch}{\newpage}
 \newcommand{\neueseite}{\seitenumbruch}
-
+\newcommand{\ohnehintergrund}{\SetBgOpacity{0}}
+\newcommand{\mithintergrund}{\SetBgOpacity{1}}
 \newcommand{\credit}[2]{%
     \begin{center}
         {\aniron\fontsize{24}{24}\color{dunkelrot}#1}\\
@@ -479,22 +491,35 @@ tocentryformat=\tocsubsection]{subsection}
 \newcommand{\kastenkopf}[1]{\raggedright{\hspace{5mm}\color{dunkelrot}\Large #1}}
 \newcommand{\kreaturkampfw}[4]{\kraturkampfwerte{#1}{#2}{#3}{#4}}
 
-\newcommand{\handoutkasten}[2]{%
-\neueseite
-\pagestyle{empty}%
-\label{#1}%
+\newcommand{\handout}{
+    \ohnehintergrund
+    \newgeometry{left=9mm,right=9mm,top=12mm,bottom=12mm}
+    \pagestyle{empty}
+}
+\newcommand{\handoutende}{
+    \neueseite
+    \mithintergrund
+    \restoregeometry
+    \pagestyle{plain}
+}
+
+
+\DeclareDocumentCommand\handoutkasten{ O{\linewidth} m m }{%
+\label{#2}%
+\begin{minipage}{#1}
 \kastengrau{
     %\kastenkopf{Kastenüberschrift}\\
     % skipleft und vspaces koennten durch einen extra handoutkasten mit mehr spacing und groessere Schrift gespart werden. Erstmal nur als Beispiel:
     \vspace{1cm}
     \setlength\leftskip{2cm}
     \setlength\rightskip{2cm}
-    \huge
-    #2
+    \raggedright
+    #3
     \vspace{1cm}
     \setlength\leftskip{0cm}
     \setlength\rightskip{0cm}
 }
+\end{minipage}
 }
 
 

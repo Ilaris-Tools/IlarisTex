@@ -1,24 +1,29 @@
 %\usepackage{glossary-mcols}
-\usepackage{glossaries}
+\usepackage[section=chapter]{glossaries}
 
+\renewcommand*{\glsclearpage}{}
 % glossar laden
 \makeglossaries
 \loadglsentries{glossar}
 
+\newcommand{\gl}[1]{
+    \textbf{\gls{#1}}
+}
+
 \newcommand{\glossar}{
-    \printglossaries
+    \printglossary[title=Glossar]
 }
 \newcommand{\komplettesglossar}{
     \glsaddall
     \printglossaries
 }
 
-
 \newcommand{\glossareintrag}[2]{\newglossaryentry{#1}{#2}}
 
 % zweispaltig
 \renewcommand*{\glossarysection}[2][]{%
-    \twocolumn[{\chapter*{#2}}]%
+    \twocolumn[{\kapitel{#2}}]%
+    %\twocolumn%
     \setlength\glsdescwidth{0.6\linewidth}%
     \glsglossarymark{\glossarytoctitle}%
 }
