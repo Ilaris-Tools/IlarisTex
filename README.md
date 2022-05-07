@@ -6,7 +6,7 @@ Eine Latex-Klasse zum erstellen von Spielhilfen und Abenteuern für das alternat
 
 ![preview.png](preview.png)
 
-Ein richtiges Beispiel: [template.pdf](template.pdf)
+Eine Beispiel-PDF befindet sich im [letzten Releas](https://github.com/Ilaris-Tools/IlarisTex/releases/latest/)
 
 ### Features
 
@@ -76,5 +76,4 @@ xelatex template.tex
 
 ## Abweichungen zum Ilaris Layout
 
-- Seitenzahlen fangen nach Inhaltsverzeichnis an
 - Teilweise alternative Schriftarten mit passenderen Lizenzen

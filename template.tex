@@ -15,7 +15,7 @@
 }
 
 \begin{document}
-\anfang
+\hauptteil
 \titelseite{%
     \begin{centering}
         \titelbild{bilder/template}
@@ -27,17 +27,19 @@
         \fanprodukt
     \end{centering}
 }
-\kapitel{Credits}
+%\kapitel{Credits}
+\neueseite
+\phantom{} % unsichtbares element, damit \platz am seitenanfang funktioniert
 \platz
-\credit{Autor}{\href{https://github.com/Ilaris-Tools/IlarisTex}{Lukas Ruhe}}
+\credit{\LaTeX -Klasse}{\href{https://github.com/Ilaris-Tools/IlarisTex}{Lukas Ruhe}}
 \credit{Illustrationen}{Bernhard Eisner}
 \credit{Titelbild}{\href{https://unsplash.com/photos/Hi0bdO0vEfo}{Ivana Cajina}}
 \credit{Glossar}{\href{https://github.com/XaverStiensmeier/IlarisGlossaryEntries}{Xaver Stiensmeier}}
 \credit{Inspiriert durch}{\href{https://github.com/Ilaris-dev/Ilaris-LaTeX}{Ilaris-Latex}\\von Jan Battenfeld}
 \lizenz
 \inhaltsverzeichnis
-\hauptteil
-\kapitel{Vorwort}
+%\hauptteil
+\kapitelihvz{Das\\ Vorwort}{Vorwort}
 \spaltenanfang
 \abschnitt{Latex Dokument}
 Es gibt eine Grundstruktur, die jedes Dokument, das auf diesem Template aufbaut, befolgen sollte.
@@ -61,6 +63,10 @@ Aktuell ist das Template auf ein digitales Dokument ausgelegt. Es wurden weder l
 \abschnitt{Seiten und Spalten}
 Ein neues Kapitel wird mit dem Befehl \gl{kapitel} eingeleitet. Es wird automatisch formatiert und im Inhaltsverzeichnis registriert. Lange Kapitelnamen werden zwar automatisch umgebrochen, aber es sieht trotzdem besser aus die Überschriften kurz zu halten. Überschriften beginnen automatisch eine neue Seite, sollte ansonsten manuelle Seiten oder Zeilenumbrüche gebraucht werden, gibt es \textbf{\gl{neuespalte}} und \gl{neueseite}.
 Ein Großteil, des Dokuments wird wahrscheinlich im Zweispaltenlayout geschrieben. Dieses wird mit \gl{spaltenanfang} begonnen und muss unbedingt mit \textbackslash Spaltenende beendet werden. Da die Kapitelüberschriften beide Spalten überspannen sollen, kann im Zweispaltenlayout \gl{skapitel} benutzt werden, um nicht jedes Mal das Spaltenlayout wechseln zu müssen.
+\dreispaltenanfang
+Ein dreispaltiges Layout kann entsprechend mit \gl{dreispaltenanfang} begonnen werden.\\
+Ein dreispaltiges Layout wird im Regelbuch beispielsweise für Zauber und Liturgien verwendet.
+\spaltenende
 
 \spaltenanfang
 

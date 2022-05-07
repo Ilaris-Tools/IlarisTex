@@ -244,7 +244,7 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 \newfontfamily{\krakelschrift}{MsMadi-Regular.ttf}
 \addtokomafont{chapter}{\color{dunkelrot}\fontsize{26}{26}\aniron}
 \setkomafont{section}{\aniron\Large\color{dunkelrot}}
-\setkomafont{subsection}{\usefont{T1}{qpl}{b}{sc}\Large\color{dunkelrot}}
+\setkomafont{subsection}{\usefont{T1}{qpl}{b}{sc}\Large\textbf\color{dunkelrot}}
 \setkomafont{subsubsection}{\usefont{T1}{qpl}{b}{sc}\color{dunkelrot}}
 \newfontfamily{\cinzel}{Cinzel-Regular.ttf}
 \newfontfamily{\cinzelbold}{Cinzel-Bold.ttf}
@@ -326,9 +326,11 @@ tocentryformat=\tocsubsection]{subsection}
 \newcommand{\hauptteil}{\mainmatter\pagestyle{plain}}
 \newcommand{\schluss}{\backmatter}
 \newcommand{\spaltenanfang}{\begin{multicols}{2}}
-        \newcommand{\spaltenende}{\end{multicols}}
+\newcommand{\dreispaltenanfang}{\begin{multicols}{3}}
+\newcommand{\spaltenende}{\end{multicols}}
 \newcommand{\skapitel}[1]{\end{multicols}\kapitel{#1}\begin{multicols}{2}}
 \newcommand{\kapitel}[1]{{\let\cleardoublepage\clearpage\chapter*{#1}}\addcontentsline{toc}{chapter}{#1}}
+\newcommand{\kapitelihvz}[2]{\let\cleardoublepage\clearpage\chapter*{#1}\addcontentsline{toc}{chapter}{#2}}
 \newcommand{\abschnitt}[1]{\section{#1}}
 \newcommand{\leereseite}{\newpage\makebox{}\clearpage}
 \newcommand{\platz}{\vfill}
@@ -399,7 +401,7 @@ tocentryformat=\tocsubsection]{subsection}
 \newcommand{\mithintergrund}{\SetBgOpacity{1}}
 \newcommand{\credit}[2]{%
     \begin{center}
-        {\aniron\fontsize{24}{24}\color{dunkelrot}#1}\\
+        {\usefont{T1}{qpl}{b}{sc}\large\color{dunkelrot}#1}\\
         #2
     \end{center}
 }%
