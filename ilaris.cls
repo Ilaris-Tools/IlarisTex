@@ -45,7 +45,7 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 \RequirePackage{tikz} 
 \RequirePackage{csquotes}
 \RequirePackage{todonotes}
-\RequirePackage{fontspec}
+%\RequirePackage{fontspec}
 \RequirePackage{lipsum}
 \RequirePackage[breakable,skins,xparse]{tcolorbox}
 \RequirePackage[top=20mm, bottom=15mm, outer=15mm, inner=15mm, marginparsep=10mm, marginparwidth=20mm, head=12.5mm, foot=8mm]{geometry}
@@ -230,48 +230,54 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 
 % fonts
 %%% FONTSPEC %%%
-\defaultfontfeatures[DancingScript]{
-    Extension={.ttf},
-    UprightFont={*-Regular},
-    BoldFont={*-Bold},
-    ItalicFont={*-Italic},
-    BoldItalicFont={*-BoldItalic},
-}
+% \defaultfontfeatures[DancingScript]{
+%     Extension={.ttf}, 
+%     UprightFont={*-Regular},
+%     BoldFont={*-Bold},
+%     ItalicFont={*-Italic},
+%     BoldItalicFont={*-BoldItalic},
+% }
 
 %\newfontfamily{\kartentext}[SizeFeatures={Size=8}]{qpl}%{b}{sc}
 \newfontfamily{\aniron}{Aniron-Bold.ttf}
 \newfontfamily{\handschrift}{DancingScript-Regular.ttf}
 \newfontfamily{\krakelschrift}{MsMadi-Regular.ttf}
-\addtokomafont{chapter}{\color{dunkelrot}\fontsize{26}{26}\aniron}
-\setkomafont{section}{\aniron\Large\color{dunkelrot}}
-\setkomafont{subsection}{\usefont{T1}{qpl}{b}{sc}\Large\textbf\color{dunkelrot}}
-\setkomafont{subsubsection}{\usefont{T1}{qpl}{b}{sc}\color{dunkelrot}}
-\newfontfamily{\cinzel}{Cinzel-Regular.ttf}
-\newfontfamily{\cinzelbold}{Cinzel-Bold.ttf}
-\newfontfamily{\cinzelsemi}{Cinzel-SemiBold.ttf}
+% tests fuer small-caps font
+%\newfontfamily{\cinzel}{Cinzel-Regular.ttf}
+%\newfontfamily{\cinzelbold}{Cinzel-Bold.ttf}
+%\newfontfamily{\cinzelsemi}{Cinzel-SemiBold.ttf}
 \newfontfamily{\crimsonblack}{CrimsonPro-Black.ttf}
-%\setmainfont[BoldFont={Crimson Pro, Bold}]{Crimson Pro}
-\setmainfont[BoldFont=CrimsonPro-Bold.ttf, ItalicFont=CrimsonPro-Italic.ttf, BoldItalicFont=CrimsonPro-BoldItalic.ttf]{CrimsonPro-Regular.ttf}
+%\newfontfamily{\pagella}{texgyrepagella-regular.otf}
+\newfontfamily{\cormorantsc}{cormorant.sc.otf}
+\newfontfamily{\cormorantscbold}{cormorant.sc-bold.otf}
+% \newfontfamily{\neutonscbold}{neuton.sc-bold.ttf} % no sc?
+% \newfontfamily{\frenchbold}{im-fell-french-canon.bold.ttf}
+% \newfontfamily{\playfairbold}{PlayfairDisplaySC-Bold.ttf}
+% \newfontfamily{\alegreyabold}{AlegreyaSC-Bold.ttf}
+
+
+\setmainfont[
+    BoldFont=CrimsonPro-Bold.ttf, 
+    ItalicFont=CrimsonPro-Italic.ttf, 
+    BoldItalicFont=CrimsonPro-BoldItalic.ttf
+    ]{CrimsonPro-Regular.ttf}
 \setsansfont{CrimsonPro-Regular.ttf}
-\setkomafont{chapterentry}{\LARGE \scshape \cinzelsemi \color{dunkelrot}}
-%\setkomafont{sectionentry}{\large \scshape \cinzelbold \color{dunkelrot}}
-\setkomafont{chapterentrypagenumber}{\normalsize}
 \addtokomafont{chapter}{\color{dunkelrot}\fontsize{26}{26}\aniron}
-% \addtokomafont{section}{\color{dunkelrot}\Large\aniron} 
-% \addtokomafont{subsection}{\fontsize{15}{16}\color{dunkelrot}\scshape\cinzelbold} 
-% \addtokomafont{subsubsection}{\fontsize{11}{11}\color{dunkelrot}\scshape\cinzelbold} 
+\setkomafont{chapterentry}{\LARGE \scshape \cormorantscbold \color{dunkelrot}}
+\setkomafont{chapterentrypagenumber}{\normalsize}
 \setkomafont{section}{\aniron\Large\color{dunkelrot}}
-\setkomafont{subsection}{\usefont{T1}{qpl}{b}{sc}\Large\color{dunkelrot}}
-\setkomafont{subsubsection}{\usefont{T1}{qpl}{b}{sc}\color{dunkelrot}}
+%\setkomafont{subsection}{\Large \cormorantscbold \color{dunkelrot}}
+\setkomafont{subsection}{\Large \cormorantscbold \color{dunkelrot}}
+\setkomafont{subsubsection}{\cormorantscbold \color{dunkelrot}}
 \addtokomafont{minisec}{\normalfont\bfseries}
 
 \newcommand*\tocsubsection[1]{{\color{black}#1}}
 
 \RedeclareSectionCommand[beforeskip=1em,afterskip=1.5em,
-tocentryformat=\color{dunkelrot}\usefont{T1}{qpl}{b}{sc}\LARGE
+tocentryformat=\color{dunkelrot}\cormorantscbold\LARGE
 ]{chapter}
 \RedeclareSectionCommand[beforeskip=1.5em,afterskip=0.5em,%
-tocentryformat=\color{dunkelrot}\usefont{T1}{qpl}{b}{sc}
+tocentryformat=\color{dunkelrot}\cormorantscbold
     %tocpagenumberformat=\usekomafont{disposition}
 ]{section}
 \RedeclareSectionCommand[beforeskip=1em,afterskip=0.1em,%
@@ -384,7 +390,8 @@ tocentryformat=\tocsubsection]{subsection}
 
 \newcommand{\probe}[3]{%
     \begin{probenbox}[watermark graphics=gfx/proben/#1, watermark stretch=1]
-        \hspace{6mm}{\color{dunkelrot}\large\textbf{#2}}\\[0.5mm]
+        %\hspace{6mm}{\color{dunkelrot}\large\textbf{#2}}\\[0.5mm]
+        \parbox{5.2cm}{\centering \color{dunkelrot}\large\textbf{#2}}\\[0.5mm]
         \footnotesize #3
     \end{probenbox}}
 
@@ -401,7 +408,7 @@ tocentryformat=\tocsubsection]{subsection}
 \newcommand{\mithintergrund}{\SetBgOpacity{1}}
 \newcommand{\credit}[2]{%
     \begin{center}
-        {\usefont{T1}{qpl}{b}{sc}\large\color{dunkelrot}#1}\\
+        {\cormorantscbold\large\color{dunkelrot}#1}\\
         #2
     \end{center}
 }%
@@ -423,7 +430,7 @@ tocentryformat=\tocsubsection]{subsection}
 \newcommand{\kreatur}[4]{%
     \begin{creaturebox}
         \begin{minipage}[b]{0.86\linewidth}
-            {\usefont{T1}{qpl}{b}{sc}\Large\color{dunkelrot} #1}\\[0mm]
+            {\cormorantscbold\Large\color{dunkelrot} #1}\\[0mm]
             \footnotesize \emph{#2}
             \vspace{1mm}
         \end{minipage}
@@ -465,10 +472,10 @@ tocentryformat=\tocsubsection]{subsection}
 \newcommand{\kreaturfertigkeiten}[1]{\kreaturinfo{Fertigkeiten}{#1}}
 \newcommand{\kreaturattribute}[1]{\kreaturinfo{Attribute}{#1}}
 \newcommand{\kreaturvarianten}[1]{\kreaturinfo{Varianten}{#1}}
-\newcommand{\tabelle}[2]{\begin{tabularx}{\linewidth}{#1}
+\newcommand{\tabelle}[2]{\global\rownum=0\relax\begin{tabularx}{\linewidth}{#1}
   \arrayrulecolor{dunkelrot}#2\end{tabularx}}
 
-\newcommand{\tkopf}[1]{\color{dunkelrot}\cinzelbold\footnotesize\textbf{#1} }
+\newcommand{\tkopf}[1]{\color{dunkelrot}\cormorantscbold\footnotesize\textbf{#1} }
 \newcommand{\tzeile}[1]{#1 \\}
 
 
