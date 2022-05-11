@@ -56,6 +56,7 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 \RequirePackage{ifthen}
 \RequirePackage{xparse}
 \RequirePackage[normalem]{ulem}
+\RequirePackage{setspace}
 
 % basic config for packages and layout
 \setmainlanguage{german}
@@ -534,3 +535,16 @@ tocentryformat=\tocsubsection]{subsection}
 }
 
 
+
+\newcommand{\karteninhalt}[2]{\begin{center}\textbf{#1}\end{center} #2}
+\newcommand{\glsinhalt}[1]{\karteninhalt{\gls{#1}}{{\footnotesize \begin{spacing}{0.8} \glsdesc{#1}\end{spacing}}}}
+\newcommand{\infokarte}[2]{\karte{\karteninhalt{#1}{#2}}}
+\newcommand{\infokarteklein}[2]{\karte{\karteninhalt{#1}{{\footnotesize \begin{spacing}{0.8} #2 \end{spacing}}}}}
+\newcommand{\glskarte}[1]{\karte{\glsinhalt{#1}}}
+\newcommand{\bildkarte}[2]{\karte{%
+\parbox{5cm}{
+    \centering
+    \zeichnung[4.5cm]{#1}
+}
+#2
+}}
