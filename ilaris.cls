@@ -453,7 +453,7 @@ tocentryformat=\tocsubsection]{subsection}
     \end{creaturebox}
 }
 \newcommand{\kreaturinfo}[2]{
-    \footnotesize\textbf{#1: } #2\par}
+    \footnotesize\textbf{#1: }\hangindent=5mm \hangafter1 #2\par}
 
 \newcommand{\kreaturWsMrGsIni}[4]{
     \kreaturkampfwert{Wundschwelle}{#1}
@@ -465,8 +465,13 @@ tocentryformat=\tocsubsection]{subsection}
 % \newcommand{\kreaturwaffe}[6]{
 %     \textbf{#1} \hfill RW #2 \hfill VT #3 \hfill AT #4 \hfill TP #5 \par \hspace{4mm} \textit{#6}\par
 % }
+% \newcommand{\kreaturwaffe}[6]{
+%     \parbox{9Ex}{\textbf{#1}} \hfill RW #2 \hfill VT #3 \hfill AT #4 \hfill TP #5 \par \hspace{4mm} \textit{#6}\par
+% }
 \newcommand{\kreaturwaffe}[6]{
-    \parbox{9Ex}{\textbf{#1}} \hfill RW #2 \hfill VT #3 \hfill AT #4 \hfill TP #5 \par \hspace{4mm} \textit{#6}\par
+    \parbox{9Ex}{\textbf{#1}} \hfill RW #2 \hfill VT #3 \hfill AT #4 \hfill TP #5 \par \hspace{4mm} {#6}
+    \smallskip
+    \par
 }
 \newcommand{\kreaturkampfwert}[2]{\kreaturinfo{#1}{#2}\par}
 \newcommand{\WsMrGsIni}[4]{\kreaturkampfwerte{#1}{#2}{#3}{#4}}
