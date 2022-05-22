@@ -38,6 +38,7 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 \RequirePackage{scrlayer-scrpage}
 \RequirePackage{polyglossia}
 \RequirePackage{enumitem}
+\RequirePackage{wrapfig}
 \RequirePackage{multicol}
 \RequirePackage{booktabs}
 \RequirePackage{tabularx}
@@ -65,6 +66,8 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 \linespread{0.9}
 \rowcolors{2}{}{brown!55}
 
+
+\setlist{label={\raisebox{-1mm}{\includegraphics[width=3mm]{gfx/layout/bulletpoint.png}}}}
 
 %\renewcommand{\cleardoublepage}{\clearpage}
 
@@ -345,12 +348,13 @@ tocentryformat=\tocsubsection]{subsection}
 \newcommand{\platz}{\vfill}
 \newcommand{\begriff}[1]{\textbf{#1}}
 \newcommand{\geschichte}[2]{%
-    \vspace{3mm}
+    \smallskip
     \begin{center}
-        \begin{minipage}[b]{0.9\linewidth}{\em #1}
+        \begin{minipage}[b]{0.9\linewidth}{\textit{#1}}
             \begin{flushright}--- #2 \end{flushright}
         \end{minipage}
-    \end{center}}
+    \end{center}
+	\smallskip}
 \newcommand{\kasten}[1]{\begin{pergamentbox}#1\end{pergamentbox}}
 \newcommand{\kastengrau}[1]{\begin{pergamentboxgrau}#1\end{pergamentboxgrau}}
 \newcommand{\inhaltsverzeichnis}{{\let\cleardoublepage\clearpage\tableofcontents}}
@@ -434,7 +438,8 @@ tocentryformat=\tocsubsection]{subsection}
     \begin{creaturebox}
         \begin{minipage}[b]{0.86\linewidth}
             {\cormorantscbold\Large\color{dunkelrot} #1}\\[0mm]
-            \footnotesize \emph{#2}
+            %\footnotesize 
+            \emph{#2}
             \vspace{1mm}
         \end{minipage}
         \hfill\includegraphics[height=1cm, width=1cm]{#3}%
@@ -500,7 +505,7 @@ tocentryformat=\tocsubsection]{subsection}
 
 % \newcommand{\bild}[1]{\includegraphics[width=\linewidth]{#1}}
 \DeclareDocumentCommand\bild{ O{\linewidth} m }{%
-    \includegraphics[width=#1]{#2}
+    \includegraphics[width=#1]{#2}%
 }%
 \newcommand{\anfuehrungszeichen}[1]{\enquote{#1}}
 \newcommand{\anf}[1]{\anfuehrungszeichen{#1}}
@@ -553,3 +558,15 @@ tocentryformat=\tocsubsection]{subsection}
 }
 #2
 }}
+
+
+\DeclareDocumentCommand{\symboltext}{ O{1cm} m m }{%
+    \parbox{\linewidth}{
+        \begin{wrapfigure}{l}{1cm}%
+            \vspace{-1em}
+            \includegraphics[width=\linewidth]{#2}%
+            \vspace{-1.2em}
+        \end{wrapfigure}
+        #3
+    }
+}
