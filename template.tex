@@ -40,7 +40,7 @@
 \lizenz
 \inhaltsverzeichnis
 %\hauptteil
-\kapitelihvz{Das\\ Vorwort}{Vorwort}
+\kapitelihvz{Das Vorwort}{Vorwort}
 \spaltenanfang
 \abschnitt{Latex Dokument}
 Es gibt eine Grundstruktur, die jedes Dokument, das auf diesem Template aufbaut, befolgen sollte.
@@ -53,16 +53,18 @@ Es gibt eine Grundstruktur, die jedes Dokument, das auf diesem Template aufbaut,
     ...
     \end{document}
 \end{lstlisting}
+\neuespalte
+
 
 Zwischen den Befehlen \gl{anfang} und \verb!\hauptteil! steht alles, was vor dem Inhaltsverzeichnis kommt und noch keine richtigen Seitenzahlen hat. Zum Beispiel Titelseiten, Impressum oder ein Vorwort. Optional kann nach dem Hauptteil noch ein \verb!\schluss! eingeleitet werden, in dem zum Beispiel Anhänge oder das Glossar untergebracht werden können. Für kurze schlichte Dokumente ist das jedoch oft nicht nötig.
 
 \abschnitt{Digital vs Druck}
 Aktuell ist das Template auf ein digitales Dokument ausgelegt. Es wurden weder leere extra Seiten für die Rückseiten des Covers eingefügt, noch Druckränder oder Tintensparende Hintergründe verwendet. Stattdessen, wurde Wert darauf gelegt, verschiedene Stellen (Inhalt, Glossar, Anhang, Handouts...) mit einander zu verlinken, sodass beim Lesen des Dokuments schnell an die richtigen Stellen gesprungen werden kann. Links sind unterstrichen hervorgehoben. Es kann natürlich ohne Weiteres ausgedruckt werden, wie es ist. Für zukünftige Versionen ist jedoch noch eine Option für eine extra Druckversion geplant.
-
 \spaltenende
+
 \kapitel{Layout}
 \abschnitt{Seiten und Spalten}
-Ein neues Kapitel wird mit dem Befehl \gl{kapitel} eingeleitet. Es wird automatisch formatiert und im Inhaltsverzeichnis registriert. Lange Kapitelnamen werden zwar automatisch umgebrochen, aber es sieht trotzdem besser aus die Überschriften kurz zu halten. Überschriften beginnen automatisch eine neue Seite, sollte ansonsten manuelle Seiten oder Zeilenumbrüche gebraucht werden, gibt es \textbf{\gl{neuespalte}} und \gl{neueseite}.
+Ein neues Kapitel wird mit dem Befehl \gl{kapitel} eingeleitet. Es wird automatisch formatiert und im Inhaltsverzeichnis registriert. Lange Kapitelüberschriften werden zwar automatisch umgebrochen, aber es sieht trotzdem besser aus die Überschriften kurz zu halten. Überschriften beginnen automatisch eine neue Seite, sollte ansonsten manuelle Seiten oder Zeilenumbrüche gebraucht werden, gibt es \textbf{\gl{neuespalte}} und \gl{neueseite}.
 Ein Großteil, des Dokuments wird wahrscheinlich im Zweispaltenlayout geschrieben. Dieses wird mit \gl{spaltenanfang} begonnen und muss unbedingt mit \textbackslash Spaltenende beendet werden. Da die Kapitelüberschriften beide Spalten überspannen sollen, kann im Zweispaltenlayout \gl{skapitel} benutzt werden, um nicht jedes Mal das Spaltenlayout wechseln zu müssen.
 \dreispaltenanfang
 Ein dreispaltiges Layout kann entsprechend mit \gl{dreispaltenanfang} begonnen werden.\\
@@ -78,7 +80,7 @@ Die Titelseite baut auf einem Bild auf, das idealerweise schon im DinA4-Format (
 Jedes Kapitel kann in einzelne Abschnitte (Unterkapitel) gegliedert werden, die mit \gl{abschnitt} eingeleitet werden und ebenfalls im Inhaltsverzeichnis auftauchen. Die Abschnittsüberschriften sollen das Spaltenlayout (falls verwendet) nicht unterbrechen.
 \geschichte{Ich bin eine Geschichte oder ein Auszug aus einer Schrift, wie sie in der Spielwelt existieren könnte. Auch Zitate, Informationen aus Büchern oder Liedtexte könnten so aussehen.}{Autorin}
 
-Diese kursiven Textblöcke, können mit dem Befehl \gl{geschichte} erstellt werden. Kurze Zitate oder einzelne \anf{Wörter} können mit dem Kurzbefehl \gl{anf} auch in Anführungszeichen gesetzt werden. Dieser Text hier ist ein ganz normaler standard Text, so wie man ihn herunterschreibt ohne irgendwelche Layoutbefehle zu verwenden. Man kann ihn durch Überschriften in Abschnitte unterteilen und diese wiederumtel in Absätze unterteilen.
+Diese kursiven Textblöcke, können mit dem Befehl \gl{geschichte} erstellt werden. Kurze Zitate oder einzelne \anf{Wörter} können mit dem Kurzbefehl \gl{anf} auch in Anführungszeichen gesetzt werden. Dieser Text hier ist ein ganz normaler Standardtext, so wie man ihn herunterschreibt ohne irgendwelche Layoutbefehle zu verwenden. Man kann ihn durch Überschriften in Abschnitte unterteilen und diese wiederumtel in Absätze unterteilen.
 
 \absatz{Zauber- und Liturgieeigenschaften}
 \textsc{Viele} Zauber und Liturgien verfügen über eine dieser
@@ -166,15 +168,22 @@ Für kleine Anmerkungen oder als Alternative zu den Pergamentkästen gibt es noc
     Hier kann alles mögliche drinstehen, zum Beispiel Spoilerwarnungen, Verweise auf andere Abenteuer oder sinnloser Text wie dieser.
 }
 
+Und, wenn auch nicht wirklich als Kasten erkennbar, kann man einzelne Textpassagen mit einem beliebigen Symbol versehen. Dies könnte zum Beispiel für Beschreibungen von NSCs zusammen mit ihrem Porträt benutzt werden, oder mit kleinen wieder kehrenden Symbolen, die dem Leser direkt eine Zugehörigkeit zu einem bestimmten Thema signalisieren: Zum Beispiel, durch das Wappen einer Fraktion oder einem Symbol für Geheimnisse, Fallen usw.
+
+
+\symboltext[2cm]{bilder/einleitung.jpg}{
+    Das Symbol sitzt links am Beginn des Absatzes. Der Text umfließt das Symbol automatisch. Die Breite des Symbols kann als optionales Argument übergeben werden. Per default steht es auf 1cm. Es kann sich lohnen etwas mit der Größe zu variieren, wenn die Zeile darunter zu viel/wenig Abstand hat.
+}
+
 \absatz{Karten}
-Wer es mag sich kleine Karten für Manöver, Zauber, Regeln oder NSCs auszudrucken kann diese Kästen benutzen. Sie sind haben die Maße von üblichen Spiel- und Sammelkarten (63mm x 88mm, zB Magic). Und sollten damit in handelsübliche Sleeves und Sammelmappen passen. Dabei muss natürlich beachtet werden, dass die Karten ggf. minimal Kleiner werden, wenn die Seite beim Drucken herunterskaliert wird.
+Wer es mag sich kleine Karten für Manöver, Zauber, Regeln oder NSCs auszudrucken kann diese Kästen benutzen. Sie sind haben die Maße von üblichen Spiel- und Sammelkarten (63mm x 88mm, zB Magic). Und sollten damit in handelsübliche Sleeves und Sammelmappen passen. Dabei muss natürlich beachtet werden, dass die Karten ggf. minimal kleiner werden, wenn die Seite beim Drucken herunterskaliert wird.
 
 \karte{test}
 
 
 \abschnitt{Tabellen}
-Tabellen können leider noch nicht vollständig durch Kurzbefehle ersetzt werden, dafür stehen zu viele Variablen im Raum. Die Anzahl, Ausrichtung und Größe von Spalten und Zeilen sollen variabel bleiben, eine Kopfzeile optional. Das Streifenlayout wird allerdings automatisch angewendet wenn eine \gl{tabelle} begonnen wird. Der erste Eintrag enthält dabei das Spaltenlayout, das im Kapitel Latex Tips auf Seite \pageref{latextipstabellen}
-genauer erklärt wird. Eine ganze Zeile zu formatieren, ist etwas komplizierter, daher als übergangslösung erstmal die Möglichkeit jede Zelle der Kopfzeile mit \gl{tkopf} zu formatieren.
+Tabellen können leider noch nicht vollständig durch Kurzbefehle ersetzt werden, dafür stehen zu viele Variablen im Raum. Die Anzahl, Ausrichtung und Größe von Spalten und Zeilen sollen variabel bleiben, eine Kopfzeile optional. Das Streifenlayout wird allerdings automatisch angewendet wenn eine \gl{tabelle} begonnen wird. Der erste Eintrag enthält dabei das Spaltenlayout, das im Kapitel Latex Tipps auf Seite \pageref{latextipstabellen}
+genauer erklärt wird. Eine ganze Zeile zu formatieren, ist etwas komplizierter, daher als Übergangslösung erstmal die Möglichkeit jede Zelle der Kopfzeile mit \gl{tkopf} zu formatieren.
 
 Das zweite Argument gibt den Inhalt der Tabelle direkt an Latex weiter.Da muss man zur Zeit noch echten Latexcode schreiben, weil mir auf die schnelle kein Praktischer Kurzbefehl eingefallen ist. Aber da kann man sich sicher noch etwas überlegen, um das deutlich zu verinefachen. Eigentlich steht der Text hier auch nur um die Tabelle im Abschnitt nicht so alleine zu lassen.
 
@@ -263,5 +272,7 @@ TODO: Spaltenlayout bei Tabellen
 \karte{Vierte Karte}%
 \karte{test}
 %\end{multicols}
+
+
 \handoutende
 \end{document}

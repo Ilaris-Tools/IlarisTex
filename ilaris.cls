@@ -243,22 +243,21 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 %     BoldItalicFont={*-BoldItalic},
 % }
 
-%\newfontfamily{\kartentext}[SizeFeatures={Size=8}]{qpl}%{b}{sc}
 \newfontfamily{\aniron}{Aniron-Bold.ttf}
 \newfontfamily{\handschrift}{DancingScript-Regular.ttf}
 \newfontfamily{\krakelschrift}{MsMadi-Regular.ttf}
-% tests fuer small-caps font
-%\newfontfamily{\cinzel}{Cinzel-Regular.ttf}
-%\newfontfamily{\cinzelbold}{Cinzel-Bold.ttf}
-%\newfontfamily{\cinzelsemi}{Cinzel-SemiBold.ttf}
 \newfontfamily{\crimsonblack}{CrimsonPro-Black.ttf}
-%\newfontfamily{\pagella}{texgyrepagella-regular.otf}
 \newfontfamily{\cormorantsc}{cormorant.sc.otf}
 \newfontfamily{\cormorantscbold}{cormorant.sc-bold.otf}
+% \newfontfamily{\cinzel}{Cinzel-Regular.ttf}
+% \newfontfamily{\cinzelbold}{Cinzel-Bold.ttf}
+% \newfontfamily{\cinzelsemi}{Cinzel-SemiBold.ttf}
+% \newfontfamily{\pagella}{texgyrepagella-regular.otf}
 % \newfontfamily{\neutonscbold}{neuton.sc-bold.ttf} % no sc?
 % \newfontfamily{\frenchbold}{im-fell-french-canon.bold.ttf}
 % \newfontfamily{\playfairbold}{PlayfairDisplaySC-Bold.ttf}
 % \newfontfamily{\alegreyabold}{AlegreyaSC-Bold.ttf}
+% \newfontfamily{\kartentext}[SizeFeatures={Size=8}]{qpl}%{b}{sc}
 
 
 \setmainfont[
@@ -570,3 +569,9 @@ tocentryformat=\tocsubsection]{subsection}
         #3
     }
 }
+
+\newcommand{\stichpunktliste}{%
+        \begin{itemize}#1\end{itemize}
+}
+\newcommand{\stichpunkt}{\item}
+\newcommand{\punkt}{\stichpunkt}
