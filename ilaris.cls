@@ -329,7 +329,10 @@ tocentryformat=\tocsubsection]{subsection}
 % \makeatother
 
 % befehle
-\newcommand{\link}[2]{\uline{\href{#1}{#2}}} 
+\newcommand{\wiki}[1]{%
+    \link{https://de.wiki-aventurica.de/wiki/#1}{#1}%
+  }
+\newcommand{\link}[2]{\href{#1}{\uline{#2}}} 
 \newcommand{\hr}[1][0.4pt]{\par\vskip 0.4ex {\color{dunkelrot}\hrule height #1 }\par\vskip 1ex}
 \newcommand{\trennlinie}{\vspace{2mm}\hr\vspace{2mm}}
 \newcommand{\linie}{\hr}
