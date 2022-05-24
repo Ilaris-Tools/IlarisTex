@@ -570,7 +570,7 @@ tocentryformat=\tocsubsection]{subsection}
     }
 }
 
-\newcommand{\stichpunktliste}{%
+\newcommand{\stichpunktliste}[1]{%
         \begin{itemize}#1\end{itemize}
 }
 \newcommand{\stichpunkt}{\item}
