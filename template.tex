@@ -56,7 +56,7 @@ Es gibt eine Grundstruktur, die jedes Dokument, das auf diesem Template aufbaut,
 \neuespalte
 
 
-Zwischen den Befehlen \gl{anfang} und \verb!\hauptteil! steht alles, was vor dem Inhaltsverzeichnis kommt und noch keine richtigen Seitenzahlen hat. Zum Beispiel Titelseiten, Impressum oder ein Vorwort. Optional kann nach dem Hauptteil noch ein \verb!\schluss! eingeleitet werden, in dem zum Beispiel Anhänge oder das Glossar untergebracht werden können. Für kurze schlichte Dokumente ist das jedoch oft nicht nötig.
+\textquotedblleft Zwischen den Befehlen \gl{anfang} und \verb!\hauptteil! steht alles, was vor dem Inhaltsverzeichnis kommt und noch keine richtigen Seitenzahlen hat. Zum Beispiel Titelseiten, Impressum oder ein Vorwort. Optional kann nach dem Hauptteil noch ein \verb!\schluss! eingeleitet werden, in dem zum Beispiel Anhänge oder das Glossar untergebracht werden können. Für kurze schlichte Dokumente ist das jedoch oft nicht nötig.
 
 \abschnitt{Digital vs Druck}
 Aktuell ist das Template auf ein digitales Dokument ausgelegt. Es wurden weder leere extra Seiten für die Rückseiten des Covers eingefügt, noch Druckränder oder Tintensparende Hintergründe verwendet. Stattdessen, wurde Wert darauf gelegt, verschiedene Stellen (Inhalt, Glossar, Anhang, Handouts...) mit einander zu verlinken, sodass beim Lesen des Dokuments schnell an die richtigen Stellen gesprungen werden kann. Links sind unterstrichen hervorgehoben. Es kann natürlich ohne Weiteres ausgedruckt werden, wie es ist. Für zukünftige Versionen ist jedoch noch eine Option für eine extra Druckversion geplant.
@@ -170,9 +170,18 @@ Für kleine Anmerkungen oder als Alternative zu den Pergamentkästen gibt es noc
 
 Und, wenn auch nicht wirklich als Kasten erkennbar, kann man einzelne Textpassagen mit einem beliebigen Symbol versehen. Dies könnte zum Beispiel für Beschreibungen von NSCs zusammen mit ihrem Porträt benutzt werden, oder mit kleinen wieder kehrenden Symbolen, die dem Leser direkt eine Zugehörigkeit zu einem bestimmten Thema signalisieren: Zum Beispiel, durch das Wappen einer Fraktion oder einem Symbol für Geheimnisse, Fallen usw.
 
+\absatz{Symboltext}
 
 \symboltext[2cm]{bilder/einleitung.jpg}{
     Das Symbol sitzt links am Beginn des Absatzes. Der Text umfließt das Symbol automatisch. Die Breite des Symbols kann als optionales Argument übergeben werden. Per default steht es auf 1cm. Es kann sich lohnen etwas mit der Größe zu variieren, wenn die Zeile darunter zu viel/wenig Abstand hat.
+}
+
+\absatz{Stichpunktlisten}
+Aufzählungen haben jetzt auch ein eigenes Symbol:
+
+\stichpunktliste{
+    \punkt Der Befehl in der Klasse wäre \em{stichpunktliste}
+    \punkt Die klassische itemize-Umgebung sollte aber genauso funktionieren.
 }
 
 \absatz{Karten}
@@ -204,10 +213,17 @@ Illustrationen auf weißem Hintergrund, die sich dem Seitenhingergrund anpassen 
 Sollen die Illustrationen in ihren echten Farben dargestellt werden, nennen wir es Bild und es würde so aussehen
 \bild{bilder/einleitung.jpg}
 
-Um Bilder nicht in voller Größe anzuzeigen, kann als optionales Argument die gewünschte Breite in mm oder cm angegeben werden (Danke Heiner):
+Um Bilder nicht in voller Größe anzuzeigen, kann als optionales Argument die gewünschte Breite in mm oder cm angegeben werden:
+
+\czeichnung[3cm]{bilder/einleitung}
 
 \zeichnung[3cm]{bilder/einleitung}
 \bild[3cm]{bilder/einleitung}
+
+
+\begin{centering}
+    \zeichnung[3cm]{bilder/einleitung}
+\end{centering}
 
 Um echte Farben zu erhalten aber trotzdem keinen weißen Rand zu haben, kann man natürlich auch Bilder mit transparentem Hintergrund (.png) verwenden.
 Bilder können auch in einen Zierrahmen eingefasst werden. Das sieht zum Beispiel so aus:
@@ -235,7 +251,6 @@ Natürlich können auch eigene Glossareinträge für das jeweilige Dokument erst
 \gl{glossareinträge} eingetragen werden.
 Für dieses Template wird das Glossar vorallem dazu verwendet die Latex-Befehle zu erklären.
 
-
 \spaltenumbruch
 
 \abschnitt{Kreaturendatenbank}
@@ -253,16 +268,26 @@ TODO: Spaltenlayout bei Tabellen
 \glossar
 %\schluss
 \handout
+
+
+
+
+\kastenlink{beispielkasten}
+
+\kastenlink{kasten2}
+
 \handoutkasten{beispielkasten}{
     {\huge\handschrift
+            \kastenname[Beispielkasten - Linktest]{beispielkasten}
             Das hier ist ein Pergamentkasten, der benutzt wird um direkt im Latex Dokument ein Handout zu erstellen.
             Man könnte hier natürlich noch eine Schriftart wählen, die das ganze nach einer krakeligen Handschrift oder feinster Kaligraphie aussehen lässt, je nachdem, wofür das Handout benutzt werden soll.\\[1cm]
             Der \gl{handout} Befehl beginnt eine neue weiße Seite, auf der sich ausgetobt werden kann. Alternativ gibt es diesen vorgefertigten Kasten (\gl{handoutkasten}) und Handouts für Bilder (\gl{handoutbild}) oder um direkt fertige PDFs einzubinden (\gl{handoutpdf}).}
 }
 \handoutkasten[8cm]{handoutnotiz}{
+    \kastenname{kasten2}
     {\Large\krakelschrift
-            Oder vielleicht ein kleiner Zettel mit einer krakeligen Notiz, der gefunden werden kann.
-        }
+        Oder vielleicht ein kleiner Zettel mit einer krakeligen Notiz, der gefunden werden kann.
+    }
 }
 \neueseite%
 %\begin{multicols}{3}

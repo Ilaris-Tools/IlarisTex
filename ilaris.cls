@@ -54,7 +54,7 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 \RequirePackage{fourier}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{background}
-\RequirePackage{ifthen}
+\RequirePackage{xifthen}
 \RequirePackage{xparse}
 \RequirePackage[normalem]{ulem}
 \RequirePackage{setspace}
@@ -67,7 +67,10 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 \rowcolors{2}{}{brown!55}
 
 
-\setlist{label={\raisebox{-1mm}{\includegraphics[width=3mm]{gfx/layout/bulletpoint.png}}}}
+\setitemize{label={\raisebox{-1mm}{\includegraphics[width=3mm]{gfx/layout/bulletpoint.png}}}}
+%\setdescription{itemsep=0cm}
+%\setenumerate{itemsep=0cm}
+
 
 %\renewcommand{\cleardoublepage}{\clearpage}
 
@@ -494,15 +497,17 @@ tocentryformat=\tocsubsection]{subsection}
 \newcommand{\tzeile}[1]{#1 \\}
 
 
-\newcommand{\zeichnung}[1]{\begin{tikzpicture}%
-	\node [blend mode=multiply] at (0,0) {\includegraphics[width=\linewidth]{#1}};%
-\end{tikzpicture}}
-
 
 \DeclareDocumentCommand\zeichnung{ O{\linewidth} m }{%
     \begin{tikzpicture}%
         \node [blend mode=multiply] at (0,0) {\includegraphics[width=#1]{#2}};%
     \end{tikzpicture}%
+}
+
+\DeclareDocumentCommand\czeichnung{ O{\linewidth} m }{%
+    \begin{centering}%
+        \zeichnung[#1]{#2}
+    \end{centering}
 }
 
 % \newcommand{\bild}[1]{\includegraphics[width=\linewidth]{#1}}
@@ -576,5 +581,20 @@ tocentryformat=\tocsubsection]{subsection}
 \newcommand{\stichpunktliste}[1]{%
         \begin{itemize}#1\end{itemize}
 }
-\newcommand{\stichpunkt}{\item}
-\newcommand{\punkt}{\stichpunkt}
+
+\newcommand{\icon}[1]{%
+    {\raisebox{-2mm}{\includegraphics[width=4mm]{#1}}}%
+}
+
+\DeclareDocumentCommand\punkt{ O{bulletpoint} }{%
+    \item[\icon{gfx/icons/#1}]%
+}%
+% \newcommand{\stichpunkt}{\item}
+% \newcommand{\punkt}{\stichpunkt}
+
+
+\makeatletter 
+\newcommand{\kastenname}[2][]{\phantomsection\def\@currentlabelname{\ifthenelse{\equal{#1}{}}{#2}{#1}}\label{#2}} 
+\makeatother
+
+\newcommand{\kastenlink}[1]{\nameref{#1}}
