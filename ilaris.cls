@@ -493,9 +493,10 @@ tocentryformat=\tocsubsection]{subsection}
 \newcommand{\tabelle}[2]{\global\rownum=0\relax\begin{tabularx}{\linewidth}{#1}
   \arrayrulecolor{dunkelrot}#2\end{tabularx}}
 
-\newcommand{\tkopf}[1]{\color{dunkelrot}\cormorantscbold\footnotesize\textbf{#1} }
-\newcommand{\tzeile}[1]{#1 \\}
-
+\newcommand{\tkopf}[1]{\color{dunkelrot}
+\cormorantscbold\large\textbf{#1} }
+%\newcommand{\tzeile}[1]{#1 \\}
+\setlength{\arrayrulewidth}{1.5pt}
 
 
 \DeclareDocumentCommand\zeichnung{ O{\linewidth} m }{%
