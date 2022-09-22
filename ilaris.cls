@@ -170,7 +170,8 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 }
 
 \newtcolorbox{bildbox}[1][]{
-	width=\linewidth, arc=0mm, unbreakable,
+    width=\linewidth,
+	arc=0mm, unbreakable,
 	top=0mm, left=0mm, right=0mm, bottom=0mm,
 	colback=braun, colframe=braun, 
 	enhanced,
@@ -187,6 +188,22 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 	\noindent\phantom{\includegraphics[width=\linewidth, keepaspectratio]{#1}}
 	\end{bildbox}
 	\vspace{5mm}
+	\leavevmode
+}
+\DeclareDocumentCommand\rahmenklein{ O{\linewidth} m }{%
+	\vspace{5mm}
+    \makebox[\linewidth][c]{%
+      \begin{minipage}{15cm}
+	\begin{bildbox}[overlay={%
+			\node[anchor=center, inner sep=0] at (frame.center) {\includegraphics[width=0.98\linewidth, keepaspectratio]{#2}};
+			%\node[anchor=north east] at ([xshift=1.5mm, yshift=5.6mm]frame.north east) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/eckeor.png}};
+			\node[anchor=north east] at ([xshift=4.8mm, yshift=5.6mm]frame.north east) {\includegraphics[angle=180,origin=c,width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
+			\node[anchor=south west] at ([xshift=-4.8mm, yshift=-5.6mm]frame.south west) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
+		}]
+	\noindent\phantom{\includegraphics[width=\linewidth, keepaspectratio]{#2}}
+	\end{bildbox}
+\end{minipage}}%
+	%\vspace{5mm}
 	\leavevmode
 }
 \newtcolorbox{kartenbox}[1][]{

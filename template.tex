@@ -4,6 +4,7 @@
 %\input{extras.tex}
 \input{kreaturen.tex}
 
+
 \usepackage{listings}
 \lstset
 {
@@ -231,7 +232,14 @@ Bilder können auch in einen Zierrahmen eingefasst werden. Das sieht zum Beispie
 
 Um Bilder oder Zeichnungen über die volle breite darzustellen, kann das Spaltenlayout einfach kurz unterbrochen werden (spaltenende, spaltenanfang).
 \spaltenende
+\rahmen{bilder/einleitung}
 \zeichnung{bilder/einleitung}
+\kapitel{Großes Bild mit Überschrift}
+% \makebox[\linewidth][c]{%
+%     \begin{minipage}{15cm}
+%         \rahmen{bilder/template}
+%     \end{minipage}}%
+\rahmenklein[15cm]{bilder/template}
 \spaltenanfang
 
 
