@@ -223,8 +223,8 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
     #1
 }
 \newcommand{\karte}[1]{\begin{kartenbox}#1\end{kartenbox}}
-\newcommand{\kartentitel}[1]{\color{dunkelrot}\fontsize{26}{26}\aniron #1}
-\newcommand{\kartenunterschrift}[1]{\begin{center}\tcblower #1\end{center}}
+\newcommand{\kartentitel}[1]{\begin{center}\color{dunkelrot}\fontsize{12}{12}\aniron #1\end{center}}
+\newcommand{\kartenunterschrift}[1]{\tcblower\begin{center}\textbf{#1}\end{center}}
 \newcommand{\manoeverkarte}[3]{%
     \karte{%
         \kartentitel{#1}%

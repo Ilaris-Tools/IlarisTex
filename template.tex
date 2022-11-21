@@ -301,9 +301,16 @@ TODO: Spaltenlayout bei Tabellen
 %\begin{multicols}{3}
 \karte{\textbf{Angepasst (Schnee)\\}\glsdesc{angepasst(Schnee)I_Vorteil}}%
 \karte{Zweite Karte}%
-\karte{Karte Drei}\\%
+\karte{%
+    \kartentitel{Mit Titel}%
+    Beliebiger Inhalt der Karte wie für die Manöverkarten.
+    \kartenunterschrift{Unterschrift}
+}\\[-0.3mm]%
+\manoeverkarte{Kurzform}{%
+    Eigener Befehl für das Standardlayout von Manöverkarten.
+}{Manöver}%
 \karte{Vierte Karte}%
-\karte{test}
+\karte{\kartentitel{Weniger Schneiden} Ohne Zeilenumbrüche im Code zwischen zwei Karten, bzw. einer Abstandskorrektur von -0.3mm bei gewollten Umbrüchen, grenzen die Karten nahtlos aneinander.}
 %\end{multicols}
 
 
