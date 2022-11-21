@@ -214,14 +214,24 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
     top=5mm,
     left=5mm,
     right=5mm,
-    bottom=5mm,
+    bottom=3mm,
     watermark graphics=gfx/kasten/karte.jpg, 
     watermark stretch=1,
     width=63mm,
     height=88mm,
+    space=1,
     #1
 }
 \newcommand{\karte}[1]{\begin{kartenbox}#1\end{kartenbox}}
+\newcommand{\kartentitel}[1]{\color{dunkelrot}\fontsize{26}{26}\aniron #1}
+\newcommand{\kartenunterschrift}[1]{\begin{center}\tcblower #1\end{center}}
+\newcommand{\manoeverkarte}[3]{%
+    \karte{%
+        \kartentitel{#1}%
+        #2%
+        \kartenunterschrift{#3}%
+    }%
+}
 
 % layout
 \setlength\parindent{0pt}% noindent anywhere
