@@ -404,21 +404,34 @@ tocentryformat=\tocsubsection]{subsection}
 }
 \newcommand{\titel}[1]{
     \title{#1}{%
-    %\begin{centering}
-        % 26.12.2020 \\
-        % \color{orange!15}
-        %\center
         \color{\tfarbe}%
-        %\vspace{0.55\textheight}
-        %\Huge
-        %\fontfamily{\aniron}
         \fontsize{42}{42}%
-        %\selectfont
         \aniron%
         \shadowcolor{\tsfarbe}%
-        \shadowtext{ #1}
-        }
+        \shadowtext{ #1}%
+    }
     %\end{centering}
+}
+\newcommand{\titelzwei}[2]{
+    \title{#1 #2}{%
+    \color{\tfarbe}%
+    \fontsize{42}{42}%
+    \aniron%
+    \shadowcolor{\tsfarbe}%
+    \shadowtext{ #1}\\[10mm]%
+    \shadowtext{ #2}
+    }
+}
+\newcommand{\titeldrei}[3]{
+    \title{#1 #2 #3}{%
+    \color{\tfarbe}%
+    \fontsize{42}{42}%
+    \aniron%
+    \shadowcolor{\tsfarbe}%
+    \shadowtext{ #1}\\[10mm]%
+    \shadowtext{ #2}\\[10mm]%
+    \shadowtext{ #3}%
+    }
 }
 
 \newcommand{\autorin}[1]{\begin{centering}\author{#1}\Large #1\\\end{centering}}
@@ -506,7 +519,15 @@ tocentryformat=\tocsubsection]{subsection}
 %     \parbox{9Ex}{\textbf{#1}} \hfill RW #2 \hfill VT #3 \hfill AT #4 \hfill TP #5 \par \hspace{4mm} \textit{#6}\par
 % }
 \newcommand{\kreaturwaffe}[6]{
-    \parbox{9Ex}{\textbf{#1}} \hfill RW #2 \hfill VT #3 \hfill AT #4 \hfill TP #5 \par \hspace{4mm} {#6}
+    \parbox{10Ex}{\textbf{#1}} \hfill RW #2 \hfill VT #3 \hfill AT #4 \hfill TP #5 \par \hspace{4mm} {#6}
+    \smallskip
+    \par
+}
+\newcommand{\kreaturnkwaffe}[6]{%
+    \kreaturwaffe{#1}{#2}{#3}{#4}{#5}{#6}%
+}
+\newcommand{\kreaturfkwaffe}[6]{%
+    \parbox{10Ex}{\textbf{#1}} \hfill RW #2 \hfill LZ #3 \hfill AT #4 \hfill TP #5 \par \hspace{4mm} {#6}
     \smallskip
     \par
 }
