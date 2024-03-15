@@ -12,6 +12,7 @@
 % microtype     % Typografische Feinjustierung
 % nicefrac      % Brüche mit schrägem Strich
 \RequirePackage[table,dvipsnames]{xcolor}
+\RequirePackage{keyval}
 
 
 % colors
@@ -30,11 +31,11 @@
 %https://ctan.mc1.root.project-creative.net/macros/latex/contrib/hyperref/doc/hyperref-doc.pdf
 % hidelinks und ggf. manuell faerben mit eigenem command ist das beste bzw. einzige um volle kontrolle zu haben
 \RequirePackage[bookmarks,pdfusetitle,
-% colorlinks,
-% linkcolor=dunkelrot,
-% linktoc=none,
-hidelinks,
-citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
+    % colorlinks,
+    % linkcolor=dunkelrot,
+    % linktoc=none,
+    hidelinks,
+    citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 \RequirePackage{scrlayer-scrpage}
 \RequirePackage{polyglossia}
 \RequirePackage{enumitem}
@@ -43,7 +44,7 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 \RequirePackage{booktabs}
 \RequirePackage{tabularx}
 \RequirePackage{shadowtext}
-\RequirePackage{tikz} 
+\RequirePackage{tikz}
 \RequirePackage{csquotes}
 \RequirePackage{todonotes}
 %\RequirePackage{fontspec}
@@ -76,8 +77,8 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 
 \makeatletter
 \g@addto@macro\document{% Mehrspaltiges TOC
-	\BeforeStartingTOC[toc]{\begin{multicols}{2}}%
-	\AfterStartingTOC[toc]{\end{multicols}}%
+\BeforeStartingTOC[toc]{\begin{multicols}{2}}%
+        \AfterStartingTOC[toc]{\end{multicols}}%
 }
 \makeatother
 
@@ -115,7 +116,7 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
     left=0.05\linewidth,
     right=0.05\linewidth,
     bottom=0.05\linewidth,
-    watermark graphics=gfx/kasten/kasten_farbe.png, 
+    watermark graphics=gfx/kasten/kasten_farbe.png,
     watermark stretch=1,
     width=\linewidth,
     #1
@@ -127,23 +128,35 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
     left=0.05\linewidth,
     right=0.05\linewidth,
     bottom=0.05\linewidth,
-    watermark graphics=gfx/kasten/kasten.png, 
+    watermark graphics=gfx/kasten/kasten.png,
+    watermark stretch=1,
+    width=\linewidth,
+    #1
+}
+\newtcolorbox{pergamentboxsw}[1][]{
+    unbreakable,
+    blankest,
+    top=0.05\linewidth,
+    left=0.05\linewidth,
+    right=0.05\linewidth,
+    bottom=0.05\linewidth,
+    watermark graphics=gfx/kasten/kasten_sw.png,
     watermark stretch=1,
     width=\linewidth,
     #1
 }
 
 \newtcolorbox{probenbox}[1][]{
-  unbreakable,
-  blankest,
-  arc=0mm,
-  top=0.08\linewidth,
-  left=0.08\linewidth,
-  right=0.31\linewidth,
-  bottom=0.08\linewidth,
-  width=\linewidth,
-  height=0.44211\linewidth,
-  #1
+    unbreakable,
+    blankest,
+    arc=0mm,
+    top=0.08\linewidth,
+    left=0.08\linewidth,
+    right=0.31\linewidth,
+    bottom=0.08\linewidth,
+    width=\linewidth,
+    height=0.44211\linewidth,
+    #1
 }
 
 \newtcolorbox{infobox}[1][]{
@@ -171,40 +184,81 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 
 \newtcolorbox{bildbox}[1][]{
     width=\linewidth,
-	arc=0mm, unbreakable,
-	top=0mm, left=0mm, right=0mm, bottom=0mm,
-	colback=braun, colframe=braun, 
-	enhanced,
-	#1
+    arc=0mm, unbreakable,
+    top=0mm, left=0mm, right=0mm, bottom=0mm,
+    colback=braun, colframe=braun,
+    enhanced,
+    #1
 }
+
+\newtcolorbox{flexprobenbox}[1][]{
+    width=\linewidth,
+    arc=0mm, unbreakable,
+    top=5mm, left=5mm, right=5mm, bottom=5mm,
+    colback=beige, 
+    colframe=braun,
+    enhanced jigsaw,
+    height from=4cm to 20cm,
+    %blankest,
+    % watermark graphics=gfx/kasten/kasten.png,
+    % watermark stretch=1,
+    opacityback=0.5,
+    #1
+}
+
 \providecommand{\rahmen}[1]{
-	\vspace{5mm}
-	\begin{bildbox}[overlay={%
-			\node[anchor=center, inner sep=0] at (frame.center) {\includegraphics[width=0.98\linewidth, keepaspectratio]{#1}};
-			%\node[anchor=north east] at ([xshift=1.5mm, yshift=5.6mm]frame.north east) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/eckeor.png}};
-			\node[anchor=north east] at ([xshift=4.8mm, yshift=5.6mm]frame.north east) {\includegraphics[angle=180,origin=c,width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
-			\node[anchor=south west] at ([xshift=-4.8mm, yshift=-5.6mm]frame.south west) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
-		}]
-	\noindent\phantom{\includegraphics[width=\linewidth, keepaspectratio]{#1}}
-	\end{bildbox}
-	\vspace{5mm}
-	\leavevmode
+    \vspace{5mm}
+    \begin{bildbox}[overlay={%
+                    \node[anchor=center, inner sep=0] at (frame.center) {\includegraphics[width=0.98\linewidth, keepaspectratio]{#1}};
+                    %\node[anchor=north east] at ([xshift=1.5mm, yshift=5.6mm]frame.north east) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/eckeor.png}};
+                    \node[anchor=north east] at ([xshift=4.8mm, yshift=5.6mm]frame.north east) {\includegraphics[angle=180,origin=c,width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
+                    \node[anchor=south west] at ([xshift=-4.8mm, yshift=-5.6mm]frame.south west) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
+                }]
+        \noindent\phantom{\includegraphics[width=\linewidth, keepaspectratio]{#1}}
+    \end{bildbox}
+    \vspace{5mm}
+    \leavevmode
 }
+
+
+\define@key
+
+
+% \providecommand{\flexprobe}[3]{
+%     \vspace{5mm}
+%     \begin{flexprobenbox}[overlay={%
+%         %\node[anchor=north east] at ([xshift=1.5mm, yshift=5.6mm]frame.north east) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/eckeor.png}};
+%         \node[anchor=north east] at ([xshift=4.8mm, yshift=5.6mm]frame.north east) {\includegraphics[angle=180,origin=c,width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
+%         \node[anchor=south west] at ([xshift=-4.8mm, yshift=-5.6mm]frame.south west) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
+%     },underlay={
+%         %\node[anchor=center, inner sep=0] at (frame.center) {\includegraphics[width=0.98\linewidth]{gfx/kasten/kasten.png}};
+%     }]
+    
+        
+%     \begin{center}
+%          \color{dunkelrot}\large\textbf{#1}\\[0.5mm]
+%     \end{center}
+%     \footnotesize 
+%     #2
+%     \end{flexprobenbox}
+% }
+
 \DeclareDocumentCommand\rahmenklein{ O{\linewidth} m }{%
-	\vspace{5mm}
+    \vspace{5mm}
     \makebox[\linewidth][c]{%
-      \begin{minipage}{15cm}
-	\begin{bildbox}[overlay={%
-			\node[anchor=center, inner sep=0] at (frame.center) {\includegraphics[width=0.98\linewidth, keepaspectratio]{#2}};
-			%\node[anchor=north east] at ([xshift=1.5mm, yshift=5.6mm]frame.north east) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/eckeor.png}};
-			\node[anchor=north east] at ([xshift=4.8mm, yshift=5.6mm]frame.north east) {\includegraphics[angle=180,origin=c,width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
-			\node[anchor=south west] at ([xshift=-4.8mm, yshift=-5.6mm]frame.south west) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
-		}]
-	\noindent\phantom{\includegraphics[width=\linewidth, keepaspectratio]{#2}}
-	\end{bildbox}
-\end{minipage}}%
-	%\vspace{5mm}
-	\leavevmode
+        \begin{minipage}{15cm}
+            \begin{bildbox}[
+                overlay={%
+                    \node[anchor=center, inner sep=0] at (frame.center) {\includegraphics[width=0.98\linewidth, keepaspectratio]{#2}};
+                    %\node[anchor=north east] at ([xshift=1.5mm, yshift=5.6mm]frame.north east) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/eckeor.png}};
+                    \node[anchor=north east] at ([xshift=4.8mm, yshift=5.6mm]frame.north east) {\includegraphics[angle=180,origin=c,width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
+                    \node[anchor=south west] at ([xshift=-4.8mm, yshift=-5.6mm]frame.south west) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
+                }]
+            \noindent\phantom{\includegraphics[width=\linewidth, keepaspectratio]{#2}}
+            \end{bildbox}
+        \end{minipage}}%
+    %\vspace{5mm}
+    \leavevmode
 }
 \newtcolorbox{kartenbox}[1][]{
     unbreakable,
@@ -215,7 +269,7 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
     left=5mm,
     right=5mm,
     bottom=3mm,
-    watermark graphics=gfx/kasten/karte.jpg, 
+    watermark graphics=gfx/kasten/karte.jpg,
     watermark stretch=1,
     width=63mm,
     height=88mm,
@@ -252,14 +306,14 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 \SetBgOpacity{1}
 \makeatletter
 \AddEverypageHook{%
-\ifthenelse{\isodd{\thepage}}%
-{\SetBgAngle{0}%
-\SetBgScale{1}
-\SetBgContents{\includegraphics[width=\paperwidth,height=\paperheight]{gfx/layout/hintergrund}}}%
-{\SetBgAngle{0}%
-\SetBgScale{1}
-\SetBgContents{\scalebox{-1}[1]{\includegraphics[width=\paperwidth,height=\paperheight]{gfx/layout/hintergrund}}}}%
-\bg@material}
+    \ifthenelse{\isodd{\thepage}}%
+    {\SetBgAngle{0}%
+        \SetBgScale{1}
+        \SetBgContents{\includegraphics[width=\paperwidth,height=\paperheight]{gfx/layout/hintergrund}}}%
+    {\SetBgAngle{0}%
+        \SetBgScale{1}
+        \SetBgContents{\scalebox{-1}[1]{\includegraphics[width=\paperwidth,height=\paperheight]{gfx/layout/hintergrund}}}}%
+    \bg@material}
 \makeatother
 
 
@@ -275,7 +329,11 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 
 \newfontfamily{\aniron}{Aniron-Bold.ttf}
 \newfontfamily{\handschrift}{DancingScript-Regular.ttf}
+\newfontfamily{\handschrifta}{MsMadi-Regular.ttf}
+\newfontfamily{\handschriftb}{MarckScript-Regular.ttf}
+\newfontfamily{\handschriftc}{ShadowsIntoLight-Regular.ttf}
 \newfontfamily{\krakelschrift}{MsMadi-Regular.ttf}
+\newfontfamily{\crimson}{CrimsonPro-Regular.ttf}
 \newfontfamily{\crimsonblack}{CrimsonPro-Black.ttf}
 \newfontfamily{\cormorantsc}{cormorant.sc.otf}
 \newfontfamily{\cormorantscbold}{cormorant.sc-bold.otf}
@@ -291,10 +349,10 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 
 
 \setmainfont[
-    BoldFont=CrimsonPro-Bold.ttf, 
-    ItalicFont=CrimsonPro-Italic.ttf, 
+    BoldFont=CrimsonPro-Bold.ttf,
+    ItalicFont=CrimsonPro-Italic.ttf,
     BoldItalicFont=CrimsonPro-BoldItalic.ttf
-    ]{CrimsonPro-Regular.ttf}
+]{CrimsonPro-Regular.ttf}
 \setsansfont{CrimsonPro-Regular.ttf}
 \addtokomafont{chapter}{\color{dunkelrot}\fontsize{26}{26}\aniron}
 \setkomafont{chapterentry}{\LARGE \scshape \cormorantscbold \color{dunkelrot}}
@@ -308,14 +366,14 @@ citecolor=dunkelbraun,urlcolor=Sepia,breaklinks]{hyperref}
 \newcommand*\tocsubsection[1]{{\color{black}#1}}
 
 \RedeclareSectionCommand[beforeskip=1em,afterskip=1.5em,
-tocentryformat=\color{dunkelrot}\cormorantscbold\LARGE
+    tocentryformat=\color{dunkelrot}\cormorantscbold\LARGE
 ]{chapter}
 \RedeclareSectionCommand[beforeskip=1.5em,afterskip=0.5em,%
-tocentryformat=\color{dunkelrot}\cormorantscbold
+    tocentryformat=\color{dunkelrot}\cormorantscbold
     %tocpagenumberformat=\usekomafont{disposition}
 ]{section}
 \RedeclareSectionCommand[beforeskip=1em,afterskip=0.1em,%
-tocentryformat=\tocsubsection]{subsection}
+    tocentryformat=\tocsubsection]{subsection}
 %\RedeclareSectionCommand[beforeskip=0em,afterskip=0.1em]{subsubsection}
 \RedeclareSectionCommand[beforeskip=1em,afterskip=0.1em]{subsubsection}
 
@@ -333,16 +391,16 @@ tocentryformat=\tocsubsection]{subsection}
 \RequirePackage{varwidth} %Breite anpassen für überlange Zeilen 
 \renewcommand*{\raggedchapter}{\centering}
 \renewcommand\chapterlinesformat[3]{%
-      \scalebox{-1}[1]{\raisebox{-0.3\height}{\includegraphics[height=1.4cm]{gfx/layout/kapitel}}}%
-	  \hspace{0.2em}%
-      \begin{varwidth}{\dimexpr\textwidth-5em\relax}%
-      %\begin{varwidth}{0.5\textwidth}%
+    \scalebox{-1}[1]{\raisebox{-0.3\height}{\includegraphics[height=1.4cm]{gfx/layout/kapitel}}}%
+    \hspace{0.2em}%
+    \begin{varwidth}{\dimexpr\textwidth-5em\relax}%
+        %\begin{varwidth}{0.5\textwidth}%
         \raggedchapter#2#3%
-      \end{varwidth}%
-	  \hspace{0.2em}%
-	  \raisebox{-0.3\height}{\includegraphics[height=1.4cm]{gfx/layout/kapitel}}%
-      \par\nobreak
-      \par
+    \end{varwidth}%
+    \hspace{0.2em}%
+    \raisebox{-0.3\height}{\includegraphics[height=1.4cm]{gfx/layout/kapitel}}%
+    \par\nobreak
+    \par
 }
 
 
@@ -361,8 +419,8 @@ tocentryformat=\tocsubsection]{subsection}
 % befehle
 \newcommand{\wiki}[1]{%
     \link{https://de.wiki-aventurica.de/wiki/#1}{#1}%
-  }
-\newcommand{\link}[2]{\href{#1}{\uline{#2}}} 
+}
+\newcommand{\link}[2]{\href{#1}{\uline{#2}}}
 \newcommand{\hr}[1][0.4pt]{\par\vskip 0.4ex {\color{dunkelrot}\hrule height #1 }\par\vskip 1ex}
 \newcommand{\trennlinie}{\vspace{2mm}\hr\vspace{2mm}}
 \newcommand{\linie}{\hr}
@@ -370,9 +428,9 @@ tocentryformat=\tocsubsection]{subsection}
 \newcommand{\hauptteil}{\mainmatter\pagestyle{plain}}
 \newcommand{\schluss}{\backmatter}
 \newcommand{\spaltenanfang}{\begin{multicols}{2}}
-\newcommand{\dreispaltenanfang}{\begin{multicols}{3}}
-\newcommand{\spaltenende}{\end{multicols}}
-\newcommand{\skapitel}[1]{\end{multicols}\kapitel{#1}\begin{multicols}{2}}
+        \newcommand{\dreispaltenanfang}{\begin{multicols}{3}}
+                \newcommand{\spaltenende}{\end{multicols}}
+        \newcommand{\skapitel}[1]{\end{multicols}\kapitel{#1}\begin{multicols}{2}}
 \newcommand{\kapitel}[1]{{\let\cleardoublepage\clearpage\chapter*{#1}}\addcontentsline{toc}{chapter}{#1}}
 \newcommand{\kapitelihvz}[2]{\let\cleardoublepage\clearpage\chapter*{#1}\addcontentsline{toc}{chapter}{#2}}
 \newcommand{\abschnitt}[1]{\section{#1}}
@@ -386,8 +444,9 @@ tocentryformat=\tocsubsection]{subsection}
             \begin{flushright}--- #2 \end{flushright}
         \end{minipage}
     \end{center}
-	\smallskip}
+    \smallskip}
 \newcommand{\kasten}[1]{\begin{pergamentbox}#1\end{pergamentbox}}
+\newcommand{\kastenhell}[1]{\begin{pergamentboxsw}#1\end{pergamentboxsw}}
 \newcommand{\kastengrau}[1]{\begin{pergamentboxgrau}#1\end{pergamentboxgrau}}
 \newcommand{\inhaltsverzeichnis}{{\let\cleardoublepage\clearpage\tableofcontents}}
 \newcommand{\grobesinhaltsverzeichnis}{\setcounter{tocdepth}{1}\grobesinhaltsverzeichnis}
@@ -414,23 +473,23 @@ tocentryformat=\tocsubsection]{subsection}
 }
 \newcommand{\titelzwei}[2]{
     \title{#1 #2}{%
-    \color{\tfarbe}%
-    \fontsize{42}{42}%
-    \aniron%
-    \shadowcolor{\tsfarbe}%
-    \shadowtext{ #1}\\[10mm]%
-    \shadowtext{ #2}
+        \color{\tfarbe}%
+        \fontsize{42}{42}%
+        \aniron%
+        \shadowcolor{\tsfarbe}%
+        \shadowtext{ #1}\\[10mm]%
+        \shadowtext{ #2}
     }
 }
 \newcommand{\titeldrei}[3]{
     \title{#1 #2 #3}{%
-    \color{\tfarbe}%
-    \fontsize{42}{42}%
-    \aniron%
-    \shadowcolor{\tsfarbe}%
-    \shadowtext{ #1}\\[10mm]%
-    \shadowtext{ #2}\\[10mm]%
-    \shadowtext{ #3}%
+        \color{\tfarbe}%
+        \fontsize{42}{42}%
+        \aniron%
+        \shadowcolor{\tsfarbe}%
+        \shadowtext{ #1}\\[10mm]%
+        \shadowtext{ #2}\\[10mm]%
+        \shadowtext{ #3}%
     }
 }
 
@@ -440,7 +499,7 @@ tocentryformat=\tocsubsection]{subsection}
 %\newcommand{\kreatur}[1]{\begin{creature}#1\end{creature}}
 
 
-\newcommand{\probe}[3]{%
+\newcommand{\probeklein}[3]{%
     \begin{probenbox}[watermark graphics=gfx/proben/#1, watermark stretch=1]
         %\hspace{6mm}{\color{dunkelrot}\large\textbf{#2}}\\[0.5mm]
         \parbox{5.2cm}{\centering \color{dunkelrot}\large\textbf{#2}}\\[0.5mm]
@@ -539,10 +598,10 @@ tocentryformat=\tocsubsection]{subsection}
 \newcommand{\kreaturattribute}[1]{\kreaturinfo{Attribute}{#1}}
 \newcommand{\kreaturvarianten}[1]{\kreaturinfo{Varianten}{#1}}
 \newcommand{\tabelle}[2]{\global\rownum=0\relax\begin{tabularx}{\linewidth}{#1}
-  \arrayrulecolor{dunkelrot}#2\end{tabularx}}
+        \arrayrulecolor{dunkelrot}#2\end{tabularx}}
 
 \newcommand{\tkopf}[1]{\color{dunkelrot}
-\cormorantscbold\large\textbf{#1} }
+    \cormorantscbold\large\textbf{#1} }
 %\newcommand{\tzeile}[1]{#1 \\}
 \setlength{\arrayrulewidth}{1.5pt}
 
@@ -583,21 +642,21 @@ tocentryformat=\tocsubsection]{subsection}
 
 
 \DeclareDocumentCommand\handoutkasten{ O{\linewidth} m m }{%
-\label{#2}%
-\begin{minipage}{#1}
-\kastengrau{
-    %\kastenkopf{Kastenüberschrift}\\
-    % skipleft und vspaces koennten durch einen extra handoutkasten mit mehr spacing und groessere Schrift gespart werden. Erstmal nur als Beispiel:
-    \vspace{1cm}
-    \setlength\leftskip{2cm}
-    \setlength\rightskip{2cm}
-    \raggedright
-    #3
-    \vspace{1cm}
-    \setlength\leftskip{0cm}
-    \setlength\rightskip{0cm}
-}
-\end{minipage}
+    \label{#2}%
+    \begin{minipage}{#1}
+        \kastengrau{
+            %\kastenkopf{Kastenüberschrift}\\
+            % skipleft und vspaces koennten durch einen extra handoutkasten mit mehr spacing und groessere Schrift gespart werden. Erstmal nur als Beispiel:
+            \vspace{1cm}
+            \setlength\leftskip{2cm}
+            \setlength\rightskip{2cm}
+            \raggedright
+            #3
+            \vspace{1cm}
+            \setlength\leftskip{0cm}
+            \setlength\rightskip{0cm}
+        }
+    \end{minipage}
 }
 
 
@@ -608,12 +667,12 @@ tocentryformat=\tocsubsection]{subsection}
 \newcommand{\infokarteklein}[2]{\karte{\karteninhalt{#1}{{\footnotesize \begin{spacing}{0.8} #2 \end{spacing}}}}}
 \newcommand{\glskarte}[1]{\karte{\glsinhalt{#1}}}
 \newcommand{\bildkarte}[2]{\karte{%
-\parbox{5cm}{
-    \centering
-    \zeichnung[4.5cm]{#1}
-}
-#2
-}}
+        \parbox{5cm}{
+            \centering
+            \zeichnung[4.5cm]{#1}
+        }
+        #2
+    }}
 
 
 \DeclareDocumentCommand{\symboltext}{ O{1cm} m m }{%
@@ -628,7 +687,10 @@ tocentryformat=\tocsubsection]{subsection}
 }
 
 \newcommand{\stichpunktliste}[1]{%
-        \begin{itemize}#1\end{itemize}
+    \begin{itemize}#1\end{itemize}
+}
+\newcommand{\stichpunkte}[1]{%
+    \stichpunktliste{#1}%
 }
 
 \newcommand{\icon}[1]{%
@@ -642,8 +704,8 @@ tocentryformat=\tocsubsection]{subsection}
 % \newcommand{\punkt}{\stichpunkt}
 
 
-\makeatletter 
-\newcommand{\kastenname}[2][]{\phantomsection\def\@currentlabelname{\ifthenelse{\equal{#1}{}}{#2}{#1}}\label{#2}} 
+\makeatletter
+\newcommand{\kastenname}[2][]{\phantomsection\def\@currentlabelname{\ifthenelse{\equal{#1}{}}{#2}{#1}}\label{#2}}
 \makeatother
 
 \newcommand{\kastenlink}[1]{\nameref{#1}}

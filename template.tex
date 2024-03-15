@@ -22,8 +22,10 @@
     \begin{centering}
         \titelbild{bilder/template}
         \platz
-        \titel{Noch ein Ilaris}\\
-        \titel{Latex Template}
+        % \titel{Noch ein Ilaris}\\[10mm]
+        % \titel{Latex Template}
+        % \title{Noch ein Ilaris Latex Template}
+        \titel2{Noch ein Ilaris}{Latex Template}
         \platz
         \platz
         \fanprodukt
@@ -111,6 +113,19 @@ Kästen über die volle Breite können einfach außerhalb des Spaltenlayouts ers
     Hintergrund dieses Kastens ist das Originalbild, das nicht mit dem beigen Hintergrund der Seite multipliziert wurde. Der Unterschied wird im Abschnitt Illustrationen veranschaulicht.
 }
 
+
+\kastenhell{
+    Ein langer text kann auch in diese Rolle geschrieben werden. Insbesondere ist sie allerdings für spaltenfreie Handouts zum Ausdrucken gedacht.
+
+
+    Ein langer text kann auch in diese Rolle geschrieben werden. Insbesondere ist sie allerdings für spaltenfreie Handouts zum Ausdrucken gedacht.
+
+
+    Ein langer text kann auch in diese Rolle geschrieben werden. Insbesondere ist sie allerdings für spaltenfreie Handouts zum Ausdrucken gedacht.
+
+
+    Ein langer text kann auch in diese Rolle geschrieben werden. Insbesondere ist sie allerdings für spaltenfreie Handouts zum Ausdrucken gedacht.
+}
 \spaltenumbruch
 
 \absatz{Kreaturen}
@@ -139,9 +154,9 @@ Ich finde die Eigenschaften blockweise einzuschieben wesentlich einfacher und fl
 %\includegraphics[width=\linewidth]{layout/grafik/proben/alchemie}
 Für Probenboxen kam mir die Idee, die die Fertigkeiten hübschen Fertigkeiten-Bildchen zu verwenden. Die aktuelle Umsetzung mit dem gebastelten Rahmen ist vielleicht etwas zu fancy und hat den Nachteil, dass ie nicht wirklich in der Höhe skalierbar ist ohne das Bild zu verzerren. Alternativ gibt es ja auch schon die Möglichkeit die Pergamentkästen für Proben zu verwenden.
 
-\probe{wahrnehmung}{Infanteriewaffen und\\ Speere (III, 18)}{Ich bin eine Probe. Die Box ist leider nicht skalierbar, daher müssen die Erzähltexte kompakt oder stichpunktartig sein, oder ein anderer Kasten gewählt werden.}
+\probeklein{wahrnehmung}{Infanteriewaffen und\\ Speere (III, 18)}{Ich bin eine Probe. Die Box ist leider nicht skalierbar, daher müssen die Erzähltexte kompakt oder stichpunktartig sein, oder ein anderer Kasten gewählt werden.}
 
-\probe{magiekunde}{Magietheorie (III, 21)}{%
+\probeklein{magiekunde}{Magietheorie (III, 21)}{%
     \tabelle{rX}{
         +8 & Doppelte Schwierigkeit \\
         +4 & Schwieriger    \\
@@ -151,6 +166,10 @@ Für Probenboxen kam mir die Idee, die die Fertigkeiten hübschen Fertigkeiten-B
     }
 
 }
+
+\probekleinnrahmen{
+    text
+}{text}{text3}
 
 \kasten{
     \kastenkopf{Magietheorie (III, 21)}
@@ -162,6 +181,8 @@ Für Probenboxen kam mir die Idee, die die Fertigkeiten hübschen Fertigkeiten-B
         -8 & Doppelte Vereinfachung \\
     }
 }
+
+
 
 \absatz{Info}
 Für kleine Anmerkungen oder als Alternative zu den Pergamentkästen gibt es noch kleine Infokästen.
