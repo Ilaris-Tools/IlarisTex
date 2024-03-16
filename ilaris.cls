@@ -12,8 +12,6 @@
 % microtype     % Typografische Feinjustierung
 % nicefrac      % Brüche mit schrägem Strich
 \RequirePackage[table,dvipsnames]{xcolor}
-\RequirePackage{keyval}
-
 
 % colors
 \definecolor{dunkelrot}{HTML}{450c15}
@@ -56,9 +54,12 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage{background}
 \RequirePackage{xifthen}
-\RequirePackage{xparse}
+\RequirePackage{xparse}  % multi optional args
 \RequirePackage[normalem]{ulem}
 \RequirePackage{setspace}
+\RequirePackage{ifmtarg}  % check emty args
+\RequirePackage{keyval}
+\usepackage{etoolbox}
 
 % basic config for packages and layout
 \setmainlanguage{german}
@@ -221,27 +222,55 @@
 }
 
 
-\define@key
+% register keys for command
+\makeatletter  % allow @ in commands
+\define@key{probekeys}{bild}{\def\ProbeBild{#1}}
+\define@key{probekeys}{erfolg}{\def\ProbeErfolg{#1}}
+\define@key{probekeys}{misserfolg}{\def\ProbeMisserfolg{#1}}
+\makeatother
 
+\providecommand{\erfolg}[1]{
+    \parbox[t]{0.48\linewidth}{
+        \stichpunkte{
+        \setlength{\itemindent}{0em}\punkt \raggedright 
+        #1
+        }}
+}
 
-% \providecommand{\flexprobe}[3]{
-%     \vspace{5mm}
-%     \begin{flexprobenbox}[overlay={%
-%         %\node[anchor=north east] at ([xshift=1.5mm, yshift=5.6mm]frame.north east) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/eckeor.png}};
-%         \node[anchor=north east] at ([xshift=4.8mm, yshift=5.6mm]frame.north east) {\includegraphics[angle=180,origin=c,width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
-%         \node[anchor=south west] at ([xshift=-4.8mm, yshift=-5.6mm]frame.south west) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
-%     },underlay={
-%         %\node[anchor=center, inner sep=0] at (frame.center) {\includegraphics[width=0.98\linewidth]{gfx/kasten/kasten.png}};
-%     }]
-    
+\providecommand{\misserfolg}[1]{
+    \erfolg{#1}
+}
+
+\providecommand{\probe}[3][]{%
+    % #1 is the optional keyvalue list
+    \setkeys{probekeys}{bild=wuerfel,erfolg=\false,misserfolg=\false,#1}
+    % use the values with \ProbeBild...
+    \begin{flexprobenbox}[overlay={%
+        % TODO \ProbeBild
+        %\node[anchor=north east] at ([xshift=1.5mm, yshift=5.6mm]frame.north east) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/eckeor.png}};
+        \node[anchor=north east] at ([xshift=4.8mm, yshift=5.6mm]frame.north east) {\includegraphics[angle=180,origin=c,width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
+        \node[anchor=south west] at ([xshift=-4.8mm, yshift=-5.6mm]frame.south west) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
+    },underlay={
+        %\node[anchor=center, inner sep=0] at (frame.center) {\includegraphics[width=0.98\linewidth]{gfx/kasten/kasten.png}};
+        }]
         
-%     \begin{center}
-%          \color{dunkelrot}\large\textbf{#1}\\[0.5mm]
-%     \end{center}
-%     \footnotesize 
-%     #2
-%     \end{flexprobenbox}
-% }
+    \ifx\relax#2\relax% no title
+    \else
+        \begin{center}
+             \color{dunkelrot}\large\textbf{#2}\\[0.5mm]
+        \end{center}
+    \fi
+    \footnotesize
+    #3
+    \\[2mm]
+    \ifdefempty{\Probeerfolg}{}{%
+        \erfolg{\ProbeErfolg}
+    }
+    \ifdefempty{\ProbeMisserfolg}{}{%
+        \misserfolg{\ProbeMisserfolg}
+    }
+    \end{flexprobenbox}
+}
 
 \DeclareDocumentCommand\rahmenklein{ O{\linewidth} m }{%
     \vspace{5mm}
@@ -260,6 +289,7 @@
     %\vspace{5mm}
     \leavevmode
 }
+
 \newtcolorbox{kartenbox}[1][]{
     unbreakable,
     blankest,
