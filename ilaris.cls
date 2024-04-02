@@ -60,6 +60,7 @@
 \RequirePackage{ifmtarg}  % check emty args
 \RequirePackage{keyval}
 \usepackage{etoolbox}
+\RequirePackage{svg}
 
 % basic config for packages and layout
 \setmainlanguage{german}
@@ -199,10 +200,10 @@
     colback=beige, 
     colframe=braun,
     enhanced jigsaw,
-    height from=4cm to 20cm,
+    height from=6cm to 20cm,
     %blankest,
-    % watermark graphics=gfx/kasten/kasten.png,
-    % watermark stretch=1,
+    %watermark graphics=gfx/proben/alchemie_test.png,
+    %watermark stretch=1,
     opacityback=0.5,
     #1
 }
@@ -227,42 +228,123 @@
 \define@key{probekeys}{bild}{\def\ProbeBild{#1}}
 \define@key{probekeys}{erfolg}{\def\ProbeErfolg{#1}}
 \define@key{probekeys}{misserfolg}{\def\ProbeMisserfolg{#1}}
+\define@key{probekeys}{pw}{\def\ProbePw{#1}}
+\define@key{probekeys}{bgscale}{\def\ProbeBgscale{#1}}
+\define@key{probekeys}{zusammenarbeit}{\def\ProbeZusammenarbeit{#1}}
+\define@key{probekeys}{gruppenprobe}{\def\ProbeGruppenprobe{#1}}
+\define@key{probekeys}{detailgrad}{\def\ProbeDetailgrad{#1}}
+\define@key{probekeys}{vergleichend}{\def\Probevergleichend{#1}}
+
 \makeatother
 
 \providecommand{\erfolg}[1]{
     \parbox[t]{0.48\linewidth}{
-        \stichpunkte{
-        \setlength{\itemindent}{0em}\punkt \raggedright 
+        \vspace{4mm}
+        {\centering
+        \includegraphics[width=8mm]{gfx/icons/richtig.png}
+        \par
+        }
+        \raggedright 
         #1
-        }}
+    }
 }
 
 \providecommand{\misserfolg}[1]{
-    \erfolg{#1}
+    \parbox[t]{0.48\linewidth}{
+        \vspace{4mm}
+        {\centering
+        \includegraphics[width=8mm]{gfx/icons/falsch.png}
+        \par
+        }
+        \raggedright 
+        #1
+    }
 }
 
-\providecommand{\probe}[3][]{%
+\providecommand{\noicon}{
+    \includegraphics[height=10mm]{gfx/icons/probe_fragezeichen.png}
+}
+
+\providecommand{\probenicon}[1]{%
+    \includegraphics[height=10mm]{gfx/icons/probe_#1.png}
+}
+
+\providecommand{\probenkasten}[3][]{%
     % #1 is the optional keyvalue list
-    \setkeys{probekeys}{bild=wuerfel,erfolg=\false,misserfolg=\false,#1}
+    \setkeys{probekeys}{
+        bild=wuerfel,%
+        pw=12,
+        erfolg=\false,%
+        misserfolg=\false,%
+        bgscale=0.5,%
+        gruppenprobe=gut,%
+        zusammenarbeit=ja,%
+        detailgrad=1,%
+        vergleichend=nein,%
+        #1}
     % use the values with \ProbeBild...
     \begin{flexprobenbox}[overlay={%
         % TODO \ProbeBild
         %\node[anchor=north east] at ([xshift=1.5mm, yshift=5.6mm]frame.north east) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/eckeor.png}};
         \node[anchor=north east] at ([xshift=4.8mm, yshift=5.6mm]frame.north east) {\includegraphics[angle=180,origin=c,width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
         \node[anchor=south west] at ([xshift=-4.8mm, yshift=-5.6mm]frame.south west) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
+        \node[anchor=center] at (frame.center) {\includegraphics[width=\ProbeBgscale\linewidth]{gfx/proben/\ProbeBild.png}};
     },underlay={
         %\node[anchor=center, inner sep=0] at (frame.center) {\includegraphics[width=0.98\linewidth]{gfx/kasten/kasten.png}};
         }]
-        
+        % \begin{tikzpicture}
+        % %\tikz[remember picture,overlay] 
+        % \node[opacity=0.3,inner sep=0pt] at (frame.center){
+        %     \includegraphics[width=\paperwidth,height=\paperheight]{
+        %         gfx/proben/alchemie_test.png}
+        % };
+        % \end{tikzpicture}
+    %\includegraphics[height=3cm]{gfx/proben/alchemie_test.png}    
     \ifx\relax#2\relax% no title
     \else
         \begin{center}
-             \color{dunkelrot}\large\textbf{#2}\\[0.5mm]
+            \cormorantscbold
+            \color{dunkelrot}\LARGE\textbf{#2}
         \end{center}
     \fi
-    \footnotesize
+
+    \begin{center}
+        % icons links
+        \vspace{-8mm}
+        \parbox[t][][t]{\linewidth}{ \centering
+            % \vspace{-5mm}
+            \begin{tikzpicture}
+                \node[anchor=center, inner sep=0] at (0,0) {
+
+            \ifdefempty{\ProbeZusammenarbeit}{\noicon}{%
+                %\raisebox{3mm}{
+                    \probenicon{zusammenarbeit_\ProbeZusammenarbeit}
+                    %}
+            }
+            \ifdefempty{\ProbeGruppenprobe}{\noicon}{%
+                \probenicon{gruppenprobe_\ProbeGruppenprobe}
+            }
+                    %\includegraphics[height=16mm]{gfx/icons/wuerfel.png}};
+                \raisebox{-3mm}{
+                    \includegraphics[height=18mm]{gfx/icons/wuerfel_drei.png}
+                }
+            \ifdefempty{\ProbeDetailgrad}{\noicon}{%
+                \probenicon{detailgrad_\ProbeDetailgrad}
+            }
+            \ifdefempty{\Probevergleichend}{\noicon}{%
+                \probenicon{vergleichend_\Probevergleichend}
+            }
+                    
+                    };
+                \node[anchor=center, inner sep=0] at (0,-0.2) {\color{beige}\LARGE\textbf{\ProbePw}};
+            \end{tikzpicture}
+        }
+        % icons rechts
+    \end{center}
+    \vspace{-5mm}
+    %\footnotesize
     #3
-    \\[2mm]
+    \\
     \ifdefempty{\Probeerfolg}{}{%
         \erfolg{\ProbeErfolg}
     }
@@ -529,7 +611,7 @@
 %\newcommand{\kreatur}[1]{\begin{creature}#1\end{creature}}
 
 
-\newcommand{\probeklein}[3]{%
+\newcommand{\probe}[3]{%
     \begin{probenbox}[watermark graphics=gfx/proben/#1, watermark stretch=1]
         %\hspace{6mm}{\color{dunkelrot}\large\textbf{#2}}\\[0.5mm]
         \parbox{5.2cm}{\centering \color{dunkelrot}\large\textbf{#2}}\\[0.5mm]

@@ -24,8 +24,7 @@
         \platz
         % \titel{Noch ein Ilaris}\\[10mm]
         % \titel{Latex Template}
-        % \title{Noch ein Ilaris Latex Template}
-        \titel2{Noch ein Ilaris}{Latex Template}
+        \titelzwei{Noch ein Ilaris}{Latex Template}
         \platz
         \platz
         \fanprodukt
@@ -154,9 +153,9 @@ Ich finde die Eigenschaften blockweise einzuschieben wesentlich einfacher und fl
 %\includegraphics[width=\linewidth]{layout/grafik/proben/alchemie}
 Für Probenboxen kam mir die Idee, die die Fertigkeiten hübschen Fertigkeiten-Bildchen zu verwenden. Die aktuelle Umsetzung mit dem gebastelten Rahmen ist vielleicht etwas zu fancy und hat den Nachteil, dass ie nicht wirklich in der Höhe skalierbar ist ohne das Bild zu verzerren. Alternativ gibt es ja auch schon die Möglichkeit die Pergamentkästen für Proben zu verwenden.
 
-\probeklein{wahrnehmung}{Infanteriewaffen und\\ Speere (III, 18)}{Ich bin eine Probe. Die Box ist leider nicht skalierbar, daher müssen die Erzähltexte kompakt oder stichpunktartig sein, oder ein anderer Kasten gewählt werden.}
+\probe{wahrnehmung}{Infanteriewaffen und\\ Speere (III, 18)}{Ich bin eine Probe. Die Box ist leider nicht skalierbar, daher müssen die Erzähltexte kompakt oder stichpunktartig sein, oder ein anderer Kasten gewählt werden.}
 
-\probeklein{magiekunde}{Magietheorie (III, 21)}{%
+\probe{magiekunde}{Magietheorie (III, 21)}{%
     \tabelle{rX}{
         +8 & Doppelte Schwierigkeit \\
         +4 & Schwieriger    \\
@@ -166,16 +165,18 @@ Für Probenboxen kam mir die Idee, die die Fertigkeiten hübschen Fertigkeiten-B
     }
 }
 
-\kasten{
-    \kastenkopf{Magietheorie (III, 21)}
-    \tabelle{rX}{
-        +8 & Doppelte Schwierigkeit, dessen Ergebnistext etwas mehr als ein oder zwei Zeilen einnimmt \\
-        +4 & Schwieriger, hat auch informationen mit etwas mehr Text    \\
-        0 & Normal, nur kurz \\
-        -4 & Vereinfacht, wieder etwas mehr Text um zu sehen wie der Kasten sich strecken lässt \\
-        -8 & Doppelte Vereinfachung \\
-    }
-}
+% \kasten{
+%     \kastenkopf{Magietheorie (III, 21)}
+%     \tabelle{rX}{
+%         +8 & Doppelte Schwierigkeit, dessen Ergebnistext etwas mehr als ein oder zwei Zeilen einnimmt \\
+%         +4 & Schwieriger, hat auch informationen mit etwas mehr Text    \\
+%         0 & Normal, nur kurz \\
+%         -4 & Vereinfacht, wieder etwas mehr Text um zu sehen wie der Kasten sich strecken lässt \\
+%         -8 & Doppelte Vereinfachung \\
+%     }
+% }
+
+\probenkasten[]{}
 
 
 
@@ -255,7 +256,9 @@ Um Bilder oder Zeichnungen über die volle breite darzustellen, kann das Spalten
 %     \begin{minipage}{15cm}
 %         \rahmen{bilder/template}
 %     \end{minipage}}%
-\rahmenklein[15cm]{bilder/template}
+
+%TODO: failed to compile
+%\rahmenklein[15cm]{bilder/template}
 \spaltenanfang
 
 
