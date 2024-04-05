@@ -43,6 +43,14 @@ Um ein wiederkehrendes Farbschema einzuhalten wurden einige Farben definiert, di
 - magie: #425a66
 - karma: #8e5d6f
 
+## Kästen
+
+### \probe
+`\probe[]{Titel}{Text}`
+optionale argumente:
+
+Eigene Bilder benutzen: in `/gfx/proben/<name>.jpg` ablegen.
+
 ## Sonstige Befehle
 
 - `\fanprodukt`

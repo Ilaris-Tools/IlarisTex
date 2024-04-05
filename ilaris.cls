@@ -229,11 +229,13 @@
 \define@key{probekeys}{erfolg}{\def\ProbeErfolg{#1}}
 \define@key{probekeys}{misserfolg}{\def\ProbeMisserfolg{#1}}
 \define@key{probekeys}{pw}{\def\ProbePw{#1}}
-\define@key{probekeys}{bgscale}{\def\ProbeBgscale{#1}}
+\define@key{probekeys}{bildgroesse}{\def\ProbeBgscale{#1}}
 \define@key{probekeys}{zusammenarbeit}{\def\ProbeZusammenarbeit{#1}}
 \define@key{probekeys}{gruppenprobe}{\def\ProbeGruppenprobe{#1}}
 \define@key{probekeys}{detailgrad}{\def\ProbeDetailgrad{#1}}
 \define@key{probekeys}{vergleichend}{\def\Probevergleichend{#1}}
+\define@key{probekeys}{farbe}{\def\ProbeFarbe{#1}}
+\define@key{probekeys}{anzahl}{\def\ProbeAnzahl{#1}}
 
 \makeatother
 
@@ -273,10 +275,12 @@
     % #1 is the optional keyvalue list
     \setkeys{probekeys}{
         bild=wuerfel,%
-        pw=12,
+        pw=12,%
+        anzahl=3,%
+        farbe=braun,%
         erfolg=\false,%
         misserfolg=\false,%
-        bgscale=0.5,%
+        bildgroesse=0.5,%
         gruppenprobe=gut,%
         zusammenarbeit=ja,%
         detailgrad=1,%
@@ -288,7 +292,7 @@
         %\node[anchor=north east] at ([xshift=1.5mm, yshift=5.6mm]frame.north east) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/eckeor.png}};
         \node[anchor=north east] at ([xshift=4.8mm, yshift=5.6mm]frame.north east) {\includegraphics[angle=180,origin=c,width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
         \node[anchor=south west] at ([xshift=-4.8mm, yshift=-5.6mm]frame.south west) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
-        \node[anchor=center] at (frame.center) {\includegraphics[width=\ProbeBgscale\linewidth]{gfx/proben/\ProbeBild.png}};
+        \node[anchor=center] at (frame.center) {\includegraphics[width=\ProbeBgscale\linewidth]{gfx/proben/\ProbeBild_bg.png}};
     },underlay={
         %\node[anchor=center, inner sep=0] at (frame.center) {\includegraphics[width=0.98\linewidth]{gfx/kasten/kasten.png}};
         }]
@@ -326,7 +330,7 @@
             }
                     %\includegraphics[height=16mm]{gfx/icons/wuerfel.png}};
                 \raisebox{-3mm}{
-                    \includegraphics[height=18mm]{gfx/icons/wuerfel_drei.png}
+                    \includegraphics[height=18mm]{gfx/icons/wuerfel_\ProbeFarbe_\ProbeAnzahl.png}
                 }
             \ifdefempty{\ProbeDetailgrad}{\noicon}{%
                 \probenicon{detailgrad_\ProbeDetailgrad}

@@ -176,8 +176,54 @@ Für Probenboxen kam mir die Idee, die die Fertigkeiten hübschen Fertigkeiten-B
 %     }
 % }
 
-\probenkasten[]{}
+\probenkasten[
+    bild=alchemie,
+    erfolg=Dieser Text steht unter dem Häkchen auf der linken Seite,
+    misserfolg=Dieser Text steht rechts unter dem Kreuz und beschreibt den Misserfolg,
+    zusammenarbeit=nein,
+    pw=12,
+    farbe=rot
+]{Alchemie (Analyse)}{%
+    Das erste Argument ist der Titel, das Zweite dieser Text. 
+    Die Icons werden automatisch generiert basierend auf den optionalen Argumenten.
+    Die Erfolgs- und Misserfolgstexte können auch mit \\erfolg und \\misserfolg 
+    hier im Hauptteil gesetzt werden. 
+}
 
+\spaltenende
+
+\absatz{Argumente für Probenkasten}
+\tabelle{l X}{
+    \tkopf{Name} & \tkopf{Werte} \\\hline%
+    bild      & alchemie, athletik, autoritaet, beeinflussung, charisma, derekunde, 
+    fingerfertigkeit, gebraeuche, gewandtheit, heilkunde, holzbearbeitung, intuition, 
+    klugheit, körperkraft, konstitution, magiekunde, metallbearbeitung, mut, mythenkunde, 
+    selbstbeherrschung, ueberleben, verbergen, verschlagenheit, wahrnehmung  \\
+    farbe & rot, gruen, blau, braun  \\
+    erfolg & beliebiger text in \{\}. Alternativ: \textbackslash erfolg im Hauptteil  \\
+    misserfolg & beliebiger text in \{\}. Alternativ: \textbackslash misserfolg im Hauptteil  \\
+    zusammenarbeit & ja, nein, nein\_orig \\
+    gruppenprobe & gut, schlecht, nein, nein\_orig  \\
+    pw & beliebige Zahl, ggf. Zahl+x für vergleichende Proben \\
+    detailgrad & 1, 2, 3, 4, 1\_orig  \\
+    vergleichend & ja, nein, nein\_orig  \\
+    anzahl & 1, 3 \\
+    bildgroesse & Dezimalzahl (mit Punkt) um das Hintergrundbild zu skalieren. Standard ist 0.5 \\
+}
+
+\spaltenanfang
+
+Einige der Parameter sollen in ihrem Standardzustand nicht weiter auffallen und haben daher weniger Kontrast und Sättigung. 
+Die icons können in ihren Orginalfarben mit dem Suffix \textit{\_orig} verwendet werden. Du kannst auch eigen erstellte Icons verwenden, wenn sie
+nach dem Schema \textit{NAME\_WERT.png} im Ordner \textit{gfx/icons} (relativ zum Hauptdokument) abgelegt werden. 
+Das Icon erscheint an der für den jeweiligen Namen (\textit{zusammenarbeit, gruppenprobe, detailgrad, vergleichend}) festen Position.
+Die vorgefertigten Icons stammen von game-icons.net und sind 128x128px. 
+
+Als Hintergrundbild werden ausgeschnittene transparente Versionen der Fertigkeitsbilder aus dem Regelwerk verwendet. 
+Auch hier können eigene Bilder verwendet werden, indem sie als \textit{NAME\_bg.png} benannt werden und im Ordner \textit{gfx/proben} abgelegt werden.
+Der Name ist in diesem Fall beliebig, das \_bg gehört allerdings zum Dateinamen, auch wenn es nicht als Wert für bild=... angegeben wird.
+Weitere Farben für Würfelicons können nach dem Schema \textit{wuerfel\_NAME\_1.png} bzw. 
+\textit{wuerfel\_NAME\_3.png} ebenfalls in \textit{gfx/icons} angelegt werden.
 
 
 \absatz{Info}
