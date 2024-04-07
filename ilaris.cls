@@ -280,7 +280,7 @@
         farbe=braun,%
         erfolg=\false,%
         misserfolg=\false,%
-        bildgroesse=0.5,%
+        bildgroesse=40,%
         gruppenprobe=gut,%
         zusammenarbeit=ja,%
         detailgrad=1,%
@@ -288,11 +288,9 @@
         #1}
     % use the values with \ProbeBild...
     \begin{flexprobenbox}[overlay={%
-        % TODO \ProbeBild
-        %\node[anchor=north east] at ([xshift=1.5mm, yshift=5.6mm]frame.north east) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/eckeor.png}};
         \node[anchor=north east] at ([xshift=4.8mm, yshift=5.6mm]frame.north east) {\includegraphics[angle=180,origin=c,width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
         \node[anchor=south west] at ([xshift=-4.8mm, yshift=-5.6mm]frame.south west) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
-        \node[anchor=center] at (frame.center) {\includegraphics[width=\ProbeBgscale\linewidth]{gfx/proben/\ProbeBild_bg.png}};
+        \node[anchor=center] at (frame.center) {\includegraphics[width=\ProbeBgscale mm]{gfx/proben/\ProbeBild_bg.png}};
     },underlay={
         %\node[anchor=center, inner sep=0] at (frame.center) {\includegraphics[width=0.98\linewidth]{gfx/kasten/kasten.png}};
         }]
