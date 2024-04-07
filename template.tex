@@ -196,8 +196,8 @@ Für Probenboxen kam mir die Idee, die die Fertigkeiten hübschen Fertigkeiten-B
 \tabelle{l X}{
     \tkopf{Name} & \tkopf{Werte} \\\hline%
     bild      & alchemie, athletik, autoritaet, beeinflussung, charisma, derekunde, 
-    fingerfertigkeit, gebraeuche, gewandtheit, heilkunde, holzbearbeitung, intuition, 
-    klugheit, körperkraft, konstitution, magiekunde, metallbearbeitung, mut, mythenkunde, 
+    fingerfertigkeit, gebraeuche, gewandtheit, heilkunde, handwerk, holzbearbeitung, intuition, 
+    klugheit, körperkraft, konstitution, magiekunde, mut, mythenkunde, 
     selbstbeherrschung, ueberleben, verbergen, verschlagenheit, wahrnehmung  \\
     farbe & rot, gruen, blau, braun  \\
     erfolg & beliebiger text in \{\}. Alternativ: \textbackslash erfolg im Hauptteil  \\
@@ -224,6 +224,16 @@ Auch hier können eigene Bilder verwendet werden, indem sie als \textit{NAME\_bg
 Der Name ist in diesem Fall beliebig, das \_bg gehört allerdings zum Dateinamen, auch wenn es nicht als Wert für bild=... angegeben wird.
 Weitere Farben für Würfelicons können nach dem Schema \textit{wuerfel\_NAME\_1.png} bzw. 
 \textit{wuerfel\_NAME\_3.png} ebenfalls in \textit{gfx/icons} angelegt werden.
+
+In manchen Fällen bedarf eine Probe neben Titel und Icons keiner weiteren Erklärung.
+Beim Weglassen der Absätze empfiehlt sich auch auf das Hintergrundbild zu verzichten
+:
+
+\probenkasten[
+    zusammenarbeit=nein,
+    gruppenprobe=nein,
+    pw=24,
+]{Akrobatik}{}
 
 
 \absatz{Info}

@@ -200,7 +200,7 @@
     colback=beige, 
     colframe=braun,
     enhanced jigsaw,
-    height from=6cm to 20cm,
+    height from=3cm to 20cm,
     %blankest,
     %watermark graphics=gfx/proben/alchemie_test.png,
     %watermark stretch=1,
@@ -274,12 +274,12 @@
 \providecommand{\probenkasten}[3][]{%
     % #1 is the optional keyvalue list
     \setkeys{probekeys}{
-        bild=wuerfel,%
+        bild=,%
         pw=12,%
         anzahl=3,%
         farbe=braun,%
-        erfolg=\false,%
-        misserfolg=\false,%
+        erfolg=,%
+        misserfolg=,%
         bildgroesse=40,%
         gruppenprobe=gut,%
         zusammenarbeit=ja,%
@@ -290,8 +290,10 @@
     \begin{flexprobenbox}[overlay={%
         \node[anchor=north east] at ([xshift=4.8mm, yshift=5.6mm]frame.north east) {\includegraphics[angle=180,origin=c,width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
         \node[anchor=south west] at ([xshift=-4.8mm, yshift=-5.6mm]frame.south west) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
-        \node[anchor=center] at (frame.center) {\includegraphics[width=\ProbeBgscale mm]{gfx/proben/\ProbeBild_bg.png}};
-    },underlay={
+        \ifdefempty{\ProbeBild}{}{%
+            \node[anchor=center] at (frame.center) {\includegraphics[width=\ProbeBgscale mm]{gfx/proben/\ProbeBild_bg.png}};
+        }
+        },underlay={
         %\node[anchor=center, inner sep=0] at (frame.center) {\includegraphics[width=0.98\linewidth]{gfx/kasten/kasten.png}};
         }]
         % \begin{tikzpicture}
@@ -346,8 +348,8 @@
     \vspace{-5mm}
     %\footnotesize
     #3
-    \\
-    \ifdefempty{\Probeerfolg}{}{%
+    \par
+    \ifdefempty{\ProbeErfolg}{}{%
         \erfolg{\ProbeErfolg}
     }
     \ifdefempty{\ProbeMisserfolg}{}{%
