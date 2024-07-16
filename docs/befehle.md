@@ -3,12 +3,22 @@
 
 Die Latex-Klasse basiert auf, bzw. erweitert die scrbook-Klasse. Dementsprechend sind alle Befehle dieser Klasse in Ilaris-Dokumenten ebenfalls verfügbar. In diesem Dokument sollen die Befehle vollständig aufgelistet und erklärt werden. Im template.tex bzw. template.pdf sieht man die meisten der Befehle als Beispiel in Aktion. Da sich viele der Befehle die die Klasse bereitstellt im Englischen mit Befehlen aus Latex oder dessen Paketen streiten müsste und die Klasse
 so flexibel bleiben soll wie möglich, sind alle neuen Definitionen in deutsch. An einigen Stellen sind die deutschen Befehle direkte Aliase für ihre englischen originale. Diese zu benutzen kann den Vorteil haben, dass ein Dokument besser kompatibel zu zukünftigen Versionen bleibt, falls diese sich inhaltlich ändern. 
+Die im Folgenden aufgelisteten Befehle sind zwar grob in Kategorienunterteilt, ansonsten aber alphabetisch aufgelistet. Sie sind zum schnellen Nachschlagen gedacht. Wenn du eher Beispiele suchst welche Befehle man wie benutzen kann, schau lieber mal ins [Template](https://github.com/Ilaris-Tools/IlarisTex/blob/main/template.tex), dass dem IlarisTex Download beiliegt.
 
 ## Allgemein/Struktur
 
-- `\documentclass{Ilaris}` Aktiviert die Latex-Klasse und stellt alle folgenden Befehle und Layoutoptionen für dieses Dokuement zur Verfügung.
+### `\anfang`
+`\anfang`, `\hauptteil`, `\schluss` Diese Unterteilung ist optional, hilft aber 
+dabei das Seitenlayout automatisch anzupassen und beispielsweise die Nummerierung 
+der Seiten erst mit dem Hauptteil zu beginnen. Für einfache kurze Spielhilfen mag dies 
+Überflüssig sein. Diese Befehle basieren auf dem Prinzip von 
+`\frontmatter`, `\mainmatter` und `\backmatter` aus der scrbook-Klasse.
 
-- `\anfang`, `\hauptteil` `\schluss` Diese Unterteilung ist optional, hilft aber dabei das Seitenlayout automatisch anzupassen und beispielsweise die Nummerierung der Seiten erst mit dem Hauptteil zu beginnen. Für einfache kurze Spielhilfen mag dies Überflüssig sein. Diese Befehle basieren auf dem Prinzip von `\frontmatter`, `\mainmatter` und `\backmatter` aus der scrbook-Klasse.
+### `\documentclass`
+Der Befehl selbst wird zwar nicht von der Ilaris Klasse gestellt muss aber mit dem 
+Parameter `Ilaris` benutzt werden um sie zu laden. Dieser Befehl sollte am Anfang
+des Dokuments stehen: `\documentclass{Ilaris}`
+
 
 - `\spaltenanfang`, `\dreispaltenanfang`, `\spaltenende` können benutzt werden um das Spaltenlayout ein/aus zu schalten. Achtung: Wenn ein Anfang benutzt wird, muss auch spätestens am Ende des Dokuments das Ende angegeben werden. Wer mehr als drei Spalten braucht kann dies mit `\begin{multicols}{5}` und `\end{multicols}` tun. Wobei 5 ein beliebiges Beispiel ist.
 
