@@ -1,0 +1,10 @@
+site_name: IlarisTex Docs
+nav:
+  - Home: index.md
+  - Befehle: befehle.md
+theme: 
+  name: material
+  font: false
+  # logo: assets/images/icon_large.png
+  palette:
+    scheme: ilaris
