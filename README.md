@@ -33,7 +33,8 @@ Es muss eine aktuelle TexLive Version installiert sein, oder das Paket tcolorbox
 ### Latex-Paket für Nutzer
 
 Die neuste Version der IlarisTex-Klasse kann [hier](https://github.com/Ilaris-tools/IlarisTex/releases/latest) heruntergeladen werden. Enthalten ist ein Ordner `texmf`, der direkt in den Benutzerordner der Latex installation (`~/texmf/` unter Linux) kopiert werden kann. Falls der Ordner schon existiert, kann er hereinkopiert werden. Beim der ersten Installation, sollten keine Datei-Konflikte auftreten. Alle nötigen Schriftarten, Klassen, Grafiken und die plugins sind bereits enthalten und die Klasse sollte via `\documentclass{Ilaris}` in jedem .tex-Dokument verwendet werden können.
-In dem Release ist außerdem ein Beispiel-Ordner, der zum Testen oder als Vorlage genutzt werden kann. Er kann an eine beliebige Stelle entpackt werden.
+
+In dem Release ist außerdem ein Beispielprojekt, das zum Testen oder als Vorlage genutzt werden kann. Wenn ihr mit Xelatex aus diesem Beispielprojekt ein PDF bauen könnt, ist die "Installation" der LaTeX-Klasse erfolgreich gewesen. Das Projekt kann an eine beliebige Stelle entpackt werden.
 
 #### Update
 
