@@ -259,6 +259,19 @@
 
 \makeatother
 
+
+% \providecommand{\ilaris}[1]{
+% \href{https://ilaris-online.de/static/regeln/{#1}.pdf}{Ilaris:#1}
+% }
+\NewDocumentCommand{\ilaris}{m o o o o}{%
+    \emph{Ilaris: \href{https://ilaris-online.de/static/regeln/#1.pdf}{#1}%
+    \IfValueT{#2}{, \href{https://ilaris-online.de/static/regeln/#2.pdf}{#2}}%
+    \IfValueT{#3}{, \href{https://ilaris-online.de/static/regeln/#3.pdf}{#3}}%
+    \IfValueT{#4}{, \href{https://ilaris-online.de/static/regeln/#4.pdf}{#4}}%
+    \IfValueT{#5}{, \href{https://ilaris-online.de/static/regeln/#5.pdf}{#5}}%
+    }%
+}%
+
 \providecommand{\erfolg}[1]{
     \parbox[t]{0.48\linewidth}{
         \vspace{4mm}
