@@ -88,6 +88,26 @@
 \graphicspath{{gfx/}{bilder/}}
 %\newcommand{\TOCnum}{1} 
 
+% biglittlecaps
+\ExplSyntaxOn
+\NewDocumentCommand{\biglittlecap}{m}
+{
+    \sheljohn_biglittecap:nn { #1 }
+}
+\tl_new:N \l__sheljohn_biglittecap_input_tl
+\cs_new_protected:Npn \sheljohn_biglittecap:nn #1
+{
+    % store the string in a variable   
+    \tl_set:Nn \l__sheljohn_biglittecap_input_tl { \small{#1} }
+    \regex_replace_all:nnN
+    % search a capital letter (or more)
+    { ([A-Z]+ | \cC.\{?[A-Z]+\}?) }
+    % replace the match with \huge{match}
+    { \cB\{\c{normalsize}\1\cE\} }   % <=== could use large, Large (or some other command...)
+    \l__sheljohn_biglittecap_input_tl
+    \tl_use:N \MakeUppercase{\l__sheljohn_biglittecap_input_tl}
+}
+\ExplSyntaxOff
 
 % boxes
 \newtcolorbox{creaturebox}[1][]{
@@ -291,7 +311,7 @@
         \node[anchor=north east] at ([xshift=4.8mm, yshift=5.6mm]frame.north east) {\includegraphics[angle=180,origin=c,width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
         \node[anchor=south west] at ([xshift=-4.8mm, yshift=-5.6mm]frame.south west) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
         \ifdefempty{\ProbeBild}{}{%
-            \node[anchor=center] at (frame.center) {\includegraphics[width=\ProbeBgscale mm]{gfx/proben/\ProbeBild_bg.png}};
+            \node[anchor=center,opacity=0.7] at (frame.center) {\includegraphics[width=\ProbeBgscale mm]{gfx/proben/\ProbeBild_bg.png}};
         }
         },underlay={
         %\node[anchor=center, inner sep=0] at (frame.center) {\includegraphics[width=0.98\linewidth]{gfx/kasten/kasten.png}};
