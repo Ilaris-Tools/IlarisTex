@@ -88,26 +88,6 @@
 \graphicspath{{gfx/}{bilder/}}
 %\newcommand{\TOCnum}{1} 
 
-% biglittlecaps
-\ExplSyntaxOn
-\NewDocumentCommand{\biglittlecap}{m}
-{
-    \sheljohn_biglittecap:nn { #1 }
-}
-\tl_new:N \l__sheljohn_biglittecap_input_tl
-\cs_new_protected:Npn \sheljohn_biglittecap:nn #1
-{
-    % store the string in a variable   
-    \tl_set:Nn \l__sheljohn_biglittecap_input_tl { \small{#1} }
-    \regex_replace_all:nnN
-    % search a capital letter (or more)
-    { ([A-Z]+ | \cC.\{?[A-Z]+\}?) }
-    % replace the match with \huge{match}
-    { \cB\{\c{normalsize}\1\cE\} }   % <=== could use large, Large (or some other command...)
-    \l__sheljohn_biglittecap_input_tl
-    \tl_use:N \MakeUppercase{\l__sheljohn_biglittecap_input_tl}
-}
-\ExplSyntaxOff
 
 % boxes
 \newtcolorbox{creaturebox}[1][]{
@@ -228,6 +208,15 @@
     #1
 }
 
+\NewDocumentCommand{\ilaris}{m o o o o}{%
+    \emph{Ilaris:\href{https://ilaris-online.de/static/regeln/#1.pdf}{#1}%
+    \IfValueT{#2}{,\href{https://ilaris-online.de/static/regeln/#2.pdf}{#2}}%
+    \IfValueT{#3}{,\href{https://ilaris-online.de/static/regeln/#3.pdf}{#3}}%
+    \IfValueT{#4}{,\href{https://ilaris-online.de/static/regeln/#4.pdf}{#4}}%
+    \IfValueT{#5}{,\href{https://ilaris-online.de/static/regeln/#5.pdf}{#5}}%
+    }%
+}
+
 \providecommand{\rahmen}[1]{
     \vspace{5mm}
     \begin{bildbox}[overlay={%
@@ -257,20 +246,24 @@
 \define@key{probekeys}{farbe}{\def\ProbeFarbe{#1}}
 \define@key{probekeys}{anzahl}{\def\ProbeAnzahl{#1}}
 
+% FIX TITLE ISSUE
+% STATIC FIX
+% \setkomafont{section}{\aniron\Large\linespread{1.5}\selectfont}
+% DYNAMIC FIX (not completely working)
+%\makeatletter
+%\renewcommand*{\sectionlinesformat}[4]{%
+%  \smash{\makebox[0pt][l]{\color{yellow}\rule[-\dp\strutbox]{\columnwidth}{\baselineskip}}}% For debugging only
+%  \@hangfrom{\hskip#2#3}{%
+%    #4\unskip
+%    \vphantom{ABCDEFGHIJKLMNOPQRSTUVWÖÄÜabcdefghijklmnopqrstuvwäöü1234567890;!§?}%
+%  }
+%}
+%\makeatother
+
+
+% END FIX TITLE ISSUE
+
 \makeatother
-
-
-% \providecommand{\ilaris}[1]{
-% \href{https://ilaris-online.de/static/regeln/{#1}.pdf}{Ilaris:#1}
-% }
-\NewDocumentCommand{\ilaris}{m o o o o}{%
-    \emph{Ilaris: \href{https://ilaris-online.de/static/regeln/#1.pdf}{#1}%
-    \IfValueT{#2}{, \href{https://ilaris-online.de/static/regeln/#2.pdf}{#2}}%
-    \IfValueT{#3}{, \href{https://ilaris-online.de/static/regeln/#3.pdf}{#3}}%
-    \IfValueT{#4}{, \href{https://ilaris-online.de/static/regeln/#4.pdf}{#4}}%
-    \IfValueT{#5}{, \href{https://ilaris-online.de/static/regeln/#5.pdf}{#5}}%
-    }%
-}%
 
 \providecommand{\erfolg}[1]{
     \parbox[t]{0.48\linewidth}{
@@ -303,6 +296,9 @@
 \providecommand{\probenicon}[1]{%
     \includegraphics[height=10mm]{gfx/icons/probe_#1.png}
 }
+\providecommand{\texticon}[1]{%
+	\raisebox{-0.1\height}{\includegraphics[height=1em]{gfx/icons/#1.png}}
+}
 
 \providecommand{\probenkasten}[3][]{%
     % #1 is the optional keyvalue list
@@ -320,11 +316,12 @@
         vergleichend=nein,%
         #1}
     % use the values with \ProbeBild...
+    \vspace{0.15cm}
     \begin{flexprobenbox}[overlay={%
         \node[anchor=north east] at ([xshift=4.8mm, yshift=5.6mm]frame.north east) {\includegraphics[angle=180,origin=c,width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
         \node[anchor=south west] at ([xshift=-4.8mm, yshift=-5.6mm]frame.south west) {\includegraphics[width=30mm, keepaspectratio]{gfx/kasten/ecke.png}};
         \ifdefempty{\ProbeBild}{}{%
-            \node[anchor=center,opacity=0.7] at (frame.center) {\includegraphics[width=\ProbeBgscale mm]{gfx/proben/\ProbeBild_bg.png}};
+            \node[anchor=center,opacity=0.65] at (frame.center) {\includegraphics[width=\ProbeBgscale mm]{gfx/proben/\ProbeBild_bg.png}};
         }
         },underlay={
         %\node[anchor=center, inner sep=0] at (frame.center) {\includegraphics[width=0.98\linewidth]{gfx/kasten/kasten.png}};
@@ -389,6 +386,7 @@
         \misserfolg{\ProbeMisserfolg}
     }
     \end{flexprobenbox}
+    \vspace{0.15cm}
 }
 
 \DeclareDocumentCommand\rahmenklein{ O{\linewidth} m }{%
@@ -651,8 +649,18 @@
 \newcommand{\probe}[3]{%
     \begin{probenbox}[watermark graphics=gfx/proben/#1, watermark stretch=1]
         %\hspace{6mm}{\color{dunkelrot}\large\textbf{#2}}\\[0.5mm]
-        \parbox{5.2cm}{\centering \color{dunkelrot}\large\textbf{#2}}\\[0.5mm]
+        \setstretch{0.7}
+        \parbox{5.2cm}{\centering \color{dunkelrot}\large\textbf{#2}}\smallskip\\
         \footnotesize #3
+    \end{probenbox}}
+    
+\newcommand{\mprobe}[4]{%
+    \begin{probenbox}[watermark graphics=gfx/proben/#1, watermark stretch=1]
+        %\hspace{6mm}{\color{dunkelrot}\large\textbf{#2}}\\[0.5mm]
+        \setstretch{0.8}
+        \parbox{5.2cm}{\centering \color{dunkelrot}\large\textbf{#2}}\\
+        \parbox{5.2cm}{\centering \color{dunkelrot}\small #3}\smallskip\\
+        \footnotesize #4
     \end{probenbox}}
 
 
@@ -858,3 +866,23 @@
 \makeatother
 
 \newcommand{\kastenlink}[1]{\nameref{#1}}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\biglittlecap}{m}
+{
+    \sheljohn_biglittecap:nn { #1 }
+}
+\tl_new:N \l__sheljohn_biglittecap_input_tl
+\cs_new_protected:Npn \sheljohn_biglittecap:nn #1
+{
+    % store the string in a variable   
+    \tl_set:Nn \l__sheljohn_biglittecap_input_tl { \small{#1} }
+    \regex_replace_all:nnN
+    % search a capital letter (or more)
+    { ([A-Z]+ | \cC.\{?[A-Z]+\}?) }
+    % replace the match with \huge{match}
+    { \cB\{\c{normalsize}\1\cE\} }   % <=== could use large, Large (or some other command...)
+    \l__sheljohn_biglittecap_input_tl
+    \tl_use:N \MakeUppercase{\l__sheljohn_biglittecap_input_tl}
+}
+\ExplSyntaxOff
